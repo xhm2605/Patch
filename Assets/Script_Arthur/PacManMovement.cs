@@ -15,7 +15,8 @@ public class PacManMovement : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI winText;
-    public TextMeshProUGUI gameOverText; // NOUVEAU : La case pour le texte de défaite
+    public TextMeshProUGUI gameOverText; 
+    public GameObject replayButton; // NOUVEAU : La variable pour le bouton
     
     private int score = 0;
     private int totalDots = 0;
@@ -27,9 +28,10 @@ public class PacManMovement : MonoBehaviour
         UpdateScoreText();
 
         if (winText != null) winText.gameObject.SetActive(false);
-        
-        // NOUVEAU : On masque le Game Over au début
         if (gameOverText != null) gameOverText.gameObject.SetActive(false); 
+        
+        // NOUVEAU : On masque le bouton au début du jeu
+        if (replayButton != null) replayButton.SetActive(false); 
 
         CountTotalDots();
     }
@@ -83,8 +85,12 @@ public class PacManMovement : MonoBehaviour
         if (dotsEaten >= totalDots)
         {
             if (winText != null) winText.gameObject.SetActive(true);
-            speed = 0;
-            rb.linearVelocity = Vector2.zero;
+            
+            // NOUVEAU : On affiche le bouton quand on gagne
+            if (replayButton != null) replayButton.SetActive(true);
+            
+            // On fige le temps pour la victoire
+            Time.timeScale = 0f; 
         }
     }
 
@@ -96,22 +102,19 @@ public class PacManMovement : MonoBehaviour
         }
     }
 
-    // NOUVELLE FONCTION : Détecter la collision avec un fantôme
    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Si l'objet qu'on touche a l'étiquette "Enemy"
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // On affiche le Game Over
             if (gameOverText != null)
             {
                 gameOverText.gameObject.SetActive(true);
             }
             
-            // On fige complètement le temps dans le jeu !
-            Time.timeScale = 0f;
+            // NOUVEAU : On affiche le bouton quand on perd
+            if (replayButton != null) replayButton.SetActive(true);
             
-            // On fait disparaître Pac-Man
+            Time.timeScale = 0f;
             gameObject.SetActive(false);
         }
     }
