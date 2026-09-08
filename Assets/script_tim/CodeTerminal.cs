@@ -19,6 +19,7 @@ public class CodeTerminal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Quelque chose est entré : " + other.name);
         if (!other.CompareTag("Player")) return;
 
         playerInRange = true;
