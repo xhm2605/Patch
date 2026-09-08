@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class BlinkyMovement : MonoBehaviour
+public class ClydeMovement : MonoBehaviour
 {
     public float speed = 4f;
     public LayerMask obstacleLayer;
+    public float fleeDistance = 5f; 
     
     private Rigidbody2D rb;
     private Transform pacman;
@@ -17,7 +18,6 @@ public class BlinkyMovement : MonoBehaviour
         GameObject p = GameObject.Find("PacMan");
         if (p != null) pacman = p.transform;
         
-        // On récupère le LevelManager de la scène
         levelManager = FindObjectOfType<LevelManager>();
     }
 
@@ -35,11 +35,13 @@ public class BlinkyMovement : MonoBehaviour
             Vector2[] directions = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
             Vector2 bestDirection = currentDirection;
             
-            // SI PAC-MAN EST INVISIBLE/PUISSANT : Blinky prend la fuite (cherche la distance MAX)
-            // SINON : Blinky traque Pac-Man normalement (cherche la distance MIN)
-            bool isFleeing = levelManager != null && levelManager.pacmanEstInvincible;
+            float currentDistanceToPacman = Vector2.Distance(transform.position, pacman.position);
+            
+            // Clyde panique s'il est proche OU si Pac-Man a mangé une Super Gomme
+            bool forceFlee = levelManager != null && levelManager.pacmanEstInvincible;
+            bool isPanicking = (currentDistanceToPacman < fleeDistance) || forceFlee;
 
-            float recordDistance = isFleeing ? -1f : Mathf.Infinity;
+            float recordDistance = isPanicking ? -1f : Mathf.Infinity;
             bool pathFound = false;
 
             foreach (Vector2 dir in directions)
@@ -54,7 +56,7 @@ public class BlinkyMovement : MonoBehaviour
                     Vector2 virtualPos = (Vector2)transform.position + dir;
                     float distance = Vector2.Distance(virtualPos, pacman.position);
 
-                    if (isFleeing)
+                    if (isPanicking)
                     {
                         if (distance > recordDistance)
                         {
@@ -82,7 +84,6 @@ public class BlinkyMovement : MonoBehaviour
             decisionTimer = 0.2f; 
         }
 
-        // Optionnel : s'il fuit, on peut le ralentir un tout petit peu pour que Pac-Man le rattrape plus facilement
         float currentSpeed = (levelManager != null && levelManager.pacmanEstInvincible) ? speed * 0.7f : speed;
         rb.linearVelocity = currentDirection * currentSpeed; 
     }

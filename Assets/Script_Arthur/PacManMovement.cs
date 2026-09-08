@@ -102,20 +102,47 @@ public class PacManMovement : MonoBehaviour
         }
     }
 
-   private void OnCollisionEnter2D(Collision2D collision)
+   // --- GESTION DES COLLISIONS (À METTRE EN BAS DE TON SCRIPT PACMAN) ---
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (gameOverText != null)
+            LevelManager manager = FindObjectOfType<LevelManager>();
+
+            if (manager.pacmanEstInvincible)
             {
-                gameOverText.gameObject.SetActive(true);
+                // MODE VENGEANCE : On mange le fantôme !
+                manager.MangerFantome(collision.gameObject);
             }
+            else
+            {
+                // MODE NORMAL : On se fait manger.
+                manager.PerdreUneVie();
+
+                // Vérification du Game Over
+                if (manager.vies <= 0)
+                {
+                    if (gameOverText != null) gameOverText.gameObject.SetActive(true);
+                    if (replayButton != null) replayButton.SetActive(true);
+                    
+                    Time.timeScale = 0f;
+                    gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
+    // Cette fonction sert à détecter la Super Pac-Gomme
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Assure-toi que tes grosses gommes ont bien le Tag "SuperGomme"
+        if (collision.gameObject.CompareTag("SuperGomme"))
+        {
+            FindObjectOfType<LevelManager>().ActiverSuperPouvoir();
             
-            // NOUVEAU : On affiche le bouton quand on perd
-            if (replayButton != null) replayButton.SetActive(true);
-            
-            Time.timeScale = 0f;
-            gameObject.SetActive(false);
+            // On détruit la gomme de la carte après l'avoir mangée
+            Destroy(collision.gameObject); 
         }
     }
 }
