@@ -3751,6 +3751,11 @@ MonoBehaviour:
   repairedTerminals: []
   collectedFragments: []
   hintUnlocked: 0
+  solutionOrder:
+  - ST
+  - AR
+  - SH
+  - IP
 --- !u!4 &1339755085
 Transform:
   m_ObjectHideFlags: 0
@@ -5175,6 +5180,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3419759b3ef8222488d56887324ca84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CodePuzzle
+  slotText: {fileID: 45040306}
+  feedbackText: {fileID: 1710005867}
+  attemptsText: {fileID: 1162576882}
+  fragButtons:
+  - {fileID: 1862401159}
+  - {fileID: 992472308}
+  - {fileID: 197190559}
+  - {fileID: 2085819087}
+  submitButton: {fileID: 917648748}
+  resetButton: {fileID: 786544673}
+  maxAttempts: 4
 --- !u!1001 &1833469325
 PrefabInstance:
   m_ObjectHideFlags: 0
