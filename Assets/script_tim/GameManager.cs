@@ -70,4 +70,6 @@ public class GameManager : MonoBehaviour
     {
         return repairedTerminals.Contains(terminalId);
     }
+    [Header("Code final")]
+    public List<string> solutionOrder = new List<string> { "ST", "AR", "SH", "IP" };
 }
