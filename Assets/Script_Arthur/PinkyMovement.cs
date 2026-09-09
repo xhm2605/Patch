@@ -3,82 +3,53 @@ using UnityEngine;
 public class PinkyMovement : MonoBehaviour
 {
     public float speed = 4f;
-    public LayerMask obstacleLayer;
+    public Transform[] waypoints; // La liste de tes 7 points (Point_1, Point_2, etc.)
     
+    private int currentWaypointIndex = 0;
     private Rigidbody2D rb;
-    private Transform pacman;
-    private Vector2 currentDirection = Vector2.right;
-    private float decisionTimer = 0f;
     private LevelManager levelManager;
+    private Transform pacman;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        levelManager = FindObjectOfType<LevelManager>();
+        
         GameObject p = GameObject.Find("PacMan");
         if (p != null) pacman = p.transform;
-        
-        levelManager = FindObjectOfType<LevelManager>();
     }
 
     void FixedUpdate()
     {
-        if (pacman == null) return;
+        // On vérifie si le Super Pouvoir est actif
+        bool isFleeing = levelManager != null && levelManager.pacmanEstInvincible;
 
-        decisionTimer -= Time.fixedDeltaTime;
-
-        Vector2 forwardPos = (Vector2)transform.position + (currentDirection * 0.6f);
-        bool isBlocked = Physics2D.OverlapCircle(forwardPos, 0.1f, obstacleLayer) != null;
-
-        if (isBlocked || decisionTimer <= 0f)
+        if (isFleeing && pacman != null)
         {
-            Vector2[] directions = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
-            Vector2 bestDirection = currentDirection;
-            
-            bool isFleeing = levelManager != null && levelManager.pacmanEstInvincible;
-            float recordDistance = isFleeing ? -1f : Mathf.Infinity;
-            bool pathFound = false;
-
-            foreach (Vector2 dir in directions)
-            {
-                if (dir == -currentDirection) continue; 
-
-                Vector2 futurePos = (Vector2)transform.position + (dir * 0.6f);
-                if (Physics2D.OverlapCircle(futurePos, 0.1f, obstacleLayer) == null) 
-                {
-                    pathFound = true;
-                    
-                    Vector2 virtualPos = (Vector2)transform.position + dir;
-                    float distance = Vector2.Distance(virtualPos, pacman.position);
-
-                    if (isFleeing)
-                    {
-                        if (distance > recordDistance)
-                        {
-                            recordDistance = distance;
-                            bestDirection = dir;
-                        }
-                    }
-                    else
-                    {
-                        if (distance < recordDistance)
-                        {
-                            recordDistance = distance;
-                            bestDirection = dir;
-                        }
-                    }
-                }
-            }
-
-            if (!pathFound)
-            {
-                bestDirection = -currentDirection;
-            }
-
-            currentDirection = bestDirection;
-            decisionTimer = 0.2f; 
+            // --- MODE PANIQUE (SUPER GOMME ACTIVE) ---
+            // Il abandonne sa ronde et fuit en courant pour s'éloigner de Pac-Man
+            Vector2 directionFuite = (transform.position - pacman.position).normalized;
+            Vector2 newPos = (Vector2)transform.position + directionFuite * (speed * 0.7f) * Time.fixedDeltaTime;
+            rb.MovePosition(newPos);
         }
+        else
+        {
+            // --- MODE NORMAL (PATROUILLE DES 7 POINTS) ---
+            if (waypoints.Length == 0) return;
 
-        float currentSpeed = (levelManager != null && levelManager.pacmanEstInvincible) ? speed * 0.7f : speed;
-        rb.linearVelocity = currentDirection * currentSpeed; 
+            // On cible le point actuel de la liste
+            Transform target = waypoints[currentWaypointIndex];
+            if (target == null) return;
+
+            // Déplacement fluide vers le point
+            Vector2 newPos = Vector2.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
+            rb.MovePosition(newPos);
+
+            // Dès qu'il arrive tout près du point, il passe au suivant dans l'ordre
+            if (Vector2.Distance(transform.position, target.position) < 0.1f)
+            {
+                currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+            }
+        }
     }
 }

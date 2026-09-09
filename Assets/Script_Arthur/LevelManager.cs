@@ -1,6 +1,6 @@
 using UnityEngine;
-using TMPro; // Pour le texte des vies et du chrono
-using System.Collections; // Indispensable pour le chronomètre (Coroutine)
+using TMPro; 
+using System.Collections; 
 
 public class LevelManager : MonoBehaviour
 {
@@ -8,7 +8,8 @@ public class LevelManager : MonoBehaviour
     
     [Header("Affichage")]
     public TMP_Text texteVies;
-    public TMP_Text texteChrono; // Pour afficher le compte à rebours du pouvoir
+    public TMP_Text texteChrono; 
+    public TMP_Text texteDemarrage; // NOUVEAU : Le texte du "3, 2, 1, GO!"
     
     [Header("Personnages à replacer")]
     public Transform pacman;
@@ -22,23 +23,19 @@ public class LevelManager : MonoBehaviour
     public SpriteRenderer[] fantomesSprites; 
     private Color[] couleursOriginales;
 
-    // Mémoire des positions de départ
     private Vector2 startPacman, startBlinky, startPinky, startInky, startClyde;
 
     void Start()
     {
-        // 1. On mémorise les positions
         if (pacman != null) startPacman = pacman.position;
         if (blinky != null) startBlinky = blinky.position;
         if (pinky != null) startPinky = pinky.position;
         if (inky != null) startInky = inky.position;
         if (clyde != null) startClyde = clyde.position;
 
-        // 2. On affiche le texte des vies et on cache le chrono au départ
         MettreAJourTexte(); 
         if (texteChrono != null) texteChrono.text = "";
 
-        // 3. On mémorise les couleurs normales des fantômes
         if (fantomesSprites.Length > 0)
         {
             couleursOriginales = new Color[fantomesSprites.Length];
@@ -50,6 +47,44 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+
+        // NOUVEAU : On lance le compte à rebours au tout début !
+        StartCoroutine(RoutineDemarrage());
+    }
+
+    // --- NOUVEAU : COMPTE A REBOURS DE DEPART ---
+    private IEnumerator RoutineDemarrage()
+    {
+        // On met le jeu en pause (personne ne bouge)
+        Time.timeScale = 0f;
+
+        if (texteDemarrage != null)
+        {
+            texteDemarrage.gameObject.SetActive(true);
+            
+            // WaitForSecondsRealtime est indispensable car Time.timeScale est à 0 !
+            texteDemarrage.text = "3";
+            yield return new WaitForSecondsRealtime(1f);
+            
+            texteDemarrage.text = "2";
+            yield return new WaitForSecondsRealtime(1f);
+            
+            texteDemarrage.text = "1";
+            yield return new WaitForSecondsRealtime(1f);
+            
+            texteDemarrage.text = "GO !";
+            yield return new WaitForSecondsRealtime(1f);
+
+            texteDemarrage.gameObject.SetActive(false);
+        }
+        else 
+        {
+            // Si on a oublié de brancher le texte, on attend quand même 3 secondes
+            yield return new WaitForSecondsRealtime(3f);
+        }
+
+        // On libère le temps : tout le monde se met à bouger !
+        Time.timeScale = 1f;
     }
 
     public void PerdreUneVie()
@@ -59,7 +94,6 @@ public class LevelManager : MonoBehaviour
 
         if (vies > 0)
         {
-            // On replace tout le monde
             if (pacman != null) pacman.position = startPacman;
             if (blinky != null) blinky.position = startBlinky;
             if (pinky != null) pinky.position = startPinky;
@@ -77,11 +111,8 @@ public class LevelManager : MonoBehaviour
     }
 
     // --- GESTION DU SUPER POUVOIR ---
-
     public void ActiverSuperPouvoir()
     {
-        // Si Pac-Man mange une nouvelle gomme pendant que le pouvoir est actif,
-        // on relance le chrono proprement à 5 secondes.
         StopAllCoroutines(); 
         StartCoroutine(RoutineSuperPouvoir());
     }
@@ -90,13 +121,11 @@ public class LevelManager : MonoBehaviour
     {
         pacmanEstInvincible = true;
         
-        // Tous les fantômes deviennent bleus
         for (int i = 0; i < fantomesSprites.Length; i++)
         {
             if (fantomesSprites[i] != null) fantomesSprites[i].color = Color.blue;
         }
 
-        // Compte à rebours de 5 secondes
         float tempsRestant = 5f;
         while (tempsRestant > 0f)
         {
@@ -109,13 +138,11 @@ public class LevelManager : MonoBehaviour
             yield return null; 
         }
 
-        // On efface le texte du chrono à la fin
         if (texteChrono != null)
         {
             texteChrono.text = "";
         }
 
-        // Fin du pouvoir, ils reprennent leur couleur d'origine
         for (int i = 0; i < fantomesSprites.Length; i++)
         {
             if (fantomesSprites[i] != null) fantomesSprites[i].color = couleursOriginales[i];
@@ -125,7 +152,6 @@ public class LevelManager : MonoBehaviour
 
     public void MangerFantome(GameObject fantome)
     {
-        // On téléporte le fantôme mangé à sa base
         if (fantome.name == "Blinky") fantome.transform.position = startBlinky;
         if (fantome.name == "Pinky") fantome.transform.position = startPinky;
         if (fantome.name == "Inky") fantome.transform.position = startInky;
