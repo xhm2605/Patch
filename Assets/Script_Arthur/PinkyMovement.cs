@@ -3,12 +3,15 @@ using UnityEngine;
 public class PinkyMovement : MonoBehaviour
 {
     public float speed = 4f;
-    public Transform[] waypoints; // La liste de tes 7 points (Point_1, Point_2, etc.)
+    public Transform[] waypoints; 
     
     private int currentWaypointIndex = 0;
     private Rigidbody2D rb;
     private LevelManager levelManager;
     private Transform pacman;
+    
+    // NOUVEAU : Une petite mémoire pour savoir si elle fuyait déjà à la frame précédente
+    private bool wasFleeing = false; 
 
     void Start()
     {
@@ -21,35 +24,35 @@ public class PinkyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (waypoints.Length == 0) return;
+
         // On vérifie si le Super Pouvoir est actif
         bool isFleeing = levelManager != null && levelManager.pacmanEstInvincible;
 
-        if (isFleeing && pacman != null)
+        // --- DECLENCHEMENT DE LA PEUR ---
+        // Si Pac-Man vient TOUT JUSTE de manger l'étoile, on force Pinky à faire demi-tour sur son circuit
+        if (isFleeing && !wasFleeing)
         {
-            // --- MODE PANIQUE (SUPER GOMME ACTIVE) ---
-            // Il abandonne sa ronde et fuit en courant pour s'éloigner de Pac-Man
-            Vector2 directionFuite = (transform.position - pacman.position).normalized;
-            Vector2 newPos = (Vector2)transform.position + directionFuite * (speed * 0.7f) * Time.fixedDeltaTime;
-            rb.MovePosition(newPos);
+            // Formule mathématique pour reculer d'un cran dans la liste des waypoints de façon sécurisée
+            currentWaypointIndex = (currentWaypointIndex - 1 + waypoints.Length) % waypoints.Length;
         }
-        else
+        wasFleeing = isFleeing; // On mémorise l'état pour la boucle suivante
+
+        // On adapte la vitesse : elle panique donc elle court moins vite (60% de sa vitesse)
+        float vitesseActuelle = isFleeing ? (speed * 0.6f) : speed;
+
+        // --- DEPLACEMENT (TOUJOURS SUR LES RAILS) ---
+        Transform target = waypoints[currentWaypointIndex];
+        if (target == null) return;
+
+        // Déplacement fluide et sécurisé vers le waypoint
+        Vector2 newPos = Vector2.MoveTowards(transform.position, target.position, vitesseActuelle * Time.fixedDeltaTime);
+        rb.MovePosition(newPos);
+
+        // Dès qu'elle arrive tout près du point, elle passe au suivant
+        if (Vector2.Distance(transform.position, target.position) < 0.1f)
         {
-            // --- MODE NORMAL (PATROUILLE DES 7 POINTS) ---
-            if (waypoints.Length == 0) return;
-
-            // On cible le point actuel de la liste
-            Transform target = waypoints[currentWaypointIndex];
-            if (target == null) return;
-
-            // Déplacement fluide vers le point
-            Vector2 newPos = Vector2.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
-            rb.MovePosition(newPos);
-
-            // Dès qu'il arrive tout près du point, il passe au suivant dans l'ordre
-            if (Vector2.Distance(transform.position, target.position) < 0.1f)
-            {
-                currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
-            }
+            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         }
     }
 }

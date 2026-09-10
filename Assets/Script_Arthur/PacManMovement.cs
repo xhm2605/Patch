@@ -135,14 +135,17 @@ public class PacManMovement : MonoBehaviour
 
     // Cette fonction sert à détecter la Super Pac-Gomme
     private void OnTriggerEnter2D(Collider2D collision)
+{
+    // Assure-toi que tes grosses gommes ont bien le Tag "SuperGomme"
+    if (collision.gameObject.CompareTag("SuperGomme"))
     {
-        // Assure-toi que tes grosses gommes ont bien le Tag "SuperGomme"
-        if (collision.gameObject.CompareTag("SuperGomme"))
-        {
-            FindObjectOfType<LevelManager>().ActiverSuperPouvoir();
-            
-            // On détruit la gomme de la carte après l'avoir mangée
-            Destroy(collision.gameObject); 
-        }
+        // On garde ta ligne pour déclencher la peur des fantômes !
+        FindObjectOfType<LevelManager>().ActiverSuperPouvoir();
+        
+        // On détruit UNIQUEMENT l'étoile touchée, pas toute la carte
+        Tilemap carteEtoiles = collision.GetComponent<Tilemap>();
+        Vector3Int casePosition = carteEtoiles.WorldToCell(transform.position);
+        carteEtoiles.SetTile(casePosition, null);
     }
+}
 }
