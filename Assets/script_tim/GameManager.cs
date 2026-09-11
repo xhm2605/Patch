@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public List<string> solutionOrder = new List<string> { "ST", "AR", "SH", "IP" };
 
     [Header("Chronomètre")]
-    public float totalTime = 300f;          // 5 minutes
+    public float totalTime = 30f;          // 5 minutes
     public bool timerRunning = false;
 
     private float timeLeft;

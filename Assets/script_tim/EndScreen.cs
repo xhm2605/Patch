@@ -35,6 +35,13 @@ public class EndScreen : MonoBehaviour
         reasonText.text = reason;
 
         Time.timeScale = 0f;   // fige le jeu
+        Image bg = panel.GetComponent<Image>();
+        if (bg != null)
+        {
+            bg.color = win 
+                ? new Color(0f, 0.15f, 0f, 0.92f)   // vert très sombre
+                : new Color(0.15f, 0f, 0f, 0.92f);  // rouge très sombre
+        }
     }
 
     void BackToMenu()

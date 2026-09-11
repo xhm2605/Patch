@@ -14,16 +14,23 @@ public class ArcadeTerminal : MonoBehaviour
 
     private bool playerInRange = false;
     private bool isRepaired = false;
+    [Header("Sprites")]
+    public Sprite brokenSprite;
+    public Sprite fixedSprite;
 
     void Start()
     {
         if (repairButton != null)
             repairButton.gameObject.SetActive(false);
 
+        if (brokenSprite != null)
+        GetComponent<SpriteRenderer>().sprite = brokenSprite;
+
         if (GameManager.Instance != null && GameManager.Instance.IsRepaired(terminalId))
         {
             isRepaired = true;
-            GetComponent<SpriteRenderer>().color = Color.green;
+            if (fixedSprite != null)
+                GetComponent<SpriteRenderer>().sprite = fixedSprite;
         }
     }
 
