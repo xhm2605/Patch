@@ -140,9 +140,9 @@ public class CodePuzzle : MonoBehaviour
         if (correct == 4)
         {
             finished = true;
-            feedbackText.text = "ACCESS GRANTED — MISSION COMPLETE";
-            Debug.Log("VICTOIRE ! Code trouvé.");
+            feedbackText.text = "ACCESS GRANTED";
             RefreshUI();
+            GameManager.Instance.Victory();
             return;
         }
 
@@ -151,9 +151,9 @@ public class CodePuzzle : MonoBehaviour
         if (attemptsLeft <= 0)
         {
             finished = true;
-            feedbackText.text = "ACCESS DENIED — SYSTEM LOCKED";
-            Debug.Log("DÉFAITE : plus d'essais.");
+            feedbackText.text = "ACCESS DENIED";
             RefreshUI();
+            GameManager.Instance.GameOver("NO ATTEMPTS LEFT");
             return;
         }
 
