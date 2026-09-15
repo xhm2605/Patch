@@ -16,21 +16,47 @@ public class PacManMovement : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI winText;
     public TextMeshProUGUI gameOverText; 
-    public GameObject replayButton; // NOUVEAU : La variable pour le bouton
+    public GameObject replayButton;
     
+    [Header("Audio")]
+    public AudioClip powerUpSound;    
+    public AudioClip eatGhostSound;   
+    public AudioClip meteorBeepSound; 
+    public AudioClip deathSound;      
+    public AudioClip victoryMusic;    
+    public AudioClip gameOverMusic;   
+    public AudioClip backgroundMusic;
+    
+    private AudioSource audioSource;
+    private AudioSource bgmSource;      
+
     private int score = 0;
     private int totalDots = 0;
     private int dotsEaten = 0;
 
+    // NOUVEAU : On garde le LevelManager en mémoire pour surveiller l'invincibilité
+    private LevelManager levelManager;
+    private bool wasInvincible = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>(); 
+        levelManager = FindObjectOfType<LevelManager>();
+
+        bgmSource = gameObject.AddComponent<AudioSource>();
+        if (backgroundMusic != null)
+        {
+            bgmSource.clip = backgroundMusic;
+            bgmSource.loop = true; 
+            bgmSource.volume = 0.4f; 
+            bgmSource.Play();
+        }
+
         UpdateScoreText();
 
         if (winText != null) winText.gameObject.SetActive(false);
         if (gameOverText != null) gameOverText.gameObject.SetActive(false); 
-        
-        // NOUVEAU : On masque le bouton au début du jeu
         if (replayButton != null) replayButton.SetActive(false); 
 
         CountTotalDots();
@@ -42,6 +68,25 @@ public class PacManMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         CheckAndEatDot();
+
+        // 👉 NOUVEAU : Le système qui surveille la fin du pouvoir
+        if (levelManager != null)
+        {
+            bool isInvincible = levelManager.pacmanEstInvincible;
+            
+            // Si Pac-Man n'est plus invincible MAIS qu'il l'était juste avant
+            if (!isInvincible && wasInvincible)
+            {
+                // On remet la musique de fond normale
+                if (bgmSource != null && backgroundMusic != null)
+                {
+                    bgmSource.clip = backgroundMusic;
+                    bgmSource.Play();
+                }
+            }
+            
+            wasInvincible = isInvincible;
+        }
     }
 
     void FixedUpdate()
@@ -75,6 +120,9 @@ public class PacManMovement : MonoBehaviour
                 score += pointsPerDot;
                 dotsEaten++;
                 UpdateScoreText();
+                
+                if (meteorBeepSound != null) audioSource.PlayOneShot(meteorBeepSound);
+
                 CheckWinCondition();
             }
         }
@@ -85,11 +133,11 @@ public class PacManMovement : MonoBehaviour
         if (dotsEaten >= totalDots)
         {
             if (winText != null) winText.gameObject.SetActive(true);
-            
-            // NOUVEAU : On affiche le bouton quand on gagne
             if (replayButton != null) replayButton.SetActive(true);
             
-            // On fige le temps pour la victoire
+            if (bgmSource != null) bgmSource.Stop();
+            if (victoryMusic != null) audioSource.PlayOneShot(victoryMusic);
+
             Time.timeScale = 0f; 
         }
     }
@@ -102,30 +150,37 @@ public class PacManMovement : MonoBehaviour
         }
     }
 
-   // --- GESTION DES COLLISIONS (À METTRE EN BAS DE TON SCRIPT PACMAN) ---
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            LevelManager manager = FindObjectOfType<LevelManager>();
-
-            if (manager.pacmanEstInvincible)
+            if (levelManager.pacmanEstInvincible)
             {
-                // MODE VENGEANCE : On mange le fantôme !
-                manager.MangerFantome(collision.gameObject);
+                if (eatGhostSound != null) audioSource.PlayOneShot(eatGhostSound);
+
+                levelManager.MangerFantome(collision.gameObject);
+                collision.gameObject.GetComponent<PinkyMovement>().ResetGhost();
             }
             else
             {
-                // MODE NORMAL : On se fait manger.
-                manager.PerdreUneVie();
+                if (deathSound != null) AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, 1f);
 
-                // Vérification du Game Over
-                if (manager.vies <= 0)
+                levelManager.PerdreUneVie();
+
+                PinkyMovement[] tousLesFantomes = FindObjectsOfType<PinkyMovement>();
+                foreach(PinkyMovement fantome in tousLesFantomes)
+                {
+                    fantome.ResetGhost();
+                }
+
+                if (levelManager.vies <= 0)
                 {
                     if (gameOverText != null) gameOverText.gameObject.SetActive(true);
                     if (replayButton != null) replayButton.SetActive(true);
                     
+                    if (bgmSource != null) bgmSource.Stop();
+                    if (gameOverMusic != null) AudioSource.PlayClipAtPoint(gameOverMusic, Camera.main.transform.position, 1f);
+
                     Time.timeScale = 0f;
                     gameObject.SetActive(false);
                 }
@@ -133,19 +188,22 @@ public class PacManMovement : MonoBehaviour
         }
     }
 
-    // Cette fonction sert à détecter la Super Pac-Gomme
     private void OnTriggerEnter2D(Collider2D collision)
-{
-    // Assure-toi que tes grosses gommes ont bien le Tag "SuperGomme"
-    if (collision.gameObject.CompareTag("SuperGomme"))
     {
-        // On garde ta ligne pour déclencher la peur des fantômes !
-        FindObjectOfType<LevelManager>().ActiverSuperPouvoir();
-        
-        // On détruit UNIQUEMENT l'étoile touchée, pas toute la carte
-        Tilemap carteEtoiles = collision.GetComponent<Tilemap>();
-        Vector3Int casePosition = carteEtoiles.WorldToCell(transform.position);
-        carteEtoiles.SetTile(casePosition, null);
+        if (collision.gameObject.CompareTag("SuperGomme"))
+        {
+            // 👉 MODIFIÉ : On remplace la musique du lecteur au lieu de jouer un simple effet
+            if (bgmSource != null && powerUpSound != null)
+            {
+                bgmSource.clip = powerUpSound;
+                bgmSource.Play();
+            }
+
+            if (levelManager != null) levelManager.ActiverSuperPouvoir();
+            
+            Tilemap carteEtoiles = collision.GetComponent<Tilemap>();
+            Vector3Int casePosition = carteEtoiles.WorldToCell(transform.position);
+            carteEtoiles.SetTile(casePosition, null);
+        }
     }
-}
 }

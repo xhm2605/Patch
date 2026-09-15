@@ -10,7 +10,6 @@ public class PinkyMovement : MonoBehaviour
     private LevelManager levelManager;
     private Transform pacman;
     
-    // NOUVEAU : Une petite mémoire pour savoir si elle fuyait déjà à la frame précédente
     private bool wasFleeing = false; 
 
     void Start()
@@ -26,33 +25,38 @@ public class PinkyMovement : MonoBehaviour
     {
         if (waypoints.Length == 0) return;
 
-        // On vérifie si le Super Pouvoir est actif
         bool isFleeing = levelManager != null && levelManager.pacmanEstInvincible;
 
-        // --- DECLENCHEMENT DE LA PEUR ---
-        // Si Pac-Man vient TOUT JUSTE de manger l'étoile, on force Pinky à faire demi-tour sur son circuit
         if (isFleeing && !wasFleeing)
         {
-            // Formule mathématique pour reculer d'un cran dans la liste des waypoints de façon sécurisée
             currentWaypointIndex = (currentWaypointIndex - 1 + waypoints.Length) % waypoints.Length;
         }
-        wasFleeing = isFleeing; // On mémorise l'état pour la boucle suivante
+        wasFleeing = isFleeing; 
 
-        // On adapte la vitesse : elle panique donc elle court moins vite (60% de sa vitesse)
         float vitesseActuelle = isFleeing ? (speed * 0.6f) : speed;
 
-        // --- DEPLACEMENT (TOUJOURS SUR LES RAILS) ---
         Transform target = waypoints[currentWaypointIndex];
         if (target == null) return;
 
-        // Déplacement fluide et sécurisé vers le waypoint
         Vector2 newPos = Vector2.MoveTowards(transform.position, target.position, vitesseActuelle * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
 
-        // Dès qu'elle arrive tout près du point, elle passe au suivant
         if (Vector2.Distance(transform.position, target.position) < 0.1f)
         {
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+        }
+    }
+
+    // LA NOUVELLE FONCTION EST ICI
+    public void ResetGhost()
+    {
+        currentWaypointIndex = 0; 
+        wasFleeing = false; 
+        
+        // On la remet à son point de départ (le premier waypoint)
+        if (waypoints.Length > 0)
+        {
+            transform.position = waypoints[0].position;
         }
     }
 }
