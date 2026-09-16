@@ -6,9 +6,7 @@ public class FlagGoal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("CHIẾN THẮNG! Mario đã tới cờ!");
-            Time.timeScale = 0f;
-            // Sau này thay bằng: hiện UI "You Win" giống Game Over
+            GameManager_Dat.Instance.Win();
         }
     }
 }

@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class GameManager_Dat : MonoBehaviour
 {
-    public static GameManager_Dat Instance;  
+    public static GameManager_Dat Instance;
     public GameObject gameOverPanel;
+    public GameObject winPanel;
 
     void Awake()
     {
@@ -13,6 +14,12 @@ public class GameManager_Dat : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
-        Time.timeScale = 0f; // đứng hình game lại
+        Time.timeScale = 0f;
+    }
+
+    public void Win()
+    {
+        winPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

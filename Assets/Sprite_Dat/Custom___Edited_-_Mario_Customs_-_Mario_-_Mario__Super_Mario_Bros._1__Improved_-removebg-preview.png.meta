@@ -1,0 +1,2535 @@
+fileFormatVersion: 2
+guid: b56b9ceb3139ca04f92ee383298acf7a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7466824695539086357
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_0
+  - first:
+      213: 7282722385734896813
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_1
+  - first:
+      213: -4085235980849020304
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_2
+  - first:
+      213: 3425636233269251800
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_3
+  - first:
+      213: -1878076355589668474
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_4
+  - first:
+      213: 7611141042585161207
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_5
+  - first:
+      213: -8903044709017617310
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_6
+  - first:
+      213: -4495592082383461214
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_7
+  - first:
+      213: -8519863334166953570
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_8
+  - first:
+      213: 5768081417118354955
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_9
+  - first:
+      213: -5781557696784429401
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_10
+  - first:
+      213: -5944757191851583835
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_11
+  - first:
+      213: -6097714292525781090
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_12
+  - first:
+      213: 3290566707482234993
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_13
+  - first:
+      213: 495742197296695116
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_14
+  - first:
+      213: 742908571506124105
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_15
+  - first:
+      213: -4849845120069648220
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_16
+  - first:
+      213: -1964672008948907056
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_17
+  - first:
+      213: -6632834018871096123
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_18
+  - first:
+      213: 6600464234063960754
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_19
+  - first:
+      213: -5405290322071572239
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_20
+  - first:
+      213: 144437923678888142
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_21
+  - first:
+      213: -7236780415668299854
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_22
+  - first:
+      213: -4276187982155754924
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_23
+  - first:
+      213: 6171281842507364483
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_24
+  - first:
+      213: 911433539529050842
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_25
+  - first:
+      213: -6982357731456877328
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_26
+  - first:
+      213: -5808080214082711881
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_27
+  - first:
+      213: -6682961509832276802
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_28
+  - first:
+      213: -80325320170762858
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_29
+  - first:
+      213: 2818832841451748906
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_30
+  - first:
+      213: 8232640676757221918
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_31
+  - first:
+      213: -8083282025805863851
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_32
+  - first:
+      213: 2820180389972291749
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_33
+  - first:
+      213: 5005962148939660077
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_34
+  - first:
+      213: 471146297411885974
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_35
+  - first:
+      213: -4409320071495714321
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_36
+  - first:
+      213: -5063788341039526533
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_37
+  - first:
+      213: 4087648822407891750
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_38
+  - first:
+      213: 1465355143788939393
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_39
+  - first:
+      213: 2336510463732654751
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_40
+  - first:
+      213: 5714146549983747755
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_41
+  - first:
+      213: 2800656407983189615
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_42
+  - first:
+      213: -3296231606896156685
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_43
+  - first:
+      213: -2273756816975116603
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_44
+  - first:
+      213: 6509191381851880255
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_45
+  - first:
+      213: 593493920382073192
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_46
+  - first:
+      213: -2774555204391901440
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_47
+  - first:
+      213: 3736569500936415491
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_48
+  - first:
+      213: -2228219381329511351
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_49
+  - first:
+      213: 401138429363049843
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_50
+  - first:
+      213: 7074494945748480989
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_51
+  - first:
+      213: -1932800589088894978
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_52
+  - first:
+      213: -1684058522541117671
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_53
+  - first:
+      213: 376282319475323647
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_54
+  - first:
+      213: -5780665113898890441
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_55
+  - first:
+      213: 6226028484995304470
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_56
+  - first:
+      213: -8165302781043995129
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_57
+  - first:
+      213: -9105380600788088638
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_58
+  - first:
+      213: 6700165795364016107
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_59
+  - first:
+      213: 3156300263119145300
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_60
+  - first:
+      213: -7727760443305514112
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_61
+  - first:
+      213: -4981155122782789600
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_62
+  - first:
+      213: -3107549476924503921
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_63
+  - first:
+      213: 1426967315970145016
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_64
+  - first:
+      213: -7335960320202668435
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_65
+  - first:
+      213: -2121807165180054348
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_66
+  - first:
+      213: -1272416665196933322
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_67
+  - first:
+      213: -6195196383192085731
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_68
+  - first:
+      213: -214231846237130426
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_69
+  - first:
+      213: 2152949533720429981
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_70
+  - first:
+      213: 4314020200977581836
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_71
+  - first:
+      213: 1767696609822912609
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_72
+  - first:
+      213: -7779224636602572605
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_73
+  - first:
+      213: -7800453648358527953
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_74
+  - first:
+      213: -4447566411376873048
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_75
+  - first:
+      213: 7764557799319223687
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_76
+  - first:
+      213: -4680445410120902070
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_77
+  - first:
+      213: -3384235618265928376
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_78
+  - first:
+      213: -4991955914927192477
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_79
+  - first:
+      213: 3476776197673397712
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_80
+  - first:
+      213: -1976476512102681097
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_81
+  - first:
+      213: -6687948428803232821
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_82
+  - first:
+      213: -7393137389803656720
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_83
+  - first:
+      213: 2170140203321354432
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_84
+  - first:
+      213: 4957420077067187232
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_85
+  - first:
+      213: 4610915357310354141
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_86
+  - first:
+      213: -2801504041830636732
+    second: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_87
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 270
+        width: 434
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beb47461082806890800000000000000
+      internalID: -7466824695539086357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 325
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dac838f9c6d611560800000000000000
+      internalID: 7282722385734896813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 359
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07289d915835e47c0800000000000000
+      internalID: -4085235980849020304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 326
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8de88bd110e4a8f20800000000000000
+      internalID: 3425636233269251800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 358
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 681840c418bbfe5e0800000000000000
+      internalID: -1878076355589668474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 325
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fd4fa2e37430a960800000000000000
+      internalID: 7611141042585161207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 360
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26c759be108027480800000000000000
+      internalID: -8903044709017617310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 326
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a4a97ad1d27c91c0800000000000000
+      internalID: -4495592082383461214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 360
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e918a10107d53c980800000000000000
+      internalID: -8519863334166953570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 325
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0e0fdefc775c0050800000000000000
+      internalID: 5768081417118354955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 325
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ae0db228e7c3cfa0800000000000000
+      internalID: -5781557696784429401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 325
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a6dcb7a4daff7da0800000000000000
+      internalID: -5944757191851583835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 325
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9fad247821906ba0800000000000000
+      internalID: -6097714292525781090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 326
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170943d7cf07aad20800000000000000
+      internalID: 3290566707482234993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 326
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c478a02e6ea31e600800000000000000
+      internalID: 495742197296695116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 324
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9452731e8675f4a00800000000000000
+      internalID: 742908571506124105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 325
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a046921f83e1bcb0800000000000000
+      internalID: -4849845120069648220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 326
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d3827697351cb4e0800000000000000
+      internalID: -1964672008948907056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 326
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cccf032a9073f3a0800000000000000
+      internalID: -6632834018871096123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 280
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ba9d08004f899b50800000000000000
+      internalID: 6600464234063960754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 280
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f0311d271d8cf4b0800000000000000
+      internalID: -5405290322071572239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 280
+        width: 18
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec0a9fcb685210200800000000000000
+      internalID: 144437923678888142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 280
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b75696dd8ac19b90800000000000000
+      internalID: -7236780415668299854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 280
+        width: 20
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 452dfcabfade7a4c0800000000000000
+      internalID: -4276187982155754924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 280
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 388387f832cc4a550800000000000000
+      internalID: 6171281842507364483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 280
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada8108a9ff06ac00800000000000000
+      internalID: 911433539529050842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_26
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 280
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc7fc923aea91f90800000000000000
+      internalID: -6982357731456877328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 282
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7be00ac51dd856fa0800000000000000
+      internalID: -5808080214082711881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_28
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 282
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb4c6d62ae95143a0800000000000000
+      internalID: -6682961509832276802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_29
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 281
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d80c00c80a2eef0800000000000000
+      internalID: -80325320170762858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_30
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 281
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ebfe3d8818e1720800000000000000
+      internalID: 2818832841451748906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_31
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 280
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e12bb8db317304270800000000000000
+      internalID: 8232640676757221918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_32
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 280
+        width: 25
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 554aa8813d962df80800000000000000
+      internalID: -8083282025805863851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_33
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 278
+        width: 24
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a032da6f1b432720800000000000000
+      internalID: 2820180389972291749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_34
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 280
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2b799e3d00c87540800000000000000
+      internalID: 5005962148939660077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 235
+        width: 435
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69bd97eaf09d98600800000000000000
+      internalID: 471146297411885974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_36
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 240
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe97f7da1c2fec2c0800000000000000
+      internalID: -4409320071495714321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_37
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 240
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d039a355fc9b9b0800000000000000
+      internalID: -5063788341039526533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_38
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 240
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62b8a2a52fe3ab830800000000000000
+      internalID: 4087648822407891750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_39
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 240
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 188c45f4dbcf55410800000000000000
+      internalID: 1465355143788939393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_40
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 240
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f92a4cc23e3fc6020800000000000000
+      internalID: 2336510463732654751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_41
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 240
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bae1e4a230abc4f40800000000000000
+      internalID: 5714146549983747755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_42
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 240
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6e62cf1a2eedd620800000000000000
+      internalID: 2800656407983189615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_43
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 242
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ff1a8551de6142d0800000000000000
+      internalID: -3296231606896156685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_44
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 242
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c6439ac83ef170e0800000000000000
+      internalID: -2273756816975116603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_45
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 241
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3bb05a131b455a50800000000000000
+      internalID: 6509191381851880255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_46
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 242
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8693abc73938c3800800000000000000
+      internalID: 593493920382073192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_47
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 240
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0076288edbcce79d0800000000000000
+      internalID: -2774555204391901440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_48
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 240
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 309afd5f926fad330800000000000000
+      internalID: 3736569500936415491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_49
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 239
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94cb63e3746c311e0800000000000000
+      internalID: -2228219381329511351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_50
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 240
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37551f3b641219500800000000000000
+      internalID: 401138429363049843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_51
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 181
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd372aebba7ad2260800000000000000
+      internalID: 7074494945748480989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_52
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 182
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: effc0b9ca105d25e0800000000000000
+      internalID: -1932800589088894978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_53
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 182
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91fa7fe32b501a8e0800000000000000
+      internalID: -1684058522541117671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_54
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 182
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff23693a6c2d83500800000000000000
+      internalID: 376282319475323647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_55
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 145
+        width: 39
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73b4098c4b3f6cfa0800000000000000
+      internalID: -5780665113898890441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_56
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 146
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61ccb919beb476650800000000000000
+      internalID: 6226028484995304470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_57
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 145
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70e0d5cd1640fae80800000000000000
+      internalID: -8165302781043995129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_58
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 144
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c80b41069033a180800000000000000
+      internalID: -9105380600788088638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_59
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 146
+        width: 43
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bef05e8ba45cbfc50800000000000000
+      internalID: 6700165795364016107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_60
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 145
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45940b3dd5e6dcb20800000000000000
+      internalID: 3156300263119145300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_61
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 140
+        width: 21
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08ba57bf1da71c490800000000000000
+      internalID: -7727760443305514112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_62
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 140
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0202a6f9ec16fdab0800000000000000
+      internalID: -4981155122782789600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_63
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 145
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f88c6f91734cfd4d0800000000000000
+      internalID: -3107549476924503921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_64
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 145
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fa3e76a63b9dc310800000000000000
+      internalID: 1426967315970145016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_65
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 145
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6685f3d4fe613a90800000000000000
+      internalID: -7335960320202668435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_66
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 145
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b4709500a3dd82e0800000000000000
+      internalID: -2121807165180054348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_67
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 95
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63f46a8d8c7775ee0800000000000000
+      internalID: -1272416665196933322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_68
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 95
+        width: 23
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 23, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1b0d0a86bd360aa0800000000000000
+      internalID: -6195196383192085731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_69
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 93
+        width: 23
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 641b5795545e60df0800000000000000
+      internalID: -214231846237130426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_70
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 98
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d95cfb0b130d0ed10800000000000000
+      internalID: 2152949533720429981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_71
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 96
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c07c021248a7edb30800000000000000
+      internalID: 4314020200977581836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_72
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 96
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 160382373be188810800000000000000
+      internalID: 1767696609822912609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_73
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 95
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c0265bb864aa0490800000000000000
+      internalID: -7779224636602572605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_74
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 95
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2ca0b24cb83fb390800000000000000
+      internalID: -7800453648358527953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_75
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 94
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a13ceeb9e11742c0800000000000000
+      internalID: -4447566411376873048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_76
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 94
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78d396a1e2041cb60800000000000000
+      internalID: 7764557799319223687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_77
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 94
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4ad22392b7bb0fb0800000000000000
+      internalID: -4680445410120902070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 435
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84de809b2a7c801d0800000000000000
+      internalID: -3384235618265928376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_79
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 52
+        width: 141
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 366ca5c3b8209bab0800000000000000
+      internalID: -4991955914927192477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_80
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 54
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dd2bd1f78dff3030800000000000000
+      internalID: 3476776197673397712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_81
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 58
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f5773585152294e0800000000000000
+      internalID: -1976476512102681097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_82
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 56
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcb2d099652af23a0800000000000000
+      internalID: -6687948428803232821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_83
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 53
+        width: 22
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f92819e6bc466990800000000000000
+      internalID: -7393137389803656720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_84
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 52
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c863cb5403ed1e10800000000000000
+      internalID: 2170140203321354432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_85
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 52
+        width: 21
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 024baf76b4b4cc440800000000000000
+      internalID: 4957420077067187232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_86
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 52
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd280e976134dff30800000000000000
+      internalID: 4610915357310354141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_87
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 1
+        width: 135
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4432dddbaee0f19d0800000000000000
+      internalID: -2801504041830636732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_88
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 93
+        width: 23
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b9a8d5d6660fe94c8843a19b21a99ef
+      internalID: -1145279830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_89
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 94
+        width: 20
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 18, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad0356e8982b92b41829dc8ccc427e96
+      internalID: -131086710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_90
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 92
+        width: 20
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 18, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a6005c131e06944d8c66022ef3aab01
+      internalID: -2012635296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_91
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 92
+        width: 20
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 18, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 016bc99d8ef45bf489e105d8a4b4e6ce
+      internalID: 376467210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_92
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 93
+        width: 20
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 18, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa519e5b34374324c93218c86b85d1cb
+      internalID: -1729417333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b5d4ba15a67157144aec07ad307c5bd4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_0: -7466824695539086357
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_1: 7282722385734896813
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_10: -5781557696784429401
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_11: -5944757191851583835
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_12: -6097714292525781090
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_13: 3290566707482234993
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_14: 495742197296695116
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_15: 742908571506124105
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_16: -4849845120069648220
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_17: -1964672008948907056
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_18: -6632834018871096123
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_19: 6600464234063960754
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_2: -4085235980849020304
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_20: -5405290322071572239
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_21: 144437923678888142
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_22: -7236780415668299854
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_23: -4276187982155754924
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_24: 6171281842507364483
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_25: 911433539529050842
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_26: -6982357731456877328
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_27: -5808080214082711881
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_28: -6682961509832276802
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_29: -80325320170762858
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_3: 3425636233269251800
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_30: 2818832841451748906
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_31: 8232640676757221918
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_32: -8083282025805863851
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_33: 2820180389972291749
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_34: 5005962148939660077
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_35: 471146297411885974
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_36: -4409320071495714321
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_37: -5063788341039526533
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_38: 4087648822407891750
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_39: 1465355143788939393
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_4: -1878076355589668474
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_40: 2336510463732654751
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_41: 5714146549983747755
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_42: 2800656407983189615
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_43: -3296231606896156685
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_44: -2273756816975116603
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_45: 6509191381851880255
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_46: 593493920382073192
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_47: -2774555204391901440
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_48: 3736569500936415491
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_49: -2228219381329511351
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_5: 7611141042585161207
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_50: 401138429363049843
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_51: 7074494945748480989
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_52: -1932800589088894978
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_53: -1684058522541117671
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_54: 376282319475323647
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_55: -5780665113898890441
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_56: 6226028484995304470
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_57: -8165302781043995129
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_58: -9105380600788088638
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_59: 6700165795364016107
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_6: -8903044709017617310
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_60: 3156300263119145300
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_61: -7727760443305514112
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_62: -4981155122782789600
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_63: -3107549476924503921
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_64: 1426967315970145016
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_65: -7335960320202668435
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_66: -2121807165180054348
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_67: -1272416665196933322
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_68: -6195196383192085731
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_69: -214231846237130426
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_7: -4495592082383461214
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_70: 2152949533720429981
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_71: 4314020200977581836
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_72: 1767696609822912609
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_73: -7779224636602572605
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_74: -7800453648358527953
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_75: -4447566411376873048
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_76: 7764557799319223687
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_77: -4680445410120902070
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_78: -3384235618265928376
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_79: -4991955914927192477
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_8: -8519863334166953570
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_80: 3476776197673397712
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_81: -1976476512102681097
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_82: -6687948428803232821
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_83: -7393137389803656720
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_84: 2170140203321354432
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_85: 4957420077067187232
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_86: 4610915357310354141
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_87: -2801504041830636732
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_88: -1145279830
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_89: -131086710
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_9: 5768081417118354955
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_90: -2012635296
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_91: 376467210
+      Custom___Edited_-_Mario_Customs_-_Mario_-_Mario__Super_Mario_Bros._1__Improved_-removebg-preview_92: -1729417333
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
