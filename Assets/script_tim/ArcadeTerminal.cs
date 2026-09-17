@@ -1,40 +1,48 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ArcadeTerminal : MonoBehaviour
 {
     [Header("Configuration")]
-    public string terminalId = "Engine";     // identifiant unique de la panne
-    public string fragment = "ST";           // les 2 lettres données par cette panne
+    public string terminalId = "Engine";
+    public string fragment = "ST";
     public string sceneToLoad = "Pacman";
     public Button repairButton;
 
-    [Header("Etat")]
-    public bool hintModeAvailable = false;   // activé plus tard par l'écran du code final
-
-    private bool playerInRange = false;
-    private bool isRepaired = false;
     [Header("Sprites")]
     public Sprite brokenSprite;
     public Sprite fixedSprite;
 
+    [Header("Etat")]
+    public bool hintModeAvailable = false;
+
+    private bool playerInRange = false;
+    private bool isRepaired = false;
+    private SpriteRenderer sr;
+    private TMP_Text buttonLabel;
+
     void Start()
     {
-        if (repairButton != null)
-            repairButton.gameObject.SetActive(false);
+        sr = GetComponent<SpriteRenderer>();
 
-        if (brokenSprite != null)
-        GetComponent<SpriteRenderer>().sprite = brokenSprite;
+        if (repairButton != null)
+        {
+            buttonLabel = repairButton.GetComponentInChildren<TMP_Text>();
+            repairButton.gameObject.SetActive(false);
+        }
 
         if (GameManager.Instance != null && GameManager.Instance.IsRepaired(terminalId))
         {
             isRepaired = true;
-            if (fixedSprite != null)
-                GetComponent<SpriteRenderer>().sprite = fixedSprite;
+            if (fixedSprite != null) sr.sprite = fixedSprite;
+        }
+        else if (brokenSprite != null)
+        {
+            sr.sprite = brokenSprite;
         }
     }
 
-    // La borne reste utilisable si elle est réparée ET que le joueur cherche un indice
     private bool IsInteractable()
     {
         return !isRepaired || hintModeAvailable;
@@ -48,6 +56,7 @@ public class ArcadeTerminal : MonoBehaviour
         repairButton.gameObject.SetActive(true);
         repairButton.onClick.RemoveAllListeners();
         repairButton.onClick.AddListener(StartMinigame);
+        RefreshButton();
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -59,15 +68,36 @@ public class ArcadeTerminal : MonoBehaviour
         repairButton.gameObject.SetActive(false);
     }
 
+    void Update()
+    {
+        if (playerInRange) RefreshButton();
+    }
+
+    void RefreshButton()
+    {
+        bool locked = GameManager.Instance.IsLocked(terminalId);
+
+        repairButton.interactable = !locked;
+
+        if (buttonLabel == null) return;
+
+        if (locked)
+        {
+            int s = Mathf.CeilToInt(GameManager.Instance.GetLockRemaining(terminalId));
+            buttonLabel.text = "RESETTING " + s + "s";
+        }
+        else
+        {
+            buttonLabel.text = isRepaired ? "HINT" : "REPAIR";
+        }
+    }
+
     void StartMinigame()
     {
         if (!playerInRange || !IsInteractable()) return;
+        if (GameManager.Instance.IsLocked(terminalId)) return;
 
         repairButton.gameObject.SetActive(false);
-
-        // Si la panne est déjà réparée, c'est une partie d'indice en mode difficile
-        bool hardMode = isRepaired;
-
-        GameManager.Instance.LaunchMinigame(terminalId, fragment, sceneToLoad, hardMode);
+        GameManager.Instance.LaunchMinigame(terminalId, fragment, sceneToLoad, isRepaired);
     }
 }

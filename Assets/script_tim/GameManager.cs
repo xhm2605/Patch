@@ -116,8 +116,22 @@ public class GameManager : MonoBehaviour
 
     public void MinigameLost()
     {
-        Debug.Log("Mini-jeu raté, retour au vaisseau");
+        if (!isHardMode && !string.IsNullOrEmpty(currentTerminalId))
+            lockoutUntil[currentTerminalId] = Time.unscaledTime + lockoutDuration;
+
         SceneManager.LoadScene("Main");
+    }
+
+    public bool IsLocked(string terminalId)
+    {
+        if (!lockoutUntil.ContainsKey(terminalId)) return false;
+        return Time.unscaledTime < lockoutUntil[terminalId];
+    }
+
+    public float GetLockRemaining(string terminalId)
+    {
+        if (!lockoutUntil.ContainsKey(terminalId)) return 0f;
+        return Mathf.Max(0f, lockoutUntil[terminalId] - Time.unscaledTime);
     }
 
     public bool IsHardMode()
@@ -162,4 +176,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Main");
         }
     }
+    [Header("Verrouillage après échec")]
+    public float lockoutDuration = 20f;
+    private Dictionary<string, float> lockoutUntil = new Dictionary<string, float>();
 }
