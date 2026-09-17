@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75884860d4739194dbf9dd4aa1dcaf7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
-  prefab: {fileID: 3661457582438168974, guid: 4a4da186e964bc34585ccdd4cb29754d, type: 3}
+  prefab: {fileID: 7585474305516473208, guid: c20f39dba729d1c4094a3de16ff85089, type: 3}
   minTime: 2
   maxTime: 4
 --- !u!4 &444040298
