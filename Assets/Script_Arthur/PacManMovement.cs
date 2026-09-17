@@ -16,7 +16,6 @@ public class PacManMovement : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI winText;
     public TextMeshProUGUI gameOverText; 
-    public GameObject replayButton;
     
     [Header("Audio")]
     public AudioClip powerUpSound;    
@@ -37,6 +36,7 @@ public class PacManMovement : MonoBehaviour
     // NOUVEAU : On garde le LevelManager en mémoire pour surveiller l'invincibilité
     private LevelManager levelManager;
     private bool wasInvincible = false;
+    private bool gameEnded = false;
 
     void Start()
     {
@@ -57,13 +57,14 @@ public class PacManMovement : MonoBehaviour
 
         if (winText != null) winText.gameObject.SetActive(false);
         if (gameOverText != null) gameOverText.gameObject.SetActive(false); 
-        if (replayButton != null) replayButton.SetActive(false); 
 
         CountTotalDots();
     }
 
     void Update()
     {
+        if (gameEnded) return;
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -133,13 +134,32 @@ public class PacManMovement : MonoBehaviour
         if (dotsEaten >= totalDots)
         {
             if (winText != null) winText.gameObject.SetActive(true);
-            if (replayButton != null) replayButton.SetActive(true);
-            
+
             if (bgmSource != null) bgmSource.Stop();
             if (victoryMusic != null) audioSource.PlayOneShot(victoryMusic);
 
-            Time.timeScale = 0f; 
+            StartCoroutine(EndMinigame(true));
         }
+    }
+
+    private System.Collections.IEnumerator EndMinigame(bool won)
+    {
+        gameEnded = true;
+        Time.timeScale = 1f;
+
+        movement = Vector2.zero;
+        speed = 0f;
+        rb.linearVelocity = Vector2.zero;
+
+        foreach (PinkyMovement f in FindObjectsOfType<PinkyMovement>())
+            f.enabled = false;
+
+        yield return new WaitForSeconds(1.5f);
+
+        if (GameManager.Instance == null) yield break;
+
+        if (won) GameManager.Instance.MinigameWon();
+        else GameManager.Instance.MinigameLost();
     }
 
     void UpdateScoreText()
@@ -152,6 +172,8 @@ public class PacManMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (gameEnded) return;
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
             if (levelManager.pacmanEstInvincible)
@@ -176,13 +198,11 @@ public class PacManMovement : MonoBehaviour
                 if (levelManager.vies <= 0)
                 {
                     if (gameOverText != null) gameOverText.gameObject.SetActive(true);
-                    if (replayButton != null) replayButton.SetActive(true);
-                    
+
                     if (bgmSource != null) bgmSource.Stop();
                     if (gameOverMusic != null) AudioSource.PlayClipAtPoint(gameOverMusic, Camera.main.transform.position, 1f);
 
-                    Time.timeScale = 0f;
-                    gameObject.SetActive(false);
+                    StartCoroutine(EndMinigame(false));
                 }
             }
         }
@@ -190,6 +210,8 @@ public class PacManMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (gameEnded) return;
+
         if (collision.gameObject.CompareTag("SuperGomme"))
         {
             // 👉 MODIFIÉ : On remplace la musique du lecteur au lieu de jouer un simple effet
