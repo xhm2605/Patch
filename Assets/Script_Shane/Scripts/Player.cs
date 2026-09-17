@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        InvokeRepeating(nameof(AnimateSprite), 1f/12f, 1f/2f);
+        InvokeRepeating(nameof(AnimateSprite), 1f/12f, 1f/12f);
     }
 
     private void OnDisable()
@@ -126,5 +126,18 @@ public class Player : MonoBehaviour
             spriteRenderer.sprite = runSprites[spriteIndex];
         }
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Finish"))
+        {
+            enabled = false;
+            FindObjectOfType<Settings>().LevelComplete();
+        }
+        else if(collision.gameObject.CompareTag("Enemy"))
+        {
+            enabled = false;
+            FindObjectOfType<Settings>().LevelFailed();
+        }
     }
 }
