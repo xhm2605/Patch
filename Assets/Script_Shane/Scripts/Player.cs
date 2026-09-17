@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     public Sprite climbSprite;
     private int spriteIndex;
 
+    public DonkeyKongUI gameUI;
+
 
     private Rigidbody2D rigidbody;
     private Vector2 direction;
@@ -72,6 +74,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if(!DonkeyKongUI.gameStarted){
+            return;
+        }
+
+
         CheckCollision();
         if(climbing){
             direction.y = Input.GetAxis("Vertical") * moveSpeed;
@@ -104,11 +111,16 @@ public class Player : MonoBehaviour
     }
 
     private void FixedUpdate()
+{
+    if (!DonkeyKongUI.gameStarted)
     {
-        rigidbody.MovePosition(
-            rigidbody.position + direction * Time.fixedDeltaTime
-        );
+        return;
     }
+
+    rigidbody.MovePosition(
+        rigidbody.position + direction * Time.fixedDeltaTime
+    );
+}
 
     private void AnimateSprite()
     {
