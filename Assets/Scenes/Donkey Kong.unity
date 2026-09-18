@@ -1929,6 +1929,51 @@ MonoBehaviour:
   gameUI: {fileID: 1864645525}
   moveSpeed: 3
   jumpStrength: 4
+--- !u!1 &1507257107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1507257109}
+  - component: {fileID: 1507257108}
+  m_Layer: 0
+  m_Name: DonkeyKongUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1507257108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507257107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251224708aae11a4ca26d40e6eb334a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DonkeyKongUI
+  startPanel: {fileID: 548645713}
+--- !u!4 &1507257109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507257107}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 653.38226, y: 139.62099, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1648311839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2790,3 +2835,4 @@ SceneRoots:
   - {fileID: 1962931599}
   - {fileID: 1928563829}
   - {fileID: 460382472}
+  - {fileID: 1507257109}
