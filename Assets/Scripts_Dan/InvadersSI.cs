@@ -10,12 +10,12 @@ public class InvadersSI : MonoBehaviour
     private Vector3 initialPosition;
 
     [Header("Grid")]
-    public int rows = 5;
+    public int rows = 3;
     public int columns = 11;
 
     [Header("Missiles")]
     public ProjectileSI missilePrefab;
-    public float missileSpawnRate = 2f;
+    public float missileSpawnRate = 4f;
 
     private void Awake()
     {

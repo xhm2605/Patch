@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerSI : MonoBehaviour
 {
-    public float speed = 7f;
+    public float speed = 10f;
     public ProjectileSI laserPrefab;
     private ProjectileSI laser;
 
