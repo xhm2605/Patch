@@ -16,6 +16,6 @@ public class TimerDisplay : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         // Passe en rouge sous 30 secondes
-        timerText.color = (t <= 3f) ? Color.red : Color.white;
+        timerText.color = (t <= 30f) ? Color.red : Color.white;
     }
 }

@@ -16,6 +16,8 @@ public class GameManagerSI : MonoBehaviour
     private MysteryShipSI mysteryShip;
     private BunkerSI[] bunkers;
 
+    private bool ended = false;
+
     public int score { get; private set; } = 0;
     public int lives { get; private set; } = 3;
 
@@ -51,6 +53,8 @@ public class GameManagerSI : MonoBehaviour
 
     private void Update()
     {
+        if (ended) return;
+
         if (lives <= 0 && Input.GetKeyDown(KeyCode.Return))
         {
             NewGame();
@@ -91,14 +95,39 @@ public class GameManagerSI : MonoBehaviour
 
     private void GameOver()
     {
+        if (ended) return;
+
         gameOverUI.SetActive(true);
         invaders.gameObject.SetActive(false);
+
+        StartCoroutine(EndMinigame(false));
     }
 
     private void Win()
     {
+        if (ended) return;
+
         youWinUI.SetActive(true);
         invaders.gameObject.SetActive(false);
+
+        StartCoroutine(EndMinigame(true));
+    }
+
+    private System.Collections.IEnumerator EndMinigame(bool won)
+    {
+        ended = true;
+
+        if (player != null)
+            player.enabled = false;
+
+        yield return new WaitForSecondsRealtime(1.5f);
+
+        Time.timeScale = 1f;
+
+        if (GameManager.Instance == null) yield break;
+
+        if (won) GameManager.Instance.MinigameWon();
+        else GameManager.Instance.MinigameLost();
     }
 
     private void SetScore(int score)
@@ -115,6 +144,8 @@ public class GameManagerSI : MonoBehaviour
 
     public void OnPlayerKilled(PlayerSI player)
     {
+        if (ended) return;
+
         SetLives(lives - 1);
 
         player.gameObject.SetActive(false);
@@ -131,6 +162,8 @@ public class GameManagerSI : MonoBehaviour
 
     public void OnInvaderKilled(InvaderSI invader)
     {
+        if (ended) return;
+
         invader.gameObject.SetActive(false);
 
         SetScore(score + invader.score);
@@ -143,11 +176,15 @@ public class GameManagerSI : MonoBehaviour
 
     public void OnMysteryShipKilled(MysteryShipSI mysteryShip)
     {
+        if (ended) return;
+
         SetScore(score + mysteryShip.score);
     }
 
     public void OnBoundaryReached()
     {
+        if (ended) return;
+
         if (invaders.gameObject.activeSelf)
         {
             invaders.gameObject.SetActive(false);
