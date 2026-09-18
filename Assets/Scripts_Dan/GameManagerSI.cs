@@ -4,18 +4,22 @@ using UnityEngine.UI;
 [DefaultExecutionOrder(-1)]
 public class GameManagerSI : MonoBehaviour
 {
+    // Shared instance of the Space Invaders Game Manager
     public static GameManagerSI Instance { get; private set; }
 
+    // UI elements
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject youWinUI;
     [SerializeField] private Text scoreText;
     [SerializeField] private Text livesText;
 
+    // Main Space Invaders game objects
     private PlayerSI player;
     private InvadersSI invaders;
     private MysteryShipSI mysteryShip;
     private BunkerSI[] bunkers;
 
+    // Prevents game events from running after the minigame ends
     private bool ended = false;
 
     public int score { get; private set; } = 0;
@@ -23,6 +27,7 @@ public class GameManagerSI : MonoBehaviour
 
     private void Awake()
     {
+        // Ensure only one GameManagerSI instance exists
         if (Instance != null)
         {
             DestroyImmediate(gameObject);
@@ -43,6 +48,7 @@ public class GameManagerSI : MonoBehaviour
 
     private void Start()
     {
+        // Find the main objects needed to manage the minigame
         player = FindAnyObjectByType<PlayerSI>();
         invaders = FindAnyObjectByType<InvadersSI>();
         mysteryShip = FindAnyObjectByType<MysteryShipSI>();
@@ -55,6 +61,7 @@ public class GameManagerSI : MonoBehaviour
     {
         if (ended) return;
 
+        // Allow a new game to start after all lives are lost
         if (lives <= 0 && Input.GetKeyDown(KeyCode.Return))
         {
             NewGame();
@@ -63,6 +70,7 @@ public class GameManagerSI : MonoBehaviour
 
     private void NewGame()
     {
+        // Reset the UI, score and lives
         gameOverUI.SetActive(false);
         youWinUI.SetActive(false);
 
@@ -73,6 +81,7 @@ public class GameManagerSI : MonoBehaviour
 
     private void NewRound()
     {
+        // Reset the invaders and bunkers for a new round
         invaders.ResetInvaders();
         invaders.gameObject.SetActive(true);
 
@@ -86,6 +95,7 @@ public class GameManagerSI : MonoBehaviour
 
     private void Respawn()
     {
+        // Centre and reactivate the player
         Vector3 position = player.transform.position;
         position.x = 0f;
 
@@ -97,6 +107,7 @@ public class GameManagerSI : MonoBehaviour
     {
         if (ended) return;
 
+        // Stop the invaders and display the game over screen
         gameOverUI.SetActive(true);
         invaders.gameObject.SetActive(false);
 
@@ -107,6 +118,7 @@ public class GameManagerSI : MonoBehaviour
     {
         if (ended) return;
 
+        // Stop the invaders and display the win screen
         youWinUI.SetActive(true);
         invaders.gameObject.SetActive(false);
 
@@ -117,15 +129,18 @@ public class GameManagerSI : MonoBehaviour
     {
         ended = true;
 
+        // Disable player controls when the minigame finishes
         if (player != null)
             player.enabled = false;
 
+        // Give the player time to see the result screen
         yield return new WaitForSecondsRealtime(1.5f);
 
         Time.timeScale = 1f;
 
         if (GameManager.Instance == null) yield break;
 
+        // Report the result to the main game's Game Manager
         if (won) GameManager.Instance.MinigameWon();
         else GameManager.Instance.MinigameLost();
     }
@@ -138,6 +153,7 @@ public class GameManagerSI : MonoBehaviour
 
     private void SetLives(int lives)
     {
+        // Prevent the number of lives from dropping below zero
         this.lives = Mathf.Max(lives, 0);
         livesText.text = this.lives.ToString();
     }
@@ -146,8 +162,8 @@ public class GameManagerSI : MonoBehaviour
     {
         if (ended) return;
 
+        // Remove a life and temporarily disable the player
         SetLives(lives - 1);
-
         player.gameObject.SetActive(false);
 
         if (lives > 0)
@@ -164,10 +180,11 @@ public class GameManagerSI : MonoBehaviour
     {
         if (ended) return;
 
+        // Remove the invader and add its points to the score
         invader.gameObject.SetActive(false);
-
         SetScore(score + invader.score);
 
+        // Win when all invaders have been destroyed
         if (invaders.GetAliveCount() == 0)
         {
             Win();
@@ -185,6 +202,7 @@ public class GameManagerSI : MonoBehaviour
     {
         if (ended) return;
 
+        // Invaders reaching the boundary causes the player to lose a life
         if (invaders.gameObject.activeSelf)
         {
             invaders.gameObject.SetActive(false);

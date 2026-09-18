@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class BunkerSI : MonoBehaviour
 {
+    // Texture used to create damage when a projectile hits the bunker
     public Texture2D splat;
 
     private Texture2D originalTexture;
@@ -12,6 +13,7 @@ public class BunkerSI : MonoBehaviour
 
     private void Awake()
     {
+        // Store the required components and original bunker texture
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
         originalTexture = spriteRenderer.sprite.texture;
@@ -21,13 +23,14 @@ public class BunkerSI : MonoBehaviour
 
     public void ResetBunker()
     {
+        // Restore the bunker using a fresh copy of its original texture
         CopyTexture(originalTexture);
-
         gameObject.SetActive(true);
     }
 
     private void CopyTexture(Texture2D source)
     {
+        // Create a separate texture so each bunker can be damaged independently
         Texture2D copy = new Texture2D(
             source.width,
             source.height,
@@ -57,6 +60,7 @@ public class BunkerSI : MonoBehaviour
     {
         Vector2 offset = other.size / 2;
 
+        // Check the centre and edges of the projectile for accurate collisions
         return Splat(hitPoint) ||
                Splat(hitPoint + (Vector3.down * offset.y)) ||
                Splat(hitPoint + (Vector3.up * offset.y)) ||
@@ -66,6 +70,7 @@ public class BunkerSI : MonoBehaviour
 
     private bool Splat(Vector3 hitPoint)
     {
+        // Only damage the bunker if a visible pixel was hit
         if (!CheckPoint(hitPoint, out int px, out int py))
         {
             return false;
@@ -73,11 +78,13 @@ public class BunkerSI : MonoBehaviour
 
         Texture2D texture = spriteRenderer.sprite.texture;
 
+        // Centre the damage texture around the collision point
         px -= splat.width / 2;
         py -= splat.height / 2;
 
         int startX = px;
 
+        // Apply the splat texture to remove pixels from the bunker
         for (int y = 0; y < splat.height; y++)
         {
             px = startX;
@@ -103,6 +110,7 @@ public class BunkerSI : MonoBehaviour
 
     private bool CheckPoint(Vector3 hitPoint, out int px, out int py)
     {
+        // Convert the collision point into bunker texture coordinates
         Vector3 localPoint = transform.InverseTransformPoint(hitPoint);
 
         localPoint.x += boxCollider.size.x / 2;
@@ -118,11 +126,13 @@ public class BunkerSI : MonoBehaviour
             localPoint.y / boxCollider.size.y * texture.height
         );
 
+        // Check whether the selected pixel is still visible
         return texture.GetPixel(px, py).a != 0f;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // Remove the bunker if an invader reaches it
         if (other.gameObject.layer == LayerMask.NameToLayer("InvaderSI"))
         {
             gameObject.SetActive(false);
