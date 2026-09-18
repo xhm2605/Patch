@@ -14,12 +14,9 @@ public class MysteryShipSI : MonoBehaviour
 
     private void Start()
     {
-        // Transform the viewport to world coordinates so we can set the
-        // mystery ship's destination points
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
 
-        // Offset each destination by 1 unit so the ship is fully out of sight
         leftDestination = new Vector2(leftEdge.x - 1f, transform.position.y);
         rightDestination = new Vector2(rightEdge.x + 1f, transform.position.y);
 
@@ -97,7 +94,7 @@ public class MysteryShipSI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Laser"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("LaserSI"))
         {
             Despawn();
             GameManagerSI.Instance.OnMysteryShipKilled(this);

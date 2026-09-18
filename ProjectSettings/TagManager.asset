@@ -17,12 +17,12 @@ TagManager:
   - Ghost
   - Ground
   - Ladder
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerSI
+  - InvaderSI
+  - LaserSI
+  - MissileSI
+  - BoundarySI
+  - BunkerSI
   - 
   - 
   - 

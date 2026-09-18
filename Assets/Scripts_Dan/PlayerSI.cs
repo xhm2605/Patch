@@ -12,7 +12,6 @@ public class PlayerSI : MonoBehaviour
     {
         Vector3 position = transform.position;
 
-        // Update the position of the player based on the input
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             position.x -= speed * Time.deltaTime;
@@ -22,15 +21,12 @@ public class PlayerSI : MonoBehaviour
             position.x += speed * Time.deltaTime;
         }
 
-        // Clamp the position of the character so they do not go out of bounds
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
         position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
 
-        // Set the new position
         transform.position = position;
 
-        // Only one laser can be active at a given time
         if (laser == null &&
             (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
@@ -44,8 +40,8 @@ public class PlayerSI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Missile") ||
-            other.gameObject.layer == LayerMask.NameToLayer("Invader"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("MissileSI") ||
+            other.gameObject.layer == LayerMask.NameToLayer("InvaderSI"))
         {
             GameManagerSI.Instance.OnPlayerKilled(this);
         }
