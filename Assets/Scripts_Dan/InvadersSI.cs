@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class InvadersSI : MonoBehaviour
 {
+    // Invader prefabs and movement speed settings
     [Header("Invaders")]
     public InvaderSI[] prefabs = new InvaderSI[5];
     public AnimationCurve speed = new AnimationCurve();
@@ -9,22 +10,26 @@ public class InvadersSI : MonoBehaviour
     private Vector3 direction = Vector3.right;
     private Vector3 initialPosition;
 
+    // 3 rows and 11 columns creates 33 invaders
     [Header("Grid")]
-    public int rows = 5;
+    public int rows = 3;
     public int columns = 11;
 
+    // Enemy missile settings
     [Header("Missiles")]
     public ProjectileSI missilePrefab;
-    public float missileSpawnRate = 2f;
+    public float missileSpawnRate = 4f;
 
     private void Awake()
     {
+        // Store the starting position and create the invader grid
         initialPosition = transform.position;
         CreateInvaderGrid();
     }
 
     private void CreateInvaderGrid()
     {
+        // Create and centre each row of invaders
         for (int i = 0; i < rows; i++)
         {
             float width = 2f * (columns - 1);
@@ -41,6 +46,7 @@ public class InvadersSI : MonoBehaviour
                 0f
             );
 
+            // Create each invader in the current row
             for (int j = 0; j < columns; j++)
             {
                 InvaderSI invader = Instantiate(prefabs[i], transform);
@@ -55,6 +61,7 @@ public class InvadersSI : MonoBehaviour
 
     private void Start()
     {
+        // Repeatedly allow the invaders to fire missiles
         InvokeRepeating(
             nameof(MissileAttack),
             missileSpawnRate,
@@ -66,11 +73,13 @@ public class InvadersSI : MonoBehaviour
     {
         int amountAlive = GetAliveCount();
 
+        // Do not fire if all invaders have been destroyed
         if (amountAlive == 0)
         {
             return;
         }
 
+        // Randomly select one of the remaining invaders to fire
         foreach (Transform invader in transform)
         {
             if (!invader.gameObject.activeInHierarchy)
@@ -97,17 +106,20 @@ public class InvadersSI : MonoBehaviour
         int amountAlive = GetAliveCount();
         int amountKilled = totalCount - amountAlive;
 
+        // Increase movement speed as more invaders are destroyed
         float percentKilled = amountKilled / (float)totalCount;
         float speed = this.speed.Evaluate(percentKilled);
 
         transform.position += speed * Time.deltaTime * direction;
 
+        // Find the left and right edges of the camera
         Vector3 leftEdge =
             Camera.main.ViewportToWorldPoint(Vector3.zero);
 
         Vector3 rightEdge =
             Camera.main.ViewportToWorldPoint(Vector3.right);
 
+        // Reverse direction when the formation reaches either screen edge
         foreach (Transform invader in transform)
         {
             if (!invader.gameObject.activeInHierarchy)
@@ -132,6 +144,7 @@ public class InvadersSI : MonoBehaviour
 
     private void AdvanceRow()
     {
+        // Reverse direction and move the formation down
         direction = new Vector3(
             -direction.x,
             0f,
@@ -146,6 +159,7 @@ public class InvadersSI : MonoBehaviour
 
     public void ResetInvaders()
     {
+        // Reset the formation for a new round
         direction = Vector3.right;
         transform.position = initialPosition;
 
@@ -159,6 +173,7 @@ public class InvadersSI : MonoBehaviour
     {
         int count = 0;
 
+        // Count the invaders that are still active
         foreach (Transform invader in transform)
         {
             if (invader.gameObject.activeSelf)
