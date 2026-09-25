@@ -182,7 +182,10 @@ public class PacManMovement : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        // Cette ligne sera à compléter avec GameManager.Instance si nécessaire
+        if (GameManager.Instance == null) yield break;
+
+        if (won) GameManager.Instance.MinigameWon();
+        else GameManager.Instance.MinigameLost();
     }
 
     void UpdateScoreText()

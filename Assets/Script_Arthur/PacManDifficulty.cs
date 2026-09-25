@@ -3,7 +3,18 @@ using UnityEngine;
 public class PacManDifficulty : MonoBehaviour
 {
     [Header("Référence")]
-    public LevelManager levelManager; 
+    public LevelManager levelManager;
+
+    void Start()
+    {
+        // La difficulté vient du menu principal (GameSettings.difficulty)
+        int niveau = GameSettings.difficulty;
+
+        // Une partie jouée pour gagner un indice est toujours en mode difficile
+        if (GameManager.Instance != null && GameManager.Instance.IsHardMode()) niveau = 2;
+
+        InitialiserDifficulte(niveau);
+    }
 
     public void InitialiserDifficulte(int niveauDifficulte)
     {
@@ -42,7 +53,7 @@ public class PacManDifficulty : MonoBehaviour
         if (levelManager != null)
         {
             levelManager.dureeSuperPouvoir = powerTime;
-            levelManager.LancerCompteARebours(); 
+            levelManager.LancerCompteARebours();
         }
     }
 }

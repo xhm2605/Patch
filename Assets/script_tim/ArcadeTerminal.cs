@@ -6,7 +6,6 @@ public class ArcadeTerminal : MonoBehaviour
 {
     [Header("Configuration")]
     public string terminalId = "Engine";
-    public string fragment = "ST";
     public string sceneToLoad = "Pacman";
     public Button repairButton;
 
@@ -25,6 +24,14 @@ public class ArcadeTerminal : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+
+        ArcadeTerminal[] all = FindObjectsByType<ArcadeTerminal>(
+            FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+        foreach (ArcadeTerminal t in all)
+        {
+            if (t != this && t.terminalId == terminalId)
+                Debug.LogWarning("Deux bornes ont le meme Terminal Id : " + terminalId);
+        }
 
         if (repairButton != null)
         {
@@ -98,6 +105,8 @@ public class ArcadeTerminal : MonoBehaviour
         if (GameManager.Instance.IsLocked(terminalId)) return;
 
         repairButton.gameObject.SetActive(false);
-        GameManager.Instance.LaunchMinigame(terminalId, fragment, sceneToLoad, isRepaired);
+
+        string frag = GameManager.Instance.GetFragmentFor(terminalId);
+        GameManager.Instance.LaunchMinigame(terminalId, frag, sceneToLoad, isRepaired);
     }
 }
