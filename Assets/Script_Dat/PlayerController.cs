@@ -6,11 +6,14 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 8f;
     public Transform groundCheck;
     public LayerMask groundLayer;
+    public bool canMove = true;
+
 
     private Rigidbody2D rb;
     private bool isGrounded;
     private SpriteRenderer sr;
     private Animator animator;
+    
 
     void Start()
     {
@@ -21,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!canMove) return;
         float moveInput = Input.GetAxisRaw("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
@@ -35,5 +39,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
+        
+
     }
 }
