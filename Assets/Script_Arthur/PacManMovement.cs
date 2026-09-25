@@ -233,7 +233,7 @@ public class PacManMovement : MonoBehaviour
 
                 if (levelManager != null) levelManager.PerdreUneVie();
 
-                PinkyMovement[] tousLesFantomes = FindObjectsOfType<PinkyMovement>();
+                PinkyMovement[] tousLesFantomes = FindObjectsByType<PinkyMovement>(FindObjectsSortMode.None);
                 foreach(PinkyMovement fantome in tousLesFantomes)
                 {
                     fantome.ResetGhost();
