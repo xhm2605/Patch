@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     [Header("Affichage")]
     public TMP_Text texteVies;
     public TMP_Text texteChrono; 
-    public TMP_Text texteDemarrage; // NOUVEAU : Le texte du "3, 2, 1, GO!"
+    public TMP_Text texteDemarrage; 
     
     [Header("Personnages à replacer")]
     public Transform pacman;
@@ -22,6 +22,9 @@ public class LevelManager : MonoBehaviour
     public bool pacmanEstInvincible = false;
     public SpriteRenderer[] fantomesSprites; 
     private Color[] couleursOriginales;
+
+    public float dureeSuperPouvoir = 5f;
+    public int comboFantomes = 0; // Le compteur de combo
 
     private Vector2 startPacman, startBlinky, startPinky, startInky, startClyde;
 
@@ -47,22 +50,21 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+    }
 
-        // NOUVEAU : On lance le compte à rebours au tout début !
+    public void LancerCompteARebours()
+    {
         StartCoroutine(RoutineDemarrage());
     }
 
-    // --- NOUVEAU : COMPTE A REBOURS DE DEPART ---
     private IEnumerator RoutineDemarrage()
     {
-        // On met le jeu en pause (personne ne bouge)
         Time.timeScale = 0f;
 
         if (texteDemarrage != null)
         {
             texteDemarrage.gameObject.SetActive(true);
             
-            // WaitForSecondsRealtime est indispensable car Time.timeScale est à 0 !
             texteDemarrage.text = "3";
             yield return new WaitForSecondsRealtime(1f);
             
@@ -79,11 +81,9 @@ public class LevelManager : MonoBehaviour
         }
         else 
         {
-            // Si on a oublié de brancher le texte, on attend quand même 3 secondes
             yield return new WaitForSecondsRealtime(3f);
         }
 
-        // On libère le temps : tout le monde se met à bouger !
         Time.timeScale = 1f;
     }
 
@@ -110,7 +110,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // --- GESTION DU SUPER POUVOIR ---
     public void ActiverSuperPouvoir()
     {
         StopAllCoroutines(); 
@@ -120,13 +119,14 @@ public class LevelManager : MonoBehaviour
     private IEnumerator RoutineSuperPouvoir()
     {
         pacmanEstInvincible = true;
+        comboFantomes = 0; // On réinitialise le combo à 0
         
         for (int i = 0; i < fantomesSprites.Length; i++)
         {
             if (fantomesSprites[i] != null) fantomesSprites[i].color = Color.blue;
         }
 
-        float tempsRestant = 5f;
+        float tempsRestant = dureeSuperPouvoir; 
         while (tempsRestant > 0f)
         {
             if (texteChrono != null)

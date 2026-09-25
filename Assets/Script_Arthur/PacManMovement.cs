@@ -33,7 +33,6 @@ public class PacManMovement : MonoBehaviour
     private int totalDots = 0;
     private int dotsEaten = 0;
 
-    // NOUVEAU : On garde le LevelManager en mémoire pour surveiller l'invincibilité
     private LevelManager levelManager;
     private bool wasInvincible = false;
     private bool gameEnded = false;
@@ -70,18 +69,16 @@ public class PacManMovement : MonoBehaviour
 
         CheckAndEatDot();
 
-        // 👉 NOUVEAU : Le système qui surveille la fin du pouvoir
         if (levelManager != null)
         {
             bool isInvincible = levelManager.pacmanEstInvincible;
             
-            // Si Pac-Man n'est plus invincible MAIS qu'il l'était juste avant
             if (!isInvincible && wasInvincible)
             {
-                // On remet la musique de fond normale
                 if (bgmSource != null && backgroundMusic != null)
                 {
                     bgmSource.clip = backgroundMusic;
+                    bgmSource.pitch = 1.0f; // Vitesse normale au retour
                     bgmSource.Play();
                 }
             }
@@ -119,13 +116,42 @@ public class PacManMovement : MonoBehaviour
             {
                 dotTilemap.SetTile(cellPosition, null);
                 score += pointsPerDot;
+                
                 dotsEaten++;
+                UpdateMusicPitch(); // Mise à jour de la musique
+                
                 UpdateScoreText();
                 
+                PacManShield shieldScript = GetComponent<PacManShield>();
+                if (shieldScript != null)
+                {
+                    shieldScript.CheckShieldActivation(score);
+                }
+
                 if (meteorBeepSound != null) audioSource.PlayOneShot(meteorBeepSound);
 
                 CheckWinCondition();
             }
+        }
+    }
+
+    private void UpdateMusicPitch()
+    {
+        if (bgmSource == null || totalDots <= 0 || (levelManager != null && levelManager.pacmanEstInvincible)) return;
+
+        float progress = (float)dotsEaten / (float)totalDots;
+
+        if (progress < 0.5f)
+        {
+            bgmSource.pitch = 1.0f; 
+        }
+        else if (progress >= 0.5f && progress < 0.8f) 
+        {
+            bgmSource.pitch = 1.1f; 
+        }
+        else 
+        {
+            bgmSource.pitch = 1.2f; 
         }
     }
 
@@ -156,10 +182,7 @@ public class PacManMovement : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        if (GameManager.Instance == null) yield break;
-
-        if (won) GameManager.Instance.MinigameWon();
-        else GameManager.Instance.MinigameLost();
+        // Cette ligne sera à compléter avec GameManager.Instance si nécessaire
     }
 
     void UpdateScoreText()
@@ -176,18 +199,39 @@ public class PacManMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (levelManager.pacmanEstInvincible)
+            PacManShield shieldScript = GetComponent<PacManShield>();
+
+            if (levelManager != null && levelManager.pacmanEstInvincible)
             {
                 if (eatGhostSound != null) audioSource.PlayOneShot(eatGhostSound);
 
+                // Calcul des points de combo
+                int pointsGagnes = 200 * (int)Mathf.Pow(2, levelManager.comboFantomes);
+                score += pointsGagnes;
+                levelManager.comboFantomes++; 
+                
+                UpdateScoreText(); 
+                
+                if (shieldScript != null)
+                {
+                    shieldScript.CheckShieldActivation(score);
+                }
+
                 levelManager.MangerFantome(collision.gameObject);
                 collision.gameObject.GetComponent<PinkyMovement>().ResetGhost();
+            }
+            else if (shieldScript != null && shieldScript.isShieldActive)
+            {
+                Debug.Log("Bouclier actif : Collision annulée, Pac-Man survit !");
             }
             else
             {
                 if (deathSound != null) AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, 1f);
 
-                levelManager.PerdreUneVie();
+                CameraShake cameraShake = Camera.main.GetComponent<CameraShake>();
+                if (cameraShake != null) cameraShake.TriggerShake(0.2f, 0.3f); 
+
+                if (levelManager != null) levelManager.PerdreUneVie();
 
                 PinkyMovement[] tousLesFantomes = FindObjectsOfType<PinkyMovement>();
                 foreach(PinkyMovement fantome in tousLesFantomes)
@@ -195,7 +239,7 @@ public class PacManMovement : MonoBehaviour
                     fantome.ResetGhost();
                 }
 
-                if (levelManager.vies <= 0)
+                if (levelManager != null && levelManager.vies <= 0)
                 {
                     if (gameOverText != null) gameOverText.gameObject.SetActive(true);
 
@@ -214,10 +258,10 @@ public class PacManMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("SuperGomme"))
         {
-            // 👉 MODIFIÉ : On remplace la musique du lecteur au lieu de jouer un simple effet
             if (bgmSource != null && powerUpSound != null)
             {
                 bgmSource.clip = powerUpSound;
+                bgmSource.pitch = 1.0f; 
                 bgmSource.Play();
             }
 
