@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public List<string> repairedTerminals = new List<string>();
     public List<string> collectedFragments = new List<string>();
     public bool hintUnlocked = false;
+    public bool introShown = false;
 
     [Header("Code final")]
     public List<string> wordPool = new List<string>
