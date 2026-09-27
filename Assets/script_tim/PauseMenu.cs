@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     public KeyCode altPauseKey = KeyCode.P;
 
     private GameObject panel;
+    private GameObject pauseButton;
     private bool paused = false;
 
     void Start()
@@ -36,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         paused = true;
         panel.SetActive(true);
         panel.transform.SetAsLastSibling();
+        if (pauseButton != null) pauseButton.SetActive(false);
         Time.timeScale = 0f;
     }
 
@@ -43,6 +45,7 @@ public class PauseMenu : MonoBehaviour
     {
         paused = false;
         panel.SetActive(false);
+        if (pauseButton != null) pauseButton.SetActive(true);
         Time.timeScale = 1f;
     }
 
@@ -98,6 +101,49 @@ public class PauseMenu : MonoBehaviour
         CreateButton("RESUME", new Vector2(0f, 40f), Resume);
         CreateButton("RESTART", new Vector2(0f, -40f), Restart);
         CreateButton("QUIT TO MENU", new Vector2(0f, -120f), QuitToMenu);
+
+        AudioOptions audio = panel.AddComponent<AudioOptions>();
+        audio.customParent = rt;
+        audio.position = new Vector2(0f, -240f);
+        audio.width = 420f;
+
+        BuildPauseButton(canvas);
+    }
+
+    // Bouton pause visible en permanence, en haut a droite
+    void BuildPauseButton(Canvas canvas)
+    {
+        pauseButton = NewUIObject("PauseButton", canvas.transform);
+
+        RectTransform rt = pauseButton.GetComponent<RectTransform>();
+        rt.anchorMin = new Vector2(1f, 1f);
+        rt.anchorMax = new Vector2(1f, 1f);
+        rt.pivot = new Vector2(1f, 1f);
+        rt.anchoredPosition = new Vector2(-28f, -24f);
+        rt.sizeDelta = new Vector2(64f, 64f);
+
+        Image img = pauseButton.AddComponent<Image>();
+        img.color = new Color(0.08f, 0.12f, 0.20f, 0.85f);
+
+        Button btn = pauseButton.AddComponent<Button>();
+        btn.targetGraphic = img;
+        btn.onClick.AddListener(Pause);
+        SoundManager.AttachClick(btn);
+
+        GameObject textGo = NewUIObject("Label", pauseButton.transform);
+        RectTransform trt = textGo.GetComponent<RectTransform>();
+        trt.anchorMin = Vector2.zero;
+        trt.anchorMax = Vector2.one;
+        trt.offsetMin = Vector2.zero;
+        trt.offsetMax = Vector2.zero;
+
+        TextMeshProUGUI txt = textGo.AddComponent<TextMeshProUGUI>();
+        txt.text = "II";
+        txt.fontSize = 30f;
+        txt.fontStyle = FontStyles.Bold;
+        txt.color = new Color(0.85f, 0.92f, 1f);
+        txt.alignment = TextAlignmentOptions.Center;
+        txt.raycastTarget = false;
     }
 
     GameObject NewUIObject(string objectName, Transform parent)
@@ -141,6 +187,7 @@ public class PauseMenu : MonoBehaviour
         Button btn = go.AddComponent<Button>();
         btn.targetGraphic = img;
         btn.onClick.AddListener(action);
+        SoundManager.AttachClick(btn);
 
         GameObject textGo = NewUIObject("Label", go.transform);
         RectTransform trt = textGo.GetComponent<RectTransform>();

@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 
         SceneManager.sceneLoaded += OnSceneLoaded;
 
+        GameSettings.ApplyAudio();
+
         StartNewGame();
     }
 
@@ -60,7 +62,15 @@ public class GameManager : MonoBehaviour
     {
         if (!timerRunning) return;
 
+        float before = timeLeft;
         timeLeft -= Time.deltaTime;
+
+        // Bip d'alerte chaque seconde sur les 30 dernieres
+        if (timeLeft <= 30f && timeLeft > 0f &&
+            Mathf.FloorToInt(before) != Mathf.FloorToInt(timeLeft))
+        {
+            SoundManager.PlayTick();
+        }
 
         if (timeLeft <= 0f)
         {
@@ -153,12 +163,14 @@ public class GameManager : MonoBehaviour
         {
             hintUnlocked = true;
             Debug.Log("Indice debloque");
+            SoundManager.PlayVictory();
         }
         else if (!repairedTerminals.Contains(currentTerminalId))
         {
             repairedTerminals.Add(currentTerminalId);
             collectedFragments.Add(currentFragment);
             Debug.Log("Panne reparee : " + currentTerminalId + " | Fragment : " + currentFragment);
+            SoundManager.PlayRepair();
         }
 
         SceneManager.LoadScene("Main");
@@ -168,6 +180,8 @@ public class GameManager : MonoBehaviour
     {
         if (!isHardMode && !string.IsNullOrEmpty(currentTerminalId))
             lockoutUntil[currentTerminalId] = Time.unscaledTime + lockoutDuration;
+
+        SoundManager.PlayFail();
 
         SceneManager.LoadScene("Main");
     }
@@ -198,6 +212,7 @@ public class GameManager : MonoBehaviour
     {
         timerRunning = false;
         Debug.Log("GAME OVER : " + reason);
+        SoundManager.PlayGameOver();
         ShowEnd(false, reason);
     }
 
@@ -205,6 +220,7 @@ public class GameManager : MonoBehaviour
     {
         timerRunning = false;
         Debug.Log("VICTOIRE");
+        SoundManager.PlayVictory();
         ShowEnd(true, "ACCESS GRANTED");
     }
 

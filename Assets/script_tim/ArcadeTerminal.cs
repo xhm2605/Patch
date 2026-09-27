@@ -61,6 +61,7 @@ public class ArcadeTerminal : MonoBehaviour
 
         playerInRange = true;
         repairButton.gameObject.SetActive(true);
+        SoundManager.PlayOpen();
         repairButton.onClick.RemoveAllListeners();
         repairButton.onClick.AddListener(StartMinigame);
         RefreshButton();
@@ -102,7 +103,12 @@ public class ArcadeTerminal : MonoBehaviour
     void StartMinigame()
     {
         if (!playerInRange || !IsInteractable()) return;
-        if (GameManager.Instance.IsLocked(terminalId)) return;
+
+        if (GameManager.Instance.IsLocked(terminalId))
+        {
+            SoundManager.PlayLocked();
+            return;
+        }
 
         repairButton.gameObject.SetActive(false);
 

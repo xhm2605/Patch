@@ -1,7 +1,10 @@
+using UnityEngine;
+
 public static class GameSettings
 {
     public static int difficulty = 1;
     public static bool soundOn = true;
+    public static float volume = 0.7f;
 
     public static string DifficultyName()
     {
@@ -15,5 +18,29 @@ public static class GameSettings
         if (difficulty == 0) return 480f;
         if (difficulty == 2) return 300f;
         return 390f;
+    }
+
+    // Volume global : s'applique aussi aux mini-jeux
+    public static void ApplyAudio()
+    {
+        AudioListener.volume = soundOn ? Mathf.Clamp01(volume) : 0f;
+    }
+
+    public static void ToggleSound()
+    {
+        soundOn = !soundOn;
+        ApplyAudio();
+    }
+
+    public static void SetVolume(float value)
+    {
+        volume = Mathf.Clamp01(value);
+        if (volume > 0f) soundOn = true;
+        ApplyAudio();
+    }
+
+    public static int VolumePercent()
+    {
+        return Mathf.RoundToInt(Mathf.Clamp01(volume) * 100f);
     }
 }

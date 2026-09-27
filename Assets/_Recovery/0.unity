@@ -651,7 +651,6 @@ GameObject:
   - component: {fileID: 810960857}
   - component: {fileID: 810960856}
   - component: {fileID: 810960855}
-  - component: {fileID: 810960858}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -746,21 +745,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &810960858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810960853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddcbd4848a887b144a82c1b5ffc84a33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioOptions
-  position: {x: 0, y: -370}
-  width: 500
-  customParent: {fileID: 0}
 --- !u!1 &1181131931
 GameObject:
   m_ObjectHideFlags: 0

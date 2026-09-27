@@ -1233,7 +1233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &469595472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2926,7 +2926,7 @@ MonoBehaviour:
 
 
     You are the only crew member still awake. Repair every system, recover the fragments, and reassemble the code before the countdown reaches zero...'
-  introDuration: 30
+  readingSpeed: 55
   crawlHeight: 2600
   fontSize: 46
   endScale: 0.45

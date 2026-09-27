@@ -23,15 +23,24 @@ public class IntroCrawl : MonoBehaviour
         "system, recover the fragments, and reassemble the code " +
         "before the countdown reaches zero...";
 
-    public float introDuration = 30f;
+    [Tooltip("Vitesse de defilement en pixels par seconde. Plus petit = plus lent.")]
+    public float readingSpeed = 55f;
+
+    [Tooltip("Marge sous le bas de l'ecran au depart. Plus petit = le texte arrive plus vite.")]
+    public float startMargin = 30f;
+
     public float crawlHeight = 2600f;
     public float fontSize = 46f;
-    public float endScale = 0.45f;
+    public float endScale = 0.55f;
 
     private GameObject panel;
+    private RectTransform canvasRect;
     private RectTransform crawl;
+    private TextMeshProUGUI crawlText;
     private float startY;
-    private float travel;
+    private float screenHeight = 1080f;
+    private float textHeight = 0f;
+    private float fadeSpan = 2000f;
     private bool running = false;
 
     void Start()
@@ -49,14 +58,36 @@ public class IntroCrawl : MonoBehaviour
     {
         if (!running) return;
 
-        float y = crawl.anchoredPosition.y + (travel / Mathf.Max(introDuration, 1f)) * Time.unscaledDeltaTime;
+        if (textHeight <= 0f) MeasureText();
+
+        float y = crawl.anchoredPosition.y + readingSpeed * Time.unscaledDeltaTime;
         crawl.anchoredPosition = new Vector2(0f, y);
 
-        float t = Mathf.Clamp01((y - startY) / travel);
+        float t = Mathf.Clamp01((y - startY) / fadeSpan);
         float s = Mathf.Lerp(1f, endScale, t);
         crawl.localScale = new Vector3(s, s, 1f);
 
-        if (t >= 1f) Finish();
+        // Fin des que la derniere ligne est sortie par le haut
+        if (y - textHeight * s > 40f) Finish();
+    }
+
+    void MeasureText()
+    {
+        // Le Canvas Scaler n'est calibre qu'apres Start : on mesure ici
+        Canvas.ForceUpdateCanvases();
+
+        if (canvasRect != null && canvasRect.rect.height > 100f)
+            screenHeight = canvasRect.rect.height;
+
+        crawlText.ForceMeshUpdate();
+        textHeight = crawlText.preferredHeight;
+
+        if (textHeight < 500f) textHeight = 1800f;
+
+        fadeSpan = textHeight + screenHeight;
+
+        startY = -(screenHeight + startMargin);
+        crawl.anchoredPosition = new Vector2(0f, startY);
     }
 
     public void Finish()
@@ -74,6 +105,10 @@ public class IntroCrawl : MonoBehaviour
         Canvas canvas = GetComponentInParent<Canvas>();
         if (canvas == null) canvas = FindAnyObjectByType<Canvas>();
         if (canvas == null) return;
+
+        canvasRect = canvas.transform as RectTransform;
+        if (canvasRect != null && canvasRect.rect.height > 100f)
+            screenHeight = canvasRect.rect.height;
 
         panel = NewUI("IntroPanel", canvas.transform);
         Stretch(panel.GetComponent<RectTransform>());
@@ -117,17 +152,17 @@ public class IntroCrawl : MonoBehaviour
         crawl.pivot = new Vector2(0.5f, 1f);
         crawl.sizeDelta = new Vector2(1000f, crawlHeight);
 
-        startY = -1150f;
+        // Le haut du texte se place juste sous le bas de l'ecran reel
+        startY = -(screenHeight + startMargin);
         crawl.anchoredPosition = new Vector2(0f, startY);
-        travel = crawlHeight + 800f;
 
-        TextMeshProUGUI tmp = go.AddComponent<TextMeshProUGUI>();
-        tmp.text = "<size=170%><b>" + title + "</b></size>\n\n" + introText;
-        tmp.fontSize = fontSize;
-        tmp.color = new Color(1f, 0.84f, 0.29f);
-        tmp.alignment = TextAlignmentOptions.Top;
-        tmp.lineSpacing = 14f;
-        tmp.raycastTarget = false;
+        crawlText = go.AddComponent<TextMeshProUGUI>();
+        crawlText.text = "<size=170%><b>" + title + "</b></size>\n\n" + introText;
+        crawlText.fontSize = fontSize;
+        crawlText.color = new Color(1f, 0.84f, 0.29f);
+        crawlText.alignment = TextAlignmentOptions.Top;
+        crawlText.lineSpacing = 14f;
+        crawlText.raycastTarget = false;
     }
 
     void BuildFade()
@@ -135,12 +170,11 @@ public class IntroCrawl : MonoBehaviour
         GameObject go = NewUI("TopFade", panel.transform);
 
         RectTransform rt = go.GetComponent<RectTransform>();
-        rt.anchorMin = new Vector2(0f, 1f);
+        rt.anchorMin = new Vector2(0f, 0.62f);
         rt.anchorMax = new Vector2(1f, 1f);
         rt.pivot = new Vector2(0.5f, 1f);
-        rt.offsetMin = new Vector2(0f, 0f);
-        rt.offsetMax = new Vector2(0f, 0f);
-        rt.sizeDelta = new Vector2(0f, 460f);
+        rt.offsetMin = Vector2.zero;
+        rt.offsetMax = Vector2.zero;
 
         int h = 128;
         Texture2D tex = new Texture2D(1, h);
