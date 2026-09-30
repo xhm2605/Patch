@@ -23,6 +23,13 @@ public class PauseMenu : MonoBehaviour
     {
         if (panel == null || IntroCrawl.IsPlaying) return;
 
+        // Le bouton pause disparait quand la partie est terminee
+        if (pauseButton != null && !paused)
+        {
+            bool canPause = (GameManager.Instance == null) || GameManager.Instance.timerRunning;
+            if (pauseButton.activeSelf != canPause) pauseButton.SetActive(canPause);
+        }
+
         if (Input.GetKeyDown(pauseKey) || Input.GetKeyDown(altPauseKey))
         {
             if (paused) Resume();

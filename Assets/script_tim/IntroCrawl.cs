@@ -115,6 +115,8 @@ public class IntroCrawl : MonoBehaviour
         Image bg = panel.AddComponent<Image>();
         bg.color = Color.black;
 
+        WarpStars.Attach(panel.transform, 150);
+
         BuildCrawl();
         BuildFade();
         BuildSkipButton();
@@ -182,7 +184,7 @@ public class IntroCrawl : MonoBehaviour
 
         for (int y = 0; y < h; y++)
         {
-            float a = Mathf.Pow((float)y / (h - 1), 1.4f);
+            float a = Mathf.Pow((float)y / (h - 1), 1.6f) * 0.82f;
             tex.SetPixel(0, y, new Color(0f, 0f, 0f, a));
         }
 

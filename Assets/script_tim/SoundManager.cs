@@ -7,11 +7,19 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    private AudioSource musicSource;
+    private AudioSource ambienceSource;   // l'espace
+    private AudioSource beepSource;       // les bips de console
+    private AudioSource breathSource;     // la respiration
+    private AudioSource engineSource;     // les reacteurs
     private AudioSource sfxSource;
-    private bool musicPlaying = false;
 
-    private AudioClip ambient;
+    private bool playing = false;
+
+    private AudioClip ambienceClip;
+    private AudioClip breathClip;
+    private AudioClip engineClip;
+    private AudioClip beepClip;
+
     private AudioClip clickClip;
     private AudioClip repairClip;
     private AudioClip failClip;
@@ -22,6 +30,7 @@ public class SoundManager : MonoBehaviour
     private AudioClip openClip;
 
     private const int Rate = 22050;
+    private const float BeepLoop = 48f;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Bootstrap()
@@ -42,15 +51,18 @@ public class SoundManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        musicSource = gameObject.AddComponent<AudioSource>();
-        musicSource.loop = true;
-        musicSource.playOnAwake = false;
-        musicSource.volume = 0.85f;
+        ambienceClip = Load("SpaceAmbience");
+        breathClip = Load("Breathing");
+        engineClip = Load("RocketEngine");
 
-        sfxSource = gameObject.AddComponent<AudioSource>();
-        sfxSource.playOnAwake = false;
+        ambienceSource = NewSource(true, 0.85f);
+        beepSource = NewSource(true, 0.95f);
+        breathSource = NewSource(true, 0.25f);
+        engineSource = NewSource(true, 0.10f);
+        sfxSource = NewSource(false, 1f);
 
-        BuildClips();
+        BuildEffects();
+        beepClip = BuildBeepTrack();
 
         GameSettings.ApplyAudio();
 
@@ -63,60 +75,123 @@ public class SoundManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    AudioClip Load(string clipName)
+    {
+        AudioClip clip = Resources.Load<AudioClip>(clipName);
+        if (clip == null) Debug.LogWarning("SoundManager : " + clipName + " introuvable dans Assets/Resources");
+        return clip;
+    }
+
+    AudioSource NewSource(bool loop, float volume)
+    {
+        AudioSource src = gameObject.AddComponent<AudioSource>();
+        src.loop = loop;
+        src.playOnAwake = false;
+        src.volume = volume;
+        return src;
+    }
+
+    void Update()
+    {
+        if (!playing) return;
+
+        float breathVolume = 0.25f;
+        float breathPitch = 1f;
+        float tension = 0f;
+
+        if (GameManager.Instance != null && GameManager.Instance.timerRunning)
+        {
+            float left = GameManager.Instance.GetTimeLeft();
+
+            if (left <= 12f)
+            {
+                breathVolume = 0f;          // on etouffe
+                breathPitch = 1.30f;
+                tension = 1f;
+            }
+            else if (left <= 30f)
+            {
+                breathVolume = 0.42f;
+                breathPitch = 1.22f;
+                tension = 0.9f;
+            }
+            else if (left <= 60f)
+            {
+                breathVolume = 0.34f;
+                breathPitch = 1.12f;
+                tension = 0.6f;
+            }
+            else if (left <= 120f)
+            {
+                breathVolume = 0.29f;
+                breathPitch = 1.05f;
+                tension = 0.3f;
+            }
+        }
+
+        // pas de respiration tant que le texte d'introduction defile
+        if (IntroCrawl.IsPlaying) breathVolume = 0f;
+
+        float speed = (breathVolume < breathSource.volume) ? 0.45f : 0.09f;
+        breathSource.volume = Mathf.MoveTowards(breathSource.volume, breathVolume, Time.unscaledDeltaTime * speed);
+        breathSource.pitch = Mathf.MoveTowards(breathSource.pitch, breathPitch, Time.unscaledDeltaTime * 0.12f);
+
+        // les reacteurs montent en regime quand le temps presse
+        engineSource.pitch = Mathf.MoveTowards(engineSource.pitch,
+            Mathf.Lerp(1f, 1.10f, tension), Time.unscaledDeltaTime * 0.08f);
+    }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         ApplyScene(scene.name);
         HookSceneButtons();
     }
 
-    // La musique d'ambiance ne joue que dans le vaisseau et le menu :
-    // les mini-jeux ont deja leur propre bande son.
+    // Le paysage sonore du vaisseau. Les mini-jeux gardent leur propre bande son.
     void ApplyScene(string sceneName)
     {
-        bool wantsMusic = (sceneName == "Main" || sceneName == "MainMenu");
+        bool wantsAmbience = (sceneName == "Main" || sceneName == "MainMenu");
+        bool wantsBreath = (sceneName == "Main");
 
-        if (wantsMusic)
+        if (wantsAmbience && !playing)
         {
-            if (!musicPlaying)
+            Start(ambienceSource, ambienceClip);
+            Start(beepSource, beepClip);
+            Start(engineSource, engineClip);
+            playing = true;
+        }
+        else if (!wantsAmbience && playing)
+        {
+            ambienceSource.Stop();
+            beepSource.Stop();
+            engineSource.Stop();
+            breathSource.Stop();
+            playing = false;
+        }
+
+        if (playing)
+        {
+            if (wantsBreath && !breathSource.isPlaying)
             {
-                musicSource.Stop();
-                musicSource.resource = ambient;
-                musicSource.loop = true;
-                musicSource.Play();
-                musicPlaying = true;
+                breathSource.volume = 0f;
+                Start(breathSource, breathClip);
+            }
+            else if (!wantsBreath && breathSource.isPlaying)
+            {
+                breathSource.Stop();
             }
         }
-        else if (musicPlaying)
-        {
-            musicSource.Stop();
-            musicPlaying = false;
-        }
-
-        Debug.Log("AUDIO DIAG"
-            + " | scene " + sceneName
-            + " | playing " + musicSource.isPlaying
-            + " | resource " + (musicSource.resource != null ? musicSource.resource.name : "null")
-            + " | peak " + PeakOf(ambient).ToString("0.000")
-            + " | srcVol " + musicSource.volume.ToString("0.00")
-            + " | listener " + AudioListener.volume.ToString("0.00")
-            + " | listenerPause " + AudioListener.pause
-            + " | mute " + musicSource.mute
-            + " | listeners " + FindObjectsByType<AudioListener>(FindObjectsInactive.Include, FindObjectsSortMode.None).Length);
     }
 
-    float PeakOf(AudioClip clip)
+    void Start(AudioSource src, AudioClip clip)
     {
-        if (clip == null) return -1f;
+        if (src == null || clip == null) return;
 
-        int n = Mathf.Min(8192, clip.samples);
-        if (n <= 0) return -2f;
-
-        float[] buffer = new float[n];
-        clip.GetData(buffer, clip.samples / 3);
-
-        float peak = 0f;
-        for (int i = 0; i < n; i++) peak = Mathf.Max(peak, Mathf.Abs(buffer[i]));
-        return peak;
+        src.Stop();
+        src.resource = clip;
+        src.loop = true;
+        src.pitch = 1f;
+        src.Play();
     }
 
     // ---------- API ----------
@@ -128,7 +203,7 @@ public class SoundManager : MonoBehaviour
     public static void PlayLocked() { PlaySfx(Get(s => s.lockedClip), 0.6f); }
     public static void PlayVictory() { PlaySfx(Get(s => s.victoryClip), 0.8f); }
     public static void PlayGameOver() { PlaySfx(Get(s => s.gameOverClip), 0.8f); }
-    public static void PlayTick() { PlaySfx(Get(s => s.tickClip), 0.35f); }
+    public static void PlayTick() { PlaySfx(Get(s => s.tickClip), 0.4f); }
 
     static AudioClip Get(Func<SoundManager, AudioClip> pick)
     {
@@ -157,9 +232,9 @@ public class SoundManager : MonoBehaviour
         foreach (Button b in buttons) AttachClick(b);
     }
 
-    // ---------- Generation des sons ----------
+    // ---------- Effets courts ----------
 
-    void BuildClips()
+    void BuildEffects()
     {
         clickClip = Blip("Click", 900f, 0.07f, 26f);
         openClip = Arpeggio("Open", new float[] { 523.25f, 784f }, 0.09f, 18f);
@@ -169,30 +244,34 @@ public class SoundManager : MonoBehaviour
         victoryClip = Arpeggio("Victory", new float[] { 523.25f, 659.25f, 784f, 1046.5f, 1318.5f }, 0.13f, 7f);
         gameOverClip = Slide("GameOver", 440f, 110f, 1.1f);
         tickClip = Blip("Tick", 1400f, 0.05f, 40f);
-        ambient = Ambient();
     }
 
-    AudioClip Build(string clipName, Func<float, float> sample, float duration)
+    AudioClip Build(string clipName, Func<float, float> sample, float duration, float fade = 0.02f)
     {
         int count = Mathf.Max(1, Mathf.CeilToInt(duration * Rate));
         float[] data = new float[count];
-
-        float fade = 0.02f;
 
         for (int i = 0; i < count; i++)
         {
             float t = i / (float)Rate;
             float v = sample(t);
 
-            // fondu aux extremites pour eviter les claquements
-            if (t < fade) v *= t / fade;
-            float remaining = duration - t;
-            if (remaining < fade) v *= Mathf.Max(0f, remaining / fade);
+            if (fade > 0f)
+            {
+                if (t < fade) v *= t / fade;
+                float remaining = duration - t;
+                if (remaining < fade) v *= Mathf.Max(0f, remaining / fade);
+            }
 
             data[i] = Mathf.Clamp(v, -1f, 1f);
         }
 
-        AudioClip clip = AudioClip.Create(clipName, count, 1, Rate, false);
+        return FromData(clipName, data);
+    }
+
+    AudioClip FromData(string clipName, float[] data)
+    {
+        AudioClip clip = AudioClip.Create(clipName, data.Length, 1, Rate, false);
         clip.SetData(data, 0);
         return clip;
     }
@@ -245,38 +324,60 @@ public class SoundManager : MonoBehaviour
         }, duration);
     }
 
-    // Nappe spatiale en la mineur pentatonique, boucle de 4 mesures
-    AudioClip Ambient()
+    // ---------- Les bips de console, avec leur echo ----------
+
+    AudioClip BuildBeepTrack()
     {
-        float beat = 60f / 68f;
-        float barLength = beat * 4f;
-        int bars = 4;
-        float duration = barLength * bars;
+        int count = Mathf.CeilToInt(BeepLoop * Rate);
+        float[] data = new float[count];
 
-        float[] bassNotes = { 110.00f, 110.00f, 87.31f, 98.00f };
-        float[] arpNotes = { 440.00f, 523.25f, 659.25f, 523.25f };
-        float[] barShift = { 1f, 1f, 0.7937f, 0.8909f };
+        AddBeep(data, 3.40f, 1220f, 0.090f, 0.38f);
+        AddBeep(data, 9.80f, 880f, 0.130f, 0.42f);
+        AddBeep(data, 16.30f, 1500f, 0.070f, 0.35f);
+        AddBeep(data, 22.75f, 700f, 0.160f, 0.45f);
+        AddBeep(data, 29.10f, 1050f, 0.100f, 0.39f);
+        AddBeep(data, 35.60f, 1800f, 0.055f, 0.34f);
+        AddBeep(data, 41.05f, 960f, 0.120f, 0.41f);
+        AddBeep(data, 45.90f, 700f, 0.150f, 0.44f);
 
-        float step = beat / 2f;
+        AddEcho(data, 0.31f, 0.52f, 5);
 
-        return Build("Ambient", t =>
+        return FromData("Beeps", data);
+    }
+
+    void AddBeep(float[] data, float startSec, float freq, float duration, float volume)
+    {
+        int a = Mathf.Clamp(Mathf.RoundToInt(startSec * Rate), 0, data.Length - 1);
+        int b = Mathf.Clamp(Mathf.RoundToInt((startSec + duration) * Rate), 0, data.Length);
+
+        for (int i = a; i < b; i++)
         {
-            int bar = Mathf.Clamp((int)(t / barLength), 0, bars - 1);
-            float barTime = t - bar * barLength;
+            float local = (i - a) / (float)Rate;
+            float env = Mathf.Min(1f, local * 400f) * Mathf.Exp(-local * 14f);
+            data[i] = Mathf.Clamp(data[i] + Mathf.Sin(2f * Mathf.PI * freq * local) * volume * env, -1f, 1f);
+        }
+    }
 
-            float bassEnv = Mathf.Exp(-barTime * 0.5f) * Mathf.Min(1f, barTime * 30f);
-            float bass = Mathf.Sin(2f * Mathf.PI * bassNotes[bar] * barTime) * 0.38f * bassEnv;
+    // Echo par repetitions decroissantes. On enroule sur la fin de la boucle
+    // pour que la traine ne soit pas coupee au raccord.
+    void AddEcho(float[] data, float delaySec, float feedback, int repeats)
+    {
+        int len = data.Length;
+        int delay = Mathf.Max(1, Mathf.RoundToInt(delaySec * Rate));
 
-            int n = (int)(t / step);
-            float localTime = t - n * step;
-            float arpEnv = Mathf.Exp(-localTime * 3.5f) * Mathf.Min(1f, localTime * 90f);
-            float freq = arpNotes[n % arpNotes.Length] * barShift[bar];
-            float arp = Mathf.Sin(2f * Mathf.PI * freq * localTime) * 0.20f * arpEnv;
+        float[] dry = (float[])data.Clone();
 
-            float shimmer = Mathf.Sin(2f * Mathf.PI * freq * 2f * localTime) * 0.06f * arpEnv;
+        for (int r = 1; r <= repeats; r++)
+        {
+            float gain = Mathf.Pow(feedback, r);
+            int offset = delay * r;
 
-            return bass + arp + shimmer;
-        }, duration);
+            for (int i = 0; i < len; i++)
+            {
+                int j = (i + offset) % len;
+                data[j] = Mathf.Clamp(data[j] + dry[i] * gain, -1f, 1f);
+            }
+        }
     }
 }
 
