@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public List<string> solutionOrder = new List<string>();
 
     [Header("Chronometre")]
-    public float totalTime = 390f;
+    public float totalTime = 480f;
     public bool timerRunning = false;
 
     [Header("Verrouillage apres echec")]
@@ -29,7 +29,17 @@ public class GameManager : MonoBehaviour
 
     private Dictionary<string, float> lockoutUntil = new Dictionary<string, float>();
     private Dictionary<string, string> fragmentByTerminal = new Dictionary<string, string>();
-    private List<string> terminalIds = new List<string> { "Engine", "Shield", "Oxygen", "Comms" };
+
+    private List<string> terminalIds = new List<string>
+    {
+        "Engine", "Shield", "Oxygen", "Comms", "Coolant"
+    };
+
+    // Pac-Man et Snake ne rendent qu'une lettre, les trois autres en rendent deux
+    private Dictionary<string, int> fragmentLength = new Dictionary<string, int>
+    {
+        { "Engine", 2 }, { "Shield", 1 }, { "Oxygen", 2 }, { "Comms", 2 }, { "Coolant", 1 }
+    };
 
     private float timeLeft;
     private string currentTerminalId;
@@ -65,7 +75,6 @@ public class GameManager : MonoBehaviour
         float before = timeLeft;
         timeLeft -= Time.deltaTime;
 
-        // Bip d'alerte chaque seconde sur les 30 dernieres
         if (timeLeft <= 30f && timeLeft > 0f &&
             Mathf.FloorToInt(before) != Mathf.FloorToInt(timeLeft))
         {
@@ -88,6 +97,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int TerminalCount()
+    {
+        return terminalIds.Count;
+    }
+
+    public List<string> TerminalIds()
+    {
+        return terminalIds;
+    }
+
     public void StartNewGame()
     {
         repairedTerminals.Clear();
@@ -98,10 +117,12 @@ public class GameManager : MonoBehaviour
 
         currentWord = PickWord();
 
+        // Le code final se compose lettre par lettre
         solutionOrder.Clear();
-        for (int i = 0; i < 8; i += 2)
-            solutionOrder.Add(currentWord.Substring(i, 2));
+        for (int i = 0; i < currentWord.Length; i++)
+            solutionOrder.Add(currentWord.Substring(i, 1));
 
+        // On tire l'ordre des bornes, puis on decoupe le mot selon leur capacite
         List<string> ids = new List<string>(terminalIds);
         for (int i = 0; i < ids.Count; i++)
         {
@@ -111,8 +132,15 @@ public class GameManager : MonoBehaviour
             ids[r] = tmp;
         }
 
-        for (int i = 0; i < 4; i++)
-            fragmentByTerminal[ids[i]] = solutionOrder[i];
+        int cursor = 0;
+        foreach (string id in ids)
+        {
+            int length = fragmentLength.ContainsKey(id) ? fragmentLength[id] : 2;
+            length = Mathf.Clamp(length, 0, currentWord.Length - cursor);
+
+            fragmentByTerminal[id] = length > 0 ? currentWord.Substring(cursor, length) : "?";
+            cursor += length;
+        }
 
         totalTime = GameSettings.TotalTime();
         StartTimer();
@@ -131,6 +159,18 @@ public class GameManager : MonoBehaviour
 
         if (valid.Count == 0) return "STARSHIP";
         return valid[Random.Range(0, valid.Count)];
+    }
+
+    // Toutes les lettres ramassees, separees une a une
+    public List<string> CollectedLetters()
+    {
+        List<string> letters = new List<string>();
+
+        foreach (string frag in collectedFragments)
+            for (int i = 0; i < frag.Length; i++)
+                letters.Add(frag.Substring(i, 1));
+
+        return letters;
     }
 
     public string GetFragmentFor(string terminalId)

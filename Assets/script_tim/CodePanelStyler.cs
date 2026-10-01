@@ -38,13 +38,8 @@ public class CodePanelStyler : MonoBehaviour
         AddFill(bg);
 
         StyleText("TitleText", titleLabel, 40f, accentColor, 0f, 262f, 860f, 70f);
-        StyleText("SlotText", null, 78f, slotColor, 0f, 140f, 880f, 120f);
-        StyleText("AttemptsText", null, 28f, new Color(0.72f, 0.76f, 0.84f), 0f, 22f, 700f, 48f);
-        StyleText("FeedbackText", null, 28f, new Color(1f, 0.78f, 0.35f), 0f, -140f, 880f, 60f);
-
-        float[] xs = { -291f, -97f, 97f, 291f };
-        for (int i = 0; i < 4; i++)
-            StyleButton("FragBtn" + i, fragColor, Color.white, xs[i], -40f, 176f, 84f, 36f);
+        StyleText("AttemptsText", null, 26f, new Color(0.72f, 0.76f, 0.84f), 0f, -100f, 700f, 44f);
+        StyleText("FeedbackText", null, 28f, new Color(1f, 0.78f, 0.35f), 0f, -156f, 880f, 56f);
 
         StyleButton("SubmitBtn", submitColor, Color.white, -145f, -252f, 260f, 68f, 28f);
         StyleButton("ResetBtn", resetColor, Color.white, 145f, -252f, 260f, 68f, 28f);

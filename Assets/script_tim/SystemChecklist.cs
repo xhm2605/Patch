@@ -5,8 +5,8 @@ public class SystemChecklist : MonoBehaviour
 {
     public TMP_Text display;
 
-    private string[] ids = { "Engine", "Shield", "Oxygen", "Comms" };
-    private string[] labels = { "ENGINE", "SHIELD", "OXYGEN", "COMMS " };
+    private string[] ids = { "Engine", "Shield", "Oxygen", "Comms", "Coolant" };
+    private string[] labels = { "ENGINE ", "SHIELD ", "OXYGEN ", "COMMS  ", "COOLANT" };
 
     void Start()
     {
@@ -23,13 +23,14 @@ public class SystemChecklist : MonoBehaviour
             return;
         }
 
-        string txt = "<mspace=0.6em>SYSTEMS\n";
+        int done = GameManager.Instance.repairedTerminals.Count;
+        int total = GameManager.Instance.TerminalCount();
+
+        string txt = "<mspace=0.6em>SYSTEMS " + done + "/" + total + "\n";
 
         for (int i = 0; i < ids.Length; i++)
         {
-            bool done = GameManager.Instance.IsRepaired(ids[i]);
-
-            if (done)
+            if (GameManager.Instance.IsRepaired(ids[i]))
                 txt += "<color=#57E389>[X] " + labels[i] + " " + GameManager.Instance.GetFragmentFor(ids[i]) + "</color>\n";
             else
                 txt += "<color=#8A93A5>[ ] " + labels[i] + " ??</color>\n";

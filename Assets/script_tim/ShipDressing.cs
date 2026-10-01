@@ -9,7 +9,6 @@ public class ShipDressing : MonoBehaviour
     private static Sprite floorSprite;
     private static Sprite hullSprite;
     private static Sprite stripeSprite;
-    private static Sprite portholeSprite;
     private static Sprite panelSprite;
     private static Sprite pipeSprite;
     private static Sprite glowSprite;
@@ -77,6 +76,8 @@ public class ShipDressing : MonoBehaviour
     static Rect CorrS = Rect.MinMaxRect(-2f, -16f, 2f, -6f);
     static Rect CorrE = Rect.MinMaxRect(8f, -2f, 18f, 2f);
     static Rect CorrW = Rect.MinMaxRect(-18f, -2f, -8f, 2f);
+    static Rect Coolant = Rect.MinMaxRect(18f, 16f, 34f, 28f);
+    static Rect CorrNE = Rect.MinMaxRect(24f, 6f, 28f, 16f);
 
     // Rien ne se pose la : bornes, console de code, depart du joueur
     static readonly Rect[] Reserved =
@@ -86,6 +87,7 @@ public class ShipDressing : MonoBehaviour
         Rect.MinMaxRect(-2.8f, -27.8f, 2.8f, -22.2f),
         Rect.MinMaxRect(-28.8f, 0.2f, -23.2f, 5.8f),
         Rect.MinMaxRect(23.2f, 0.2f, 28.8f, 5.8f),
+        Rect.MinMaxRect(23.2f, 22.2f, 28.8f, 27.8f),
         Rect.MinMaxRect(-2.6f, -2.6f, 2.6f, 2.6f)
     };
 
@@ -106,14 +108,18 @@ public class ShipDressing : MonoBehaviour
         EnsureSprites();
         root = new GameObject("ShipDressingRoot").transform;
 
-        Rect[] zones = { Control, Arcade, Engine, Shield, Oxygen, CorrN, CorrS, CorrE, CorrW };
+        Rect[] zones =
+        {
+            Control, Arcade, Engine, Shield, Oxygen,
+            CorrN, CorrS, CorrE, CorrW,
+            Coolant, CorrNE
+        };
 
         foreach (Rect z in zones) Hull(z);
         foreach (Rect z in zones) Floor(z);
 
         Markings();
         ServicePads();
-        Portholes();
         WallProps();
         RoomProps();
         Labels();
@@ -178,6 +184,8 @@ public class ShipDressing : MonoBehaviour
         Stripe(new Vector2(0f, -15.6f), new Vector2(4f, 0.5f));
         Stripe(new Vector2(17.6f, 0f), new Vector2(0.5f, 4f));
         Stripe(new Vector2(-17.6f, 0f), new Vector2(0.5f, 4f));
+        Stripe(new Vector2(26f, 6.4f), new Vector2(4f, 0.5f));
+        Stripe(new Vector2(26f, 15.6f), new Vector2(4f, 0.5f));
 
         Ring(new Vector2(-3.4f, 0f), 3.5f, new Color(0.45f, 0.72f, 0.92f, 0.22f));
         Ring(new Vector2(-3.4f, 0f), 2.2f, new Color(0.45f, 0.72f, 0.92f, 0.14f));
@@ -186,7 +194,9 @@ public class ShipDressing : MonoBehaviour
         Chevrons(new Vector2(0f, -8.5f), -90f, 3, Cyan);
         Chevrons(new Vector2(10.5f, 0f), 0f, 3, Cyan);
         Chevrons(new Vector2(-10.5f, 0f), 180f, 3, Cyan);
+        Chevrons(new Vector2(26f, 11f), 90f, 3, Green);
 
+        Vent(new Vector2(21f, 19f));
         Vent(new Vector2(-6.2f, -4.2f));
         Vent(new Vector2(6.2f, -4.2f));
         Vent(new Vector2(-6.2f, 19f));
@@ -244,48 +254,13 @@ public class ShipDressing : MonoBehaviour
         Pad(new Vector2(0f, -21.4f), new Vector2(5.2f, 2.8f), Red);
         Pad(new Vector2(-26f, -0.6f), new Vector2(5.2f, 2.8f), Cyan);
         Pad(new Vector2(26f, -0.6f), new Vector2(5.2f, 2.8f), Green);
+        Pad(new Vector2(26f, 21.4f), new Vector2(5.2f, 2.8f), Cyan);
         Pad(new Vector2(5.6f, -0.4f), new Vector2(5.2f, 2.4f), Cyan);
     }
 
     void Pad(Vector2 pos, Vector2 size, Color c)
     {
         Piece("ServicePad", padSprite, pos, size, OrderPool, new Color(c.r, c.g, c.b, 0.30f));
-    }
-
-    // ---------- Hublots ----------
-
-    void Portholes()
-    {
-        Vector2[] spots =
-        {
-            new Vector2(-5f, 27.75f), new Vector2(5f, 27.75f),
-            new Vector2(-7.75f, 22f), new Vector2(7.75f, 22f),
-            new Vector2(-5f, -27.75f), new Vector2(5f, -27.75f),
-            new Vector2(-7.75f, -22f), new Vector2(7.75f, -22f),
-            new Vector2(-33.75f, 3f), new Vector2(-33.75f, -3f),
-            new Vector2(-29f, 5.75f), new Vector2(-23f, -5.75f),
-            new Vector2(33.75f, 3f), new Vector2(33.75f, -3f),
-            new Vector2(29f, 5.75f), new Vector2(23f, -5.75f),
-            new Vector2(-5f, 5.75f), new Vector2(-5f, -5.75f), new Vector2(5f, -5.75f),
-            new Vector2(-2f, 10f), new Vector2(2f, 12.5f),
-            new Vector2(2f, -10f), new Vector2(-2f, -12.5f),
-            new Vector2(10.5f, 2f), new Vector2(14f, -2f),
-            new Vector2(-10.5f, -2f), new Vector2(-14f, 2f)
-        };
-
-        for (int i = 0; i < spots.Length; i++)
-        {
-            if (!Free(spots[i], new Vector2(1.3f, 1.3f))) continue;
-
-            GameObject go = new GameObject("Porthole");
-            go.transform.SetParent(root, false);
-            go.transform.position = new Vector3(spots[i].x, spots[i].y, 0f);
-            go.transform.localScale = Vector3.one * 0.92f;
-
-            SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
-            sr.sprite = portholeSprite;
-            sr.sortingOrder = OrderProp;
-        }
     }
 
     // ---------- Equipements muraux ----------
@@ -296,6 +271,8 @@ public class ShipDressing : MonoBehaviour
         Pipe(new Vector2(1.74f, -11f), new Vector2(0.26f, 9f), 0f);
         Pipe(new Vector2(-13f, 1.74f), new Vector2(0.26f, 9f), 90f);
         Pipe(new Vector2(13f, -1.74f), new Vector2(0.26f, 9f), 90f);
+        Pipe(new Vector2(24.26f, 11f), new Vector2(0.26f, 9f), 0f);
+        Pipe(new Vector2(27.74f, 11f), new Vector2(0.26f, 9f), 0f);
 
         Panel(new Vector2(-7.8f, 2.6f), 90f, Cyan);
         Panel(new Vector2(-7.8f, -2.6f), 90f, Cyan);
@@ -307,6 +284,9 @@ public class ShipDressing : MonoBehaviour
         Panel(new Vector2(30f, 5.8f), 0f, Green);
         Panel(new Vector2(-2.6f, 27.8f), 0f, Amber);
         Panel(new Vector2(2.6f, -27.8f), 0f, Red);
+        Panel(new Vector2(26f, 27.8f), 0f, Cyan);
+        Panel(new Vector2(18.2f, 20f), 90f, Cyan);
+        Panel(new Vector2(33.8f, 24f), 90f, Cyan);
 
         Led(new Vector2(-7.85f, 0f), Cyan, 1.7f);
         Led(new Vector2(0f, 15.85f), Amber, 1.1f);
@@ -315,6 +295,8 @@ public class ShipDressing : MonoBehaviour
         Led(new Vector2(17.85f, 0f), Green, 1.4f);
         Led(new Vector2(0f, 6.45f), Cyan, 2.2f);
         Led(new Vector2(0f, -6.45f), Cyan, 1.9f);
+        Led(new Vector2(26f, 15.85f), Cyan, 1.3f);
+        Led(new Vector2(26f, 6.45f), Cyan, 2.4f);
     }
 
     void Pipe(Vector2 pos, Vector2 size, float angle)
@@ -389,6 +371,12 @@ public class ShipDressing : MonoBehaviour
         Tank(new Vector2(31.8f, 4.2f), Green);
         Tank(new Vector2(30.2f, 4.2f), Green);
         Console(new Vector2(20.6f, -3.6f), 0f, Green);
+
+        Tank(new Vector2(20.2f, 25.6f), Cyan);
+        Tank(new Vector2(21.8f, 25.6f), Cyan);
+        Console(new Vector2(31.4f, 25.2f), 0f, Cyan);
+        Crate(new Vector2(31.8f, 18.8f), 10f);
+        Crate(new Vector2(30.1f, 20.2f), -12f);
     }
 
     void Crate(Vector2 pos, float angle)
@@ -445,6 +433,7 @@ public class ShipDressing : MonoBehaviour
         Label("ENGINE", new Vector2(0f, -17.1f), 2.1f, new Color(1f, 0.55f, 0.45f, 0.32f));
         Label("SHIELD", new Vector2(-26f, -4.9f), 2.1f, new Color(0.55f, 0.80f, 1f, 0.32f));
         Label("OXYGEN", new Vector2(26f, -4.9f), 2.1f, new Color(0.60f, 0.95f, 0.72f, 0.32f));
+        Label("COOLANT", new Vector2(26f, 17.1f), 2.1f, new Color(0.55f, 0.85f, 1f, 0.32f));
     }
 
     void Label(string content, Vector2 pos, float size, Color c)
@@ -474,7 +463,6 @@ public class ShipDressing : MonoBehaviour
         floorSprite = Full(BuildFloor(256), 64f);
         hullSprite = Full(BuildHull(128), 64f);
         stripeSprite = Full(BuildStripes(64), 64f);
-        portholeSprite = Full(BuildPorthole(128), 100f);
         panelSprite = Full(BuildPanel(96, 40), 48f);
         pipeSprite = Full(BuildPipe(32, 96), 64f);
         glowSprite = Full(BuildGlow(96), 96f);
@@ -565,82 +553,6 @@ public class ShipDressing : MonoBehaviour
         for (int y = 0; y < s; y++)
             for (int x = 0; x < s; x++)
                 px[y * s + x] = ((x + y) % 24) < 12 ? warn : dark;
-
-        return Make(s, s, px);
-    }
-
-    static Texture2D BuildPorthole(int s)
-    {
-        Color[] px = new Color[s * s];
-        float c = s * 0.5f;
-        float rOuter = s * 0.47f;
-        float rSeal = s * 0.40f;
-        float rGlass = s * 0.33f;
-        float rBolt = s * 0.435f;
-
-        Vector2[] bolts = new Vector2[8];
-        for (int k = 0; k < 8; k++)
-        {
-            float a = k * Mathf.PI / 4f + Mathf.PI / 8f;
-            bolts[k] = new Vector2(c + Mathf.Cos(a) * rBolt, c + Mathf.Sin(a) * rBolt);
-        }
-
-        System.Random rng = new System.Random(9182);
-        float[] stars = new float[s * s];
-        for (int i = 0; i < 55; i++)
-            stars[rng.Next(s) + rng.Next(s) * s] = 0.45f + (float)rng.NextDouble() * 0.55f;
-
-        for (int y = 0; y < s; y++)
-        {
-            for (int x = 0; x < s; x++)
-            {
-                float dx = x - c, dy = y - c;
-                float d = Mathf.Sqrt(dx * dx + dy * dy);
-                int i = y * s + x;
-
-                if (d > rOuter)
-                {
-                    px[i] = new Color(0f, 0f, 0f, 0f);
-                    continue;
-                }
-
-                if (d > rGlass)
-                {
-                    float lift = Mathf.Clamp01((dy * 0.8f - dx * 0.5f) / s + 0.5f);
-                    float v = d > rSeal ? Mathf.Lerp(0.30f, 0.62f, lift)
-                                        : Mathf.Lerp(0.16f, 0.28f, lift);
-
-                    for (int k = 0; k < 8; k++)
-                    {
-                        float bd = Vector2.Distance(new Vector2(x, y), bolts[k]);
-                        if (bd < 3.6f) v += (1f - bd / 3.6f) * 0.40f;
-                    }
-
-                    float a = Mathf.Clamp01((rOuter - d) * 1.2f);
-                    px[i] = new Color(v * 0.88f, v * 0.94f, v, a);
-                    continue;
-                }
-
-                Color sky = new Color(0.012f, 0.022f, 0.055f, 1f);
-                sky += new Color(0.04f, 0.07f, 0.16f, 0f) * Mathf.PerlinNoise(x * 0.05f, y * 0.05f);
-
-                float st = stars[i];
-                if (st > 0f) sky += new Color(st, st, st, 0f);
-
-                float gloss = Mathf.Clamp01((dy - dx) / s * 1.8f + 0.15f);
-                sky += new Color(0.13f, 0.19f, 0.28f, 0f) * gloss * gloss;
-
-                float arc = Mathf.Abs(d - rGlass * 0.74f);
-                float ang = Mathf.Atan2(dy, dx);
-                if (arc < 2.2f && ang > 1.9f && ang < 3.0f)
-                    sky += new Color(0.22f, 0.28f, 0.36f, 0f) * (1f - arc / 2.2f);
-
-                float vign = Mathf.Clamp01(1f - (rGlass - d) / 9f);
-                sky *= 1f - vign * 0.45f;
-
-                px[i] = sky;
-            }
-        }
 
         return Make(s, s, px);
     }

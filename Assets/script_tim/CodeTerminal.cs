@@ -4,7 +4,7 @@ using TMPro;
 
 public class CodeTerminal : MonoBehaviour
 {
-    [Header("Références UI")]
+    [Header("References UI")]
     public Button CodeButton;
     public GameObject CodePanel;
     public TMP_Text FeedbackText;
@@ -41,16 +41,20 @@ public class CodeTerminal : MonoBehaviour
         if (!playerInRange) return;
 
         int repaired = GameManager.Instance.repairedTerminals.Count;
+        int total = GameManager.Instance.TerminalCount();
 
-        if (repaired < 4)
+        if (repaired < total)
         {
-            // Story 8 : accès refusé tant que tout n'est pas réparé
-            Debug.Log("Accès refusé : " + repaired + "/4 systèmes réparés");
+            Debug.Log("Acces refuse : " + repaired + "/" + total + " systemes repares");
+
             if (FeedbackText != null)
-                FeedbackText.text = "REPAIRS INCOMPLETE : " + repaired + "/4";
+                FeedbackText.text = "REPAIRS INCOMPLETE : " + repaired + "/" + total;
+
+            SoundManager.PlayLocked();
             return;
         }
 
+        SoundManager.PlayOpen();
         CodeButton.gameObject.SetActive(false);
         CodePanel.SetActive(true);
     }

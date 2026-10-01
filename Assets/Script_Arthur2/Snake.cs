@@ -33,7 +33,11 @@ public class Snake : MonoBehaviour
         // On sauvegarde ton texte personnalisé au tout début
         texteGameOverOriginal = texteGameOver.GetComponent<TMP_Text>().text;
 
-        int niveauDifficulte = PlayerPrefs.GetInt("Difficulte", 2); 
+        int niveauDifficulte = PlayerPrefs.GetInt("Difficulte", 2);
+
+        // Quand la borne lance le jeu, la difficulte vient du menu principal
+        if (GameManager.Instance != null)
+            niveauDifficulte = GameSettings.difficulty + 1;
 
         if (niveauDifficulte == 1) {
             tempsEntreMouvements = 0.4f; 
@@ -182,23 +186,35 @@ public class Snake : MonoBehaviour
     private void FinDePartie(bool estVictoire)
     {
         jeuEnCours = false;
-        enAttenteDeTouche = true; 
-        direction = Vector2.zero; 
+        direction = Vector2.zero;
+
+        // Lance depuis la borne : on rend la main au vaisseau
+        bool relieAuVaisseau = (GameManager.Instance != null);
+        enAttenteDeTouche = !relieAuVaisseau;
 
         if (estVictoire)
         {
             texteVictoire.SetActive(true);
             texteGameOver.SetActive(false);
-            // On ne modifie pas le texte de victoire, il garde ton réglage Unity
         }
         else
         {
             texteGameOver.SetActive(true);
             texteVictoire.SetActive(false);
-            
-            // On remet ton texte original pour effacer le "GO !"
-            texteGameOver.GetComponent<TMP_Text>().text = texteGameOverOriginal; 
+            texteGameOver.GetComponent<TMP_Text>().text = texteGameOverOriginal;
         }
+
+        if (relieAuVaisseau) StartCoroutine(RetourAuVaisseau(estVictoire));
+    }
+
+    IEnumerator RetourAuVaisseau(bool estVictoire)
+    {
+        yield return new WaitForSeconds(estVictoire ? 1.2f : 1.6f);
+
+        if (GameManager.Instance == null) yield break;
+
+        if (estVictoire) GameManager.Instance.MinigameWon();
+        else GameManager.Instance.MinigameLost();
     }
 
     private void ReinitialiserEtRelancer()
