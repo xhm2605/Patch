@@ -228,7 +228,7 @@ public class SoundManager : MonoBehaviour
 
     void HookSceneButtons()
     {
-        Button[] buttons = FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        Button[] buttons = FindObjectsByType<Button>(FindObjectsInactive.Include);
         foreach (Button b in buttons) AttachClick(b);
     }
 

@@ -251,20 +251,6 @@
       "dependencies": {
         "com.unity.test-framework": "1.1.33",
         "com.unity.modules.jsonserialize": "1.0.0"
-<<<<<<< Updated upstream
-=======
-      }
-    },
-    "com.unity.timeline": {
-      "version": "6.6.0",
-      "depth": 0,
-      "source": "builtin",
-      "dependencies": {
-        "com.unity.modules.director": "1.0.0",
-        "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.audio": "1.0.0",
-        "com.unity.modules.particlesystem": "1.0.0"
->>>>>>> Stashed changes
       }
     },
     "com.unity.ugui": {

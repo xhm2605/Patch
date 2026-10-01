@@ -138,8 +138,7 @@ public class ShipExpansion : MonoBehaviour
     {
         ArcadeTerminal model = null;
 
-        foreach (ArcadeTerminal t in FindObjectsByType<ArcadeTerminal>(
-                     FindObjectsInactive.Include, FindObjectsSortMode.None))
+        foreach (ArcadeTerminal t in FindObjectsByType<ArcadeTerminal>(FindObjectsInactive.Include))
         {
             if (t.terminalId == "Oxygen") { model = t; break; }
             if (model == null) model = t;

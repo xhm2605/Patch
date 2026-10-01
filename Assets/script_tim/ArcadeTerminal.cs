@@ -25,8 +25,7 @@ public class ArcadeTerminal : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
 
-        ArcadeTerminal[] all = FindObjectsByType<ArcadeTerminal>(
-            FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+        ArcadeTerminal[] all = FindObjectsByType<ArcadeTerminal>(FindObjectsInactive.Exclude);
         foreach (ArcadeTerminal t in all)
         {
             if (t != this && t.terminalId == terminalId)
@@ -42,9 +41,9 @@ public class ArcadeTerminal : MonoBehaviour
         if (GameManager.Instance != null && GameManager.Instance.IsRepaired(terminalId))
         {
             isRepaired = true;
-            if (fixedSprite != null) sr.sprite = fixedSprite;
+            if (fixedSprite != null && sr != null) sr.sprite = fixedSprite;
         }
-        else if (brokenSprite != null)
+        else if (brokenSprite != null && sr != null)
         {
             sr.sprite = brokenSprite;
         }
@@ -58,20 +57,23 @@ public class ArcadeTerminal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player") || !IsInteractable()) return;
+        if (repairButton == null) return;
 
         playerInRange = true;
         repairButton.gameObject.SetActive(true);
-        SoundManager.PlayOpen();
         repairButton.onClick.RemoveAllListeners();
         repairButton.onClick.AddListener(StartMinigame);
         RefreshButton();
     }
 
+    // Au changement de scene le bouton est parfois deja detruit : on verifie avant d'y toucher
     void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (other == null || !other.CompareTag("Player")) return;
 
         playerInRange = false;
+        if (repairButton == null) return;
+
         repairButton.onClick.RemoveAllListeners();
         repairButton.gameObject.SetActive(false);
     }
@@ -83,8 +85,9 @@ public class ArcadeTerminal : MonoBehaviour
 
     void RefreshButton()
     {
-        bool locked = GameManager.Instance.IsLocked(terminalId);
+        if (repairButton == null || GameManager.Instance == null) return;
 
+        bool locked = GameManager.Instance.IsLocked(terminalId);
         repairButton.interactable = !locked;
 
         if (buttonLabel == null) return;
@@ -103,14 +106,10 @@ public class ArcadeTerminal : MonoBehaviour
     void StartMinigame()
     {
         if (!playerInRange || !IsInteractable()) return;
+        if (GameManager.Instance == null) return;
+        if (GameManager.Instance.IsLocked(terminalId)) return;
 
-        if (GameManager.Instance.IsLocked(terminalId))
-        {
-            SoundManager.PlayLocked();
-            return;
-        }
-
-        repairButton.gameObject.SetActive(false);
+        if (repairButton != null) repairButton.gameObject.SetActive(false);
 
         string frag = GameManager.Instance.GetFragmentFor(terminalId);
         GameManager.Instance.LaunchMinigame(terminalId, frag, sceneToLoad, isRepaired);
