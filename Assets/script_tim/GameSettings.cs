@@ -15,9 +15,9 @@ public static class GameSettings
 
     public static float TotalTime()
     {
-        if (difficulty == 0) return 600f;
-        if (difficulty == 2) return 375f;
-        return 480f;
+        if (difficulty == 0) return 720f;
+        if (difficulty == 2) return 450f;
+        return 570f;
     }
 
     // Volume global : s'applique aussi aux mini-jeux

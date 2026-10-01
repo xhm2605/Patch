@@ -24,6 +24,7 @@ public class CodePuzzle : MonoBehaviour
     private bool[] locked = new bool[Size];
 
     private int attemptsLeft;
+    private int lettersFound = 0;
     private bool finished = false;
     private bool built = false;
 
@@ -40,6 +41,7 @@ public class CodePuzzle : MonoBehaviour
     private static readonly Color SlotLocked = new Color(0.12f, 0.42f, 0.28f, 1f);
     private static readonly Color LetterIdle = new Color(0.20f, 0.42f, 0.68f, 1f);
     private static readonly Color LetterUsed = new Color(0.12f, 0.17f, 0.24f, 0.7f);
+    private static readonly Color LetterUnknown = new Color(0.10f, 0.13f, 0.18f, 0.55f);
 
     void OnEnable()
     {
@@ -64,6 +66,7 @@ public class CodePuzzle : MonoBehaviour
             foreach (Button b in fragButtons)
                 if (b != null) b.gameObject.SetActive(false);
 
+        BuildCloseButton();
         Caption("SlotCaption", "MASTER CODE", 20f, 214f, new Color(0.55f, 0.72f, 0.88f, 0.9f));
         Caption("PoolCaption", "RECOVERED LETTERS", 20f, 58f, new Color(0.55f, 0.72f, 0.88f, 0.9f));
 
@@ -99,6 +102,46 @@ public class CodePuzzle : MonoBehaviour
 
             letterLabel[i] = AddLabel(key.transform, 40f, Color.white);
         }
+    }
+
+    // Toujours pouvoir ressortir de la console
+    void BuildCloseButton()
+    {
+        if (transform.Find("CloseButton") != null) return;
+
+        GameObject go = NewUI("CloseButton", transform);
+        RectTransform rt = go.GetComponent<RectTransform>();
+        rt.anchorMin = new Vector2(1f, 1f);
+        rt.anchorMax = new Vector2(1f, 1f);
+        rt.pivot = new Vector2(1f, 1f);
+        rt.anchoredPosition = new Vector2(-24f, -22f);
+        rt.sizeDelta = new Vector2(168f, 58f);
+
+        Image img = go.AddComponent<Image>();
+        img.sprite = roundSprite;
+        img.type = Image.Type.Sliced;
+        img.color = new Color(0.42f, 0.14f, 0.16f, 0.95f);
+
+        Button btn = go.AddComponent<Button>();
+        btn.targetGraphic = img;
+        btn.onClick.AddListener(ClosePanel);
+
+        ColorBlock cb = btn.colors;
+        cb.normalColor = new Color(0.90f, 0.86f, 0.88f);
+        cb.highlightedColor = Color.white;
+        cb.pressedColor = new Color(0.6f, 0.45f, 0.48f);
+        cb.fadeDuration = 0.1f;
+        btn.colors = cb;
+
+        TMP_Text label = AddLabel(go.transform, 24f, Color.white);
+        label.text = "CLOSE";
+        label.characterSpacing = 6f;
+    }
+
+    public void ClosePanel()
+    {
+        SoundManager.PlayClick();
+        gameObject.SetActive(false);
     }
 
     void Caption(string objectName, string content, float size, float y, Color c)
@@ -161,8 +204,11 @@ public class CodePuzzle : MonoBehaviour
         attemptsLeft = maxAttempts;
 
         List<string> pool = GameManager.Instance.CollectedLetters();
-        while (pool.Count < Size) pool.Add("?");
+        lettersFound = Mathf.Min(pool.Count, Size);
         Shuffle(pool);
+
+        // Les lettres pas encore recuperees restent des cases vides
+        while (pool.Count < Size) pool.Add("");
 
         for (int i = 0; i < Size; i++)
         {
@@ -198,6 +244,7 @@ public class CodePuzzle : MonoBehaviour
     void PlaceLetter(int letterIndex)
     {
         if (finished || used[letterIndex]) return;
+        if (string.IsNullOrEmpty(letters[letterIndex])) return;
 
         for (int i = 0; i < Size; i++)
         {
@@ -242,6 +289,13 @@ public class CodePuzzle : MonoBehaviour
     void SubmitAttempt()
     {
         if (finished) return;
+
+        if (lettersFound < Size)
+        {
+            feedbackText.text = "ONLY " + lettersFound + " OF 8 LETTERS RECOVERED";
+            SoundManager.PlayLocked();
+            return;
+        }
 
         for (int i = 0; i < Size; i++)
         {
@@ -326,15 +380,20 @@ public class CodePuzzle : MonoBehaviour
             slotBg[i].color = locked[i] ? SlotLocked : (filled ? SlotFilled : SlotEmpty);
             slotLabel[i].color = locked[i] ? new Color(0.65f, 1f, 0.78f) : new Color(1f, 0.87f, 0.42f);
 
-            letterLabel[i].text = letters[i];
-            letterBg[i].color = used[i] ? LetterUsed : LetterIdle;
-            letterLabel[i].color = used[i] ? new Color(1f, 1f, 1f, 0.25f) : Color.white;
-            letterButtons[i].interactable = !used[i] && !finished;
+            bool known = !string.IsNullOrEmpty(letters[i]);
+
+            letterLabel[i].text = known ? letters[i] : "?";
+            letterBg[i].color = !known ? LetterUnknown : (used[i] ? LetterUsed : LetterIdle);
+            letterLabel[i].color = !known ? new Color(0.45f, 0.52f, 0.62f, 0.7f)
+                                 : (used[i] ? new Color(1f, 1f, 1f, 0.25f) : Color.white);
+            letterButtons[i].interactable = known && !used[i] && !finished;
         }
 
-        attemptsText.text = "ATTEMPTS LEFT : " + attemptsLeft;
+        attemptsText.text = lettersFound < Size
+            ? lettersFound + " / 8 LETTERS RECOVERED"
+            : "ATTEMPTS LEFT : " + attemptsLeft;
 
-        submitButton.interactable = !finished;
+        submitButton.interactable = !finished && lettersFound >= Size;
         resetButton.interactable = !finished;
     }
 }

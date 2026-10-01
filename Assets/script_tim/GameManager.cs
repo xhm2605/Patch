@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour
     private string currentFragment;
     private bool isHardMode = false;
 
+    private Vector3 returnPoint;
+    private bool hasReturnPoint = false;
+
     private bool pendingEnd = false;
     private bool pendingWin = false;
     private string pendingReason = "";
@@ -90,6 +93,8 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (scene.name == "Main" && hasReturnPoint) StartCoroutine(RestorePlayer());
+
         if (pendingEnd && scene.name == "Main")
         {
             pendingEnd = false;
@@ -109,6 +114,8 @@ public class GameManager : MonoBehaviour
 
     public void StartNewGame()
     {
+        hasReturnPoint = false;
+
         repairedTerminals.Clear();
         collectedFragments.Clear();
         fragmentByTerminal.Clear();
@@ -189,8 +196,36 @@ public class GameManager : MonoBehaviour
         return timeLeft;
     }
 
+    // On note ou se tenait le joueur pour le ramener devant la meme borne
+    System.Collections.IEnumerator RestorePlayer()
+    {
+        PlayerMovement player = FindAnyObjectByType<PlayerMovement>();
+
+        if (player == null)
+        {
+            yield return null;
+            player = FindAnyObjectByType<PlayerMovement>();
+        }
+
+        if (player == null) yield break;
+
+        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+        if (rb != null) rb.position = returnPoint;
+        player.transform.position = returnPoint;
+
+        CameraFollow cam = FindAnyObjectByType<CameraFollow>();
+        if (cam != null) cam.transform.position = returnPoint + cam.offset;
+    }
+
     public void LaunchMinigame(string terminalId, string fragment, string sceneName, bool hardMode = false)
     {
+        PlayerMovement player = FindAnyObjectByType<PlayerMovement>();
+        if (player != null)
+        {
+            returnPoint = player.transform.position;
+            hasReturnPoint = true;
+        }
+
         currentTerminalId = terminalId;
         currentFragment = fragment;
         isHardMode = hardMode;

@@ -24,6 +24,7 @@ public class ArcadeTerminal : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        AddSolidBody();
 
         ArcadeTerminal[] all = FindObjectsByType<ArcadeTerminal>(FindObjectsInactive.Exclude);
         foreach (ArcadeTerminal t in all)
@@ -47,6 +48,29 @@ public class ArcadeTerminal : MonoBehaviour
         {
             sr.sprite = brokenSprite;
         }
+    }
+
+    // La borne est un meuble : on lui donne un corps que le joueur ne traverse pas
+    void AddSolidBody()
+    {
+        foreach (Collider2D c in GetComponents<Collider2D>())
+            if (!c.isTrigger) return;
+
+        BoxCollider2D body = gameObject.AddComponent<BoxCollider2D>();
+
+        if (sr != null && sr.sprite != null)
+        {
+            // Seule la base bloque : le haut de la borne se chevauche avec le joueur
+            Bounds b = sr.sprite.bounds;
+            body.size = new Vector2(b.size.x * 0.80f, b.size.y * 0.24f);
+            body.offset = new Vector2(b.center.x, b.min.y + b.size.y * 0.12f);
+        }
+        else
+        {
+            body.size = new Vector2(1.6f, 1.2f);
+        }
+
+        body.isTrigger = false;
     }
 
     private bool IsInteractable()

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -19,6 +20,7 @@ public class ShipDressing : MonoBehaviour
     private static Sprite consoleSprite;
     private static Sprite chevronSprite;
     private static Sprite padSprite;
+    private static Sprite cableSprite;
 
     private const int OrderHull = -260;
     private const int OrderFloor = -240;
@@ -76,19 +78,42 @@ public class ShipDressing : MonoBehaviour
     static Rect CorrS = Rect.MinMaxRect(-2f, -16f, 2f, -6f);
     static Rect CorrE = Rect.MinMaxRect(8f, -2f, 18f, 2f);
     static Rect CorrW = Rect.MinMaxRect(-18f, -2f, -8f, 2f);
-    static Rect Coolant = Rect.MinMaxRect(18f, 16f, 34f, 28f);
-    static Rect CorrNE = Rect.MinMaxRect(24f, 6f, 28f, 16f);
+
+    // Le coeur du vaisseau d'origine, repris par la carte
+    public static readonly Rect[] CoreZones =
+    {
+        Rect.MinMaxRect(-8f, -6f, 8f, 6f),
+        Rect.MinMaxRect(-8f, 16f, 8f, 28f),
+        Rect.MinMaxRect(-8f, -28f, 8f, -16f),
+        Rect.MinMaxRect(-34f, -6f, -18f, 6f),
+        Rect.MinMaxRect(18f, -6f, 34f, 6f),
+        Rect.MinMaxRect(-2f, 6f, 2f, 16f),
+        Rect.MinMaxRect(-2f, -16f, 2f, -6f),
+        Rect.MinMaxRect(8f, -2f, 18f, 2f),
+        Rect.MinMaxRect(-18f, -2f, -8f, 2f)
+    };
 
     // Rien ne se pose la : bornes, console de code, depart du joueur
     static readonly Rect[] Reserved =
     {
         Rect.MinMaxRect(3.0f, 0.8f, 8.4f, 6.4f),
         Rect.MinMaxRect(-2.8f, 22.2f, 2.8f, 27.8f),
-        Rect.MinMaxRect(-2.8f, -27.8f, 2.8f, -22.2f),
-        Rect.MinMaxRect(-28.8f, 0.2f, -23.2f, 5.8f),
-        Rect.MinMaxRect(23.2f, 0.2f, 28.8f, 5.8f),
-        Rect.MinMaxRect(23.2f, 22.2f, 28.8f, 27.8f),
-        Rect.MinMaxRect(-2.6f, -2.6f, 2.6f, 2.6f)
+        Rect.MinMaxRect(2.6f, -20.9f, 8.4f, -15.1f),
+        Rect.MinMaxRect(-34.4f, 1.1f, -28.6f, 6.9f),
+        Rect.MinMaxRect(28.6f, 1.1f, 34.4f, 6.9f),
+        Rect.MinMaxRect(28.1f, 22.6f, 33.9f, 28.4f),
+        Rect.MinMaxRect(-2.6f, -2.6f, 2.6f, 2.6f),
+
+        Rect.MinMaxRect(-34.6f, 29.4f, -31.4f, 32.6f),
+        Rect.MinMaxRect(31.4f, -32.6f, 34.6f, -29.4f),
+        Rect.MinMaxRect(18.9f, 16.4f, 22.1f, 19.6f),
+        Rect.MinMaxRect(-28.6f, -32.6f, -25.4f, -29.4f),
+        Rect.MinMaxRect(-7.6f, 24.4f, -4.4f, 27.6f),
+        Rect.MinMaxRect(4.4f, -27.6f, 7.6f, -24.4f),
+
+        Rect.MinMaxRect(-34.9f, 18.6f, -30.1f, 23.4f),
+        Rect.MinMaxRect(30.1f, -23.4f, 34.9f, -18.6f),
+        Rect.MinMaxRect(-29.4f, -22.9f, -24.6f, -18.1f)
     };
 
     static bool Free(Vector2 pos, Vector2 size)
@@ -108,12 +133,13 @@ public class ShipDressing : MonoBehaviour
         EnsureSprites();
         root = new GameObject("ShipDressingRoot").transform;
 
-        Rect[] zones =
+        List<Rect> zones = new List<Rect>
         {
             Control, Arcade, Engine, Shield, Oxygen,
-            CorrN, CorrS, CorrE, CorrW,
-            Coolant, CorrNE
+            CorrN, CorrS, CorrE, CorrW
         };
+
+        zones.AddRange(ShipExpansion.Zones);
 
         foreach (Rect z in zones) Hull(z);
         foreach (Rect z in zones) Floor(z);
@@ -121,7 +147,10 @@ public class ShipDressing : MonoBehaviour
         Markings();
         ServicePads();
         WallProps();
+        Cables();
         RoomProps();
+        VentCovers();
+        HideSpots();
         Labels();
     }
 
@@ -195,6 +224,28 @@ public class ShipDressing : MonoBehaviour
         Chevrons(new Vector2(10.5f, 0f), 0f, 3, Cyan);
         Chevrons(new Vector2(-10.5f, 0f), 180f, 3, Cyan);
         Chevrons(new Vector2(26f, 11f), 90f, 3, Green);
+        Chevrons(new Vector2(-26f, 11f), 90f, 3, Amber);
+        Chevrons(new Vector2(-26f, -11f), -90f, 3, Cyan);
+        Chevrons(new Vector2(26f, -11f), -90f, 3, Green);
+        Chevrons(new Vector2(13f, 22f), 0f, 3, Cyan);
+        Chevrons(new Vector2(-13f, 22f), 180f, 3, Amber);
+        Chevrons(new Vector2(13f, -22f), 0f, 3, Green);
+        Chevrons(new Vector2(-13f, -22f), 180f, 3, Cyan);
+
+        Stripe(new Vector2(26f, -6.4f), new Vector2(4f, 0.5f));
+        Stripe(new Vector2(-26f, 6.4f), new Vector2(4f, 0.5f));
+        Stripe(new Vector2(-26f, -6.4f), new Vector2(4f, 0.5f));
+        Stripe(new Vector2(8.4f, 22f), new Vector2(0.5f, 4f));
+        Stripe(new Vector2(-8.4f, 22f), new Vector2(0.5f, 4f));
+        Stripe(new Vector2(8.4f, -22f), new Vector2(0.5f, 4f));
+        Stripe(new Vector2(-8.4f, -22f), new Vector2(0.5f, 4f));
+        Stripe(new Vector2(17.6f, 22f), new Vector2(0.5f, 4f));
+        Stripe(new Vector2(-17.6f, 22f), new Vector2(0.5f, 4f));
+        Stripe(new Vector2(17.6f, -22f), new Vector2(0.5f, 4f));
+        Stripe(new Vector2(-17.6f, -22f), new Vector2(0.5f, 4f));
+        Stripe(new Vector2(-26f, 15.6f), new Vector2(4f, 0.5f));
+        Stripe(new Vector2(-26f, -15.6f), new Vector2(4f, 0.5f));
+        Stripe(new Vector2(26f, -15.6f), new Vector2(4f, 0.5f));
 
         Vent(new Vector2(21f, 19f));
         Vent(new Vector2(-6.2f, -4.2f));
@@ -251,10 +302,10 @@ public class ShipDressing : MonoBehaviour
     void ServicePads()
     {
         Pad(new Vector2(0f, 21.4f), new Vector2(5.2f, 2.8f), Amber);
-        Pad(new Vector2(0f, -21.4f), new Vector2(5.2f, 2.8f), Red);
-        Pad(new Vector2(-26f, -0.6f), new Vector2(5.2f, 2.8f), Cyan);
-        Pad(new Vector2(26f, -0.6f), new Vector2(5.2f, 2.8f), Green);
-        Pad(new Vector2(26f, 21.4f), new Vector2(5.2f, 2.8f), Cyan);
+        Pad(new Vector2(5.5f, -20.8f), new Vector2(5.2f, 2.8f), Red);
+        Pad(new Vector2(-31.5f, 1f), new Vector2(5.2f, 2.8f), Cyan);
+        Pad(new Vector2(31.5f, 1f), new Vector2(5.2f, 2.8f), Green);
+        Pad(new Vector2(31f, 22.4f), new Vector2(5.2f, 2.8f), Cyan);
         Pad(new Vector2(5.6f, -0.4f), new Vector2(5.2f, 2.4f), Cyan);
     }
 
@@ -357,7 +408,6 @@ public class ShipDressing : MonoBehaviour
         Console(new Vector2(-6.4f, -3.4f), 0f, Cyan);
 
         Crate(new Vector2(-6.3f, 25.8f), 12f);
-        Crate(new Vector2(-4.6f, 24.4f), -8f);
         Crate(new Vector2(6.4f, 18.6f), 22f);
 
         Tank(new Vector2(-6.4f, -25.4f), Red);
@@ -377,19 +427,153 @@ public class ShipDressing : MonoBehaviour
         Console(new Vector2(31.4f, 25.2f), 0f, Cyan);
         Crate(new Vector2(31.8f, 18.8f), 10f);
         Crate(new Vector2(30.1f, 20.2f), -12f);
+
+        // Soute : des caisses partout, c'est son role
+        Crate(new Vector2(-20.6f, 23.4f), 12f);
+        Crate(new Vector2(-33.2f, 28.4f), -10f);
+        Crate(new Vector2(-31.6f, 29.8f), 16f);
+        Console(new Vector2(-20.8f, 18.4f), 0f, Amber);
+        Tank(new Vector2(-24f, 24.4f), Amber);
+
+        // Quartiers
+        Console(new Vector2(-33.4f, -18.6f), 0f, Cyan);
+        Console(new Vector2(-20.8f, -18.6f), 0f, Cyan);
+        Crate(new Vector2(-33.4f, -23.2f), -8f);
+        Tank(new Vector2(-34.2f, -22.6f), Cyan);
+
+        // Observation
+        Console(new Vector2(20.8f, -18.6f), 0f, Green);
+        Console(new Vector2(33.4f, -18.6f), 0f, Green);
+        Tank(new Vector2(19.8f, -22.8f), Green);
+        Tank(new Vector2(21.4f, -22.8f), Green);
+        Crate(new Vector2(28.4f, -30f), 10f);
+        Crate(new Vector2(30f, -31.4f), -16f);
+    }
+
+    // ---------- Faisceaux de cables ----------
+
+    void Cables()
+    {
+        Cable(new Vector2(1.75f, 11f), 9f, 0f);
+        Cable(new Vector2(-1.75f, -11f), 9f, 0f);
+        Cable(new Vector2(13f, 1.75f), 9f, 90f);
+        Cable(new Vector2(-13f, -1.75f), 9f, 90f);
+
+        Cable(new Vector2(27.75f, 11f), 9f, 0f);
+        Cable(new Vector2(-24.25f, 11f), 9f, 0f);
+        Cable(new Vector2(-27.75f, -11f), 9f, 0f);
+        Cable(new Vector2(24.25f, -11f), 9f, 0f);
+
+        Cable(new Vector2(13f, 23.75f), 9f, 90f);
+        Cable(new Vector2(-13f, 20.25f), 9f, 90f);
+        Cable(new Vector2(13f, -20.25f), 9f, 90f);
+        Cable(new Vector2(-13f, -23.75f), 9f, 90f);
+
+        Cable(new Vector2(-4f, 27.75f), 6f, 90f);
+        Cable(new Vector2(4f, -27.75f), 6f, 90f);
+        Cable(new Vector2(-35.75f, 21f), 8f, 0f);
+        Cable(new Vector2(-35.75f, -21f), 8f, 0f);
+        Cable(new Vector2(35.75f, -21f), 8f, 0f);
+        Cable(new Vector2(33.75f, 22f), 9f, 0f);
+        Cable(new Vector2(-33.75f, 0f), 8f, 0f);
+        Cable(new Vector2(33.75f, 0f), 8f, 0f);
+    }
+
+    void Cable(Vector2 pos, float length, float angle)
+    {
+        SpriteRenderer sr = Piece("Cables", cableSprite, pos, new Vector2(0.5f, length),
+            OrderProp, new Color(0.88f, 0.90f, 0.94f), angle);
+
+        sr.drawMode = SpriteDrawMode.Tiled;
+        sr.size = new Vector2(0.5f, length);
+    }
+
+    void Solid(SpriteRenderer sr, Vector2 size)
+    {
+        if (sr == null) return;
+
+        BoxCollider2D body = sr.gameObject.AddComponent<BoxCollider2D>();
+        body.size = new Vector2(size.x, size.y * 0.55f);
+        body.offset = new Vector2(0f, -size.y * 0.22f);
+        body.isTrigger = false;
+    }
+
+    // ---------- Caches ----------
+
+    // Les seuls objets qui passent devant le joueur : il disparait derriere
+    void HideSpots()
+    {
+        HideSpot(new Vector2(-32.5f, 21f));
+        HideSpot(new Vector2(32.5f, -21f));
+        HideSpot(new Vector2(-27f, -20.5f));
+    }
+
+    void HideSpot(Vector2 pos)
+    {
+        Vector2[] offsets =
+        {
+            new Vector2(-0.55f, -0.35f),
+            new Vector2(0.60f, -0.20f),
+            new Vector2(0.05f, 0.70f)
+        };
+
+        float[] angles = { -9f, 11f, 3f };
+
+        for (int i = 0; i < offsets.Length; i++)
+        {
+            SpriteRenderer sr = Piece("HideCrate", crateSprite, pos + offsets[i],
+                new Vector2(1.9f, 1.9f), ShipExpansion.HideOrder,
+                new Color(0.76f, 0.72f, 0.64f), angles[i]);
+
+            sr.sortingOrder = ShipExpansion.HideOrder + i;
+        }
+    }
+
+    // ---------- Trappes d'aeration ----------
+
+    void VentCovers()
+    {
+        Vector2[] shafts =
+        {
+            new Vector2(-33f, 31f), new Vector2(33f, -31f),
+            new Vector2(20.5f, 18f), new Vector2(-27f, -31f),
+            new Vector2(-6f, 26f), new Vector2(6f, -26f)
+        };
+
+        foreach (Vector2 p in shafts)
+        {
+            Piece("VentCover", ventSprite, p, new Vector2(2.1f, 2.1f),
+                OrderMark + 2, new Color(0.62f, 0.70f, 0.80f));
+
+            GameObject halo = new GameObject("VentHalo");
+            halo.transform.SetParent(root, false);
+            halo.transform.position = new Vector3(p.x, p.y, 0f);
+            halo.transform.localScale = Vector3.one * 3.2f;
+
+            SpriteRenderer sr = halo.AddComponent<SpriteRenderer>();
+            sr.sprite = glowSprite;
+            sr.sortingOrder = OrderMark + 1;
+            sr.color = Cyan;
+
+            Blink(halo, Cyan, 0.9f, 0.08f, 0.26f);
+        }
     }
 
     void Crate(Vector2 pos, float angle)
     {
         if (!Free(pos, new Vector2(1.7f, 1.7f))) return;
-        Piece("Crate", crateSprite, pos, new Vector2(1.6f, 1.6f), OrderProp, new Color(0.82f, 0.80f, 0.74f), angle);
+        SpriteRenderer sr = Piece("Crate", crateSprite, pos, new Vector2(1.6f, 1.6f),
+            OrderProp, new Color(0.82f, 0.80f, 0.74f), angle);
+        Solid(sr, new Vector2(1.45f, 1.45f));
     }
 
     void Tank(Vector2 pos, Color c)
     {
         if (!Free(pos, new Vector2(1.3f, 2.4f))) return;
 
-        Piece("Tank", tankSprite, pos, new Vector2(1.2f, 2.3f), OrderProp, new Color(0.86f, 0.89f, 0.94f));
+        SpriteRenderer tank = Piece("Tank", tankSprite, pos, new Vector2(1.2f, 2.3f),
+            OrderProp, new Color(0.86f, 0.89f, 0.94f));
+        Solid(tank, new Vector2(1.05f, 2.1f));
 
         GameObject go = new GameObject("TankLight");
         go.transform.SetParent(root, false);
@@ -408,7 +592,9 @@ public class ShipDressing : MonoBehaviour
     {
         if (!Free(pos, new Vector2(2.4f, 1.4f))) return;
 
-        Piece("Console", consoleSprite, pos, new Vector2(2.2f, 1.2f), OrderProp, Steel, angle);
+        SpriteRenderer desk = Piece("Console", consoleSprite, pos, new Vector2(2.2f, 1.2f),
+            OrderProp, Steel, angle);
+        Solid(desk, new Vector2(2.05f, 1.05f));
 
         GameObject go = new GameObject("ConsoleScreen");
         go.transform.SetParent(root, false);
@@ -434,6 +620,9 @@ public class ShipDressing : MonoBehaviour
         Label("SHIELD", new Vector2(-26f, -4.9f), 2.1f, new Color(0.55f, 0.80f, 1f, 0.32f));
         Label("OXYGEN", new Vector2(26f, -4.9f), 2.1f, new Color(0.60f, 0.95f, 0.72f, 0.32f));
         Label("COOLANT", new Vector2(26f, 17.1f), 2.1f, new Color(0.55f, 0.85f, 1f, 0.32f));
+        Label("CARGO BAY", new Vector2(-28f, 18.6f), 2.1f, new Color(1f, 0.82f, 0.50f, 0.30f));
+        Label("QUARTERS", new Vector2(-28f, -18.8f), 2.1f, new Color(0.72f, 0.80f, 0.95f, 0.30f));
+        Label("OBSERVATION", new Vector2(28f, -18.8f), 2.1f, new Color(0.62f, 0.95f, 0.80f, 0.30f));
     }
 
     void Label(string content, Vector2 pos, float size, Color c)
@@ -473,6 +662,7 @@ public class ShipDressing : MonoBehaviour
         consoleSprite = Full(BuildConsole(128, 64), 64f);
         chevronSprite = Full(BuildChevron(64, 40), 64f);
         padSprite = Full(BuildPad(128, 72), 64f);
+        cableSprite = Full(BuildCables(32, 96), 64f);
     }
 
     static Sprite Full(Texture2D tex, float ppu)
@@ -782,6 +972,48 @@ public class ShipDressing : MonoBehaviour
                 if (band >= 5f && band < 7.5f) a = 1f - (band - 5f) / 2.5f;
 
                 px[y * w + x] = new Color(1f, 1f, 1f, a);
+            }
+        }
+
+        return Make(w, h, px);
+    }
+
+    static Texture2D BuildCables(int w, int h)
+    {
+        Color[] px = new Color[w * h];
+
+        Color[] wires = {
+            new Color(0.72f, 0.22f, 0.20f),
+            new Color(0.84f, 0.74f, 0.26f),
+            new Color(0.28f, 0.48f, 0.84f)
+        };
+
+        int[] lanes = { 8, 16, 24 };
+
+        for (int y = 0; y < h; y++)
+        {
+            for (int x = 0; x < w; x++)
+            {
+                Color c = new Color(0f, 0f, 0f, 0f);
+
+                for (int k = 0; k < lanes.Length; k++)
+                {
+                    float d = Mathf.Abs(x - lanes[k]);
+                    if (d > 1.8f) continue;
+
+                    float round = 1f - d / 1.8f;
+                    Color wire = wires[k] * (0.55f + round * 0.55f);
+                    c = new Color(wire.r, wire.g, wire.b, 1f);
+                }
+
+                // Colliers de fixation
+                if (y % 30 < 5 && x > 4 && x < 28)
+                {
+                    float v = (y % 30 == 0 || y % 30 == 4) ? 0.38f : 0.62f;
+                    c = new Color(v * 0.9f, v * 0.94f, v, 1f);
+                }
+
+                px[y * w + x] = c;
             }
         }
 
