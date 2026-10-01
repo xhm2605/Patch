@@ -265,6 +265,7 @@ MonoBehaviour:
         m_Version: 0
     - rid: 1868210241177124937
       type: {class: ScreenSpaceAmbientOcclusionBlueNoiseResources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+<<<<<<< Updated upstream
       data:
         m_BlueNoise256Textures:
         - {fileID: 2800000, guid: 36f118343fc974119bee3d09e2111500, type: 3}
@@ -282,6 +283,8 @@ MonoBehaviour:
         m_Version: 0
     - rid: 1868210241177124956
       type: {class: ScreenSpaceAmbientOcclusionBlueNoiseResources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+=======
+>>>>>>> Stashed changes
       data:
         m_BlueNoise256Textures:
         - {fileID: 2800000, guid: 36f118343fc974119bee3d09e2111500, type: 3}
