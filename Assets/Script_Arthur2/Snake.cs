@@ -30,8 +30,10 @@ public class Snake : MonoBehaviour
     public GameObject bombPrefab; 
     private List<GameObject> bombesActives = new List<GameObject>();
 
-    // Variable pour mémoriser la difficulté dans tout le script
     private int difficulteActuelle = 2;
+
+    // --- NOUVEAUTÉ : EFFETS VISUELS ---
+    public ParticleSystem particulesPropulseur;
 
     void Start()
     {
@@ -42,7 +44,6 @@ public class Snake : MonoBehaviour
         if (GameManager.Instance != null)
             difficulteActuelle = GameSettings.difficulty + 1;
 
-        // On adapte la VITESSE en fonction de la difficulté
         if (difficulteActuelle == 1) {
             tempsEntreMouvements = 0.4f; 
         } else if (difficulteActuelle == 2) {
@@ -85,6 +86,9 @@ public class Snake : MonoBehaviour
         GererBombes(); 
 
         jeuEnCours = true; 
+        
+        // Active les particules quand le vaisseau démarre
+        if (particulesPropulseur != null) particulesPropulseur.Play();
     }
 
     void Update()
@@ -143,6 +147,17 @@ public class Snake : MonoBehaviour
                 corps[i].eulerAngles = new Vector3(0, 0, angle);
             }
         }
+
+        // --- GESTION DES PARTICULES ---
+        if (particulesPropulseur != null)
+        {
+            // On cible la tête s'il n'y a pas de wagon, sinon on cible le dernier wagon
+            Transform ciblePropulseur = (corps.Count > 0) ? corps[corps.Count - 1] : transform;
+            
+            // On place les particules sur la cible et on oriente vers l'arrière
+            particulesPropulseur.transform.position = ciblePropulseur.position;
+            particulesPropulseur.transform.rotation = ciblePropulseur.rotation * Quaternion.Euler(0, 0, 180);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -151,6 +166,8 @@ public class Snake : MonoBehaviour
 
         if (collision.gameObject.name == "Walls" || collision.gameObject.CompareTag("Body") || collision.gameObject.CompareTag("Bomb"))
         {
+            // On déclenche le tremblement d'écran au moment de la défaite !
+            StartCoroutine(SecouerEcran(0.4f, 0.5f)); 
             FinDePartie(false); 
         }
         else if (collision.gameObject.CompareTag("Food"))
@@ -171,6 +188,25 @@ public class Snake : MonoBehaviour
         }
     }
 
+    // --- FONCTION DE TREMBLEMENT D'ÉCRAN ---
+    private IEnumerator SecouerEcran(float duree, float magnitude)
+    {
+        Vector3 positionOriginale = Camera.main.transform.position;
+        float tempsEcoule = 0f;
+
+        while (tempsEcoule < duree)
+        {
+            float x = positionOriginale.x + Random.Range(-1f, 1f) * magnitude;
+            float y = positionOriginale.y + Random.Range(-1f, 1f) * magnitude;
+            
+            Camera.main.transform.position = new Vector3(x, y, positionOriginale.z);
+            tempsEcoule += Time.deltaTime;
+            
+            yield return null; 
+        }
+        Camera.main.transform.position = positionOriginale; // Remet la caméra droite
+    }
+
     private void DeplacerBombesExistantes()
     {
         foreach (GameObject bombe in bombesActives)
@@ -187,16 +223,13 @@ public class Snake : MonoBehaviour
     {
         int nbBombesSouhaitees = 1; 
 
-        // On adapte le NOMBRE DE BOMBES en fonction de la difficulté
         if (difficulteActuelle == 1) 
         {
-            // Mode Facile : 2 bombes max
             if (score >= 5) nbBombesSouhaitees = 2; 
             else nbBombesSouhaitees = 1;
         }
         else if (difficulteActuelle == 2) 
         {
-            // Mode Moyen : 4 bombes max (tous les 3 points)
             if (score >= 9) nbBombesSouhaitees = 4;
             else if (score >= 6) nbBombesSouhaitees = 3;
             else if (score >= 3) nbBombesSouhaitees = 2;
@@ -204,7 +237,6 @@ public class Snake : MonoBehaviour
         }
         else if (difficulteActuelle == 3) 
         {
-            // Mode Difficile : 5 bombes max (tous les 2 points, monte très vite !)
             if (score >= 8) nbBombesSouhaitees = 5;
             else if (score >= 6) nbBombesSouhaitees = 4;
             else if (score >= 4) nbBombesSouhaitees = 3;
@@ -256,10 +288,7 @@ public class Snake : MonoBehaviour
         Transform nouveauMorceau = Instantiate(bodyPrefab, new Vector3(-1000, -1000, 0), Quaternion.identity);
         
         Collider2D col = nouveauMorceau.GetComponent<Collider2D>();
-        if (col != null)
-        {
-            col.enabled = false;
-        }
+        if (col != null) col.enabled = false;
 
         Vector2 positionInitiale = (corps.Count > 0) ? (Vector2)corps[corps.Count - 1].position : (Vector2)transform.position;
         nouveauMorceau.position = positionInitiale; 
@@ -267,25 +296,21 @@ public class Snake : MonoBehaviour
         corps.Add(nouveauMorceau);
         ciblesCorps.Add(positionInitiale); 
         
-        if (col != null)
-        {
-            StartCoroutine(ActiverCollider(col)); 
-        }
+        if (col != null) StartCoroutine(ActiverCollider(col)); 
     }
 
     IEnumerator ActiverCollider(Collider2D col)
     {
         yield return new WaitForSeconds(tempsEntreMouvements);
-        if (col != null) 
-        {
-            col.enabled = true;
-        }
+        if (col != null) col.enabled = true;
     }
 
     private void FinDePartie(bool estVictoire)
     {
         jeuEnCours = false;
         direction = Vector2.zero;
+        
+        if (particulesPropulseur != null) particulesPropulseur.Stop(); // Coupe le moteur
 
         bool relieAuVaisseau = (GameManager.Instance != null);
         enAttenteDeTouche = !relieAuVaisseau;
