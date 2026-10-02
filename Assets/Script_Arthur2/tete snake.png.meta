@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: efeaefc71a82cb3488cf16887f9c14e6
+guid: 1dfd746172063b645b6ed3770f5ee660
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7803850162190386826
-    second: Gemini_Generated_Image_7n8yp47n8yp47n8y_0
+      213: -7512995015414165968
+    second: tete snake_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gemini_Generated_Image_7n8yp47n8yp47n8y_0
+      name: tete snake_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 2816
-        height: 1536
+        width: 273
+        height: 161
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6797442cf9723b390800000000000000
-      internalID: -7803850162190386826
+      spriteID: 03e45fac6da7cb790800000000000000
+      internalID: -7512995015414165968
       vertices: []
       indices: 
       edges: []
@@ -137,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gemini_Generated_Image_7n8yp47n8yp47n8y_0: -7803850162190386826
+      tete snake_0: -7512995015414165968
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
