@@ -9,6 +9,9 @@ public class PipeWarp : MonoBehaviour
     public Transform exitPoint;
     public float slideDuration = 1f;
 
+    [Header("Delay Settings")]
+    public float warpDelay = 0.3f;
+
     private bool playerOnTop = false;
     private Transform playerTransform;
     private PlayerController playerController;
@@ -53,6 +56,8 @@ public class PipeWarp : MonoBehaviour
     IEnumerator WarpTo(Transform target)
     {
         playerController.canMove = false;
+
+        yield return new WaitForSeconds(warpDelay);
 
         Vector3 startPos = playerTransform.position;
         Vector3 moveDir = entryDirection switch
