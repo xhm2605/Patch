@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: ef0c5c464c56b3945b870991c4dbb47e
+guid: dfba5e90fdd2b34489564e5560d01476
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9044193804257873962
-    second: energy-cell-4f_0
+      213: 6709293570810948823
+    second: EnergyToUpgrade_0
   - first:
-      213: 6356346356383729725
-    second: energy-cell-4f_1
+      213: -4970773011291412867
+    second: EnergyToUpgrade_1
   - first:
-      213: 8195026754489163242
-    second: energy-cell-4f_2
+      213: -4871479710268888502
+    second: EnergyToUpgrade_2
   - first:
-      213: -1740878109013959303
-    second: energy-cell-4f_3
+      213: -1611549575038268262
+    second: EnergyToUpgrade_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: energy-cell-4f_0
+      name: EnergyToUpgrade_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 10
-        height: 16
+        x: 15
+        y: 3
+        width: 34
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a205496c85e638d70800000000000000
-      internalID: 9044193804257873962
+      spriteID: 7dcaffd84f23c1d50800000000000000
+      internalID: 6709293570810948823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energy-cell-4f_1
+      name: EnergyToUpgrade_1
       rect:
         serializedVersion: 2
-        x: 19
-        y: 0
-        width: 10
-        height: 16
+        x: 79
+        y: 3
+        width: 34
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d38c9917557463850800000000000000
-      internalID: 6356346356383729725
+      spriteID: d7660e25844440bb0800000000000000
+      internalID: -4970773011291412867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energy-cell-4f_2
+      name: EnergyToUpgrade_2
       rect:
         serializedVersion: 2
-        x: 35
-        y: 0
-        width: 10
-        height: 16
+        x: 143
+        y: 3
+        width: 34
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aed16220a659ab170800000000000000
-      internalID: 8195026754489163242
+      spriteID: a4a66e28307056cb0800000000000000
+      internalID: -4871479710268888502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energy-cell-4f_3
+      name: EnergyToUpgrade_3
       rect:
         serializedVersion: 2
-        x: 51
-        y: 0
-        width: 10
-        height: 16
+        x: 207
+        y: 3
+        width: 34
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 97d18fa559827d7e0800000000000000
-      internalID: -1740878109013959303
+      spriteID: a9c89e92330a2a9e0800000000000000
+      internalID: -1611549575038268262
       vertices: []
       indices: 
       edges: []
@@ -223,10 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      energy-cell-4f_0: 9044193804257873962
-      energy-cell-4f_1: 6356346356383729725
-      energy-cell-4f_2: 8195026754489163242
-      energy-cell-4f_3: -1740878109013959303
+      EnergyToUpgrade_0: 6709293570810948823
+      EnergyToUpgrade_1: -4970773011291412867
+      EnergyToUpgrade_2: -4871479710268888502
+      EnergyToUpgrade_3: -1611549575038268262
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
