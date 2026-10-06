@@ -16165,6 +16165,7 @@ MonoBehaviour:
   randomizeSpeed: 1
   speedVariation: 0.5
   deathAnimDuration: 0.6
+  deathSound: {fileID: 8300000, guid: 018ba23031de0e5478c64e0ed4cf20f7, type: 3}
 --- !u!95 &42329407
 Animator:
   serializedVersion: 7
@@ -248267,6 +248268,7 @@ MonoBehaviour:
   randomizeSpeed: 1
   speedVariation: 0.5
   deathAnimDuration: 0.6
+  deathSound: {fileID: 8300000, guid: 018ba23031de0e5478c64e0ed4cf20f7, type: 3}
 --- !u!95 &78737028
 Animator:
   serializedVersion: 7
@@ -248514,6 +248516,7 @@ MonoBehaviour:
   randomizeSpeed: 1
   speedVariation: 0.5
   deathAnimDuration: 0.6
+  deathSound: {fileID: 8300000, guid: 018ba23031de0e5478c64e0ed4cf20f7, type: 3}
 --- !u!95 &302304245
 Animator:
   serializedVersion: 7
@@ -249006,6 +249009,7 @@ MonoBehaviour:
   randomizeSpeed: 1
   speedVariation: 0.5
   deathAnimDuration: 0.6
+  deathSound: {fileID: 8300000, guid: 018ba23031de0e5478c64e0ed4cf20f7, type: 3}
 --- !u!95 &384006175
 Animator:
   serializedVersion: 7
@@ -249433,6 +249437,7 @@ MonoBehaviour:
   randomizeSpeed: 1
   speedVariation: 0.5
   deathAnimDuration: 0.6
+  deathSound: {fileID: 8300000, guid: 018ba23031de0e5478c64e0ed4cf20f7, type: 3}
 --- !u!95 &575985716
 Animator:
   serializedVersion: 7
@@ -249751,6 +249756,7 @@ MonoBehaviour:
   randomizeSpeed: 1
   speedVariation: 0.5
   deathAnimDuration: 0.6
+  deathSound: {fileID: 8300000, guid: 018ba23031de0e5478c64e0ed4cf20f7, type: 3}
 --- !u!50 &639617742
 Rigidbody2D:
   serializedVersion: 5
@@ -249989,6 +249995,7 @@ MonoBehaviour:
   randomizeSpeed: 1
   speedVariation: 0.5
   deathAnimDuration: 0.6
+  deathSound: {fileID: 8300000, guid: 018ba23031de0e5478c64e0ed4cf20f7, type: 3}
 --- !u!95 &693628564
 Animator:
   serializedVersion: 7
@@ -255414,6 +255421,7 @@ MonoBehaviour:
   randomizeSpeed: 1
   speedVariation: 0.5
   deathAnimDuration: 0.6
+  deathSound: {fileID: 8300000, guid: 018ba23031de0e5478c64e0ed4cf20f7, type: 3}
 --- !u!95 &1065701572
 Animator:
   serializedVersion: 7
@@ -257715,6 +257723,7 @@ MonoBehaviour:
   randomizeSpeed: 1
   speedVariation: 0.5
   deathAnimDuration: 0.6
+  deathSound: {fileID: 8300000, guid: 018ba23031de0e5478c64e0ed4cf20f7, type: 3}
 --- !u!95 &1661516160
 Animator:
   serializedVersion: 7
@@ -258137,6 +258146,7 @@ MonoBehaviour:
   randomizeSpeed: 1
   speedVariation: 0.5
   deathAnimDuration: 0.6
+  deathSound: {fileID: 8300000, guid: 018ba23031de0e5478c64e0ed4cf20f7, type: 3}
 --- !u!95 &1823506479
 Animator:
   serializedVersion: 7
@@ -258866,6 +258876,7 @@ MonoBehaviour:
   randomizeSpeed: 1
   speedVariation: 0.5
   deathAnimDuration: 0.6
+  deathSound: {fileID: 8300000, guid: 018ba23031de0e5478c64e0ed4cf20f7, type: 3}
 --- !u!95 &2063144285
 Animator:
   serializedVersion: 7

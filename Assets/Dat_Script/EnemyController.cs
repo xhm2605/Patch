@@ -16,6 +16,8 @@ public class EnemyController : MonoBehaviour
 
     [Header("Death Settings")]
     public float deathAnimDuration = 0.6f;
+    [Header("Sound")]
+    public AudioClip deathSound;
 
     // Private state variables
     private Vector3 startPos;
@@ -106,6 +108,10 @@ public class EnemyController : MonoBehaviour
             animator.SetTrigger("Death");
         }
 
+        if (deathSound != null)
+        {
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+        }
 
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
