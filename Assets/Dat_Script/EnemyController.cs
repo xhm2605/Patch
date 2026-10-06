@@ -92,30 +92,27 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void Die(Rigidbody2D playerRb)
+    public void Die(Rigidbody2D playerRb = null)
     {
         isDying = true;
 
-        // Bounce player upward upon stomping
         if (playerRb != null)
         {
             playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, 5f);
         }
 
-        // Trigger death animation state
         if (animator != null)
         {
             animator.SetTrigger("Death");
         }
 
-        // Disable collider to prevent double hits
+
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
         {
             col.enabled = false;
         }
 
-        // Destroy enemy gameobject after death animation completes
         Destroy(gameObject, deathAnimDuration);
     }
 }
