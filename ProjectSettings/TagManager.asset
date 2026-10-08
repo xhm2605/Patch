@@ -8,6 +8,7 @@ TagManager:
   - SuperGomme
   - Food
   - Body
+  - Bomb
   layers:
   - Default
   - TransparentFX

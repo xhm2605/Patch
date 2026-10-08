@@ -1,0 +1,3250 @@
+fileFormatVersion: 2
+guid: 085cfff7c92bb594a867a201f098e741
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1333739058438319856
+    second: DoorFuntion_0
+  - first:
+      213: 5338474279512764298
+    second: DoorFuntion_1
+  - first:
+      213: -1986501583854146864
+    second: DoorFuntion_2
+  - first:
+      213: 520975558092501129
+    second: DoorFuntion_3
+  - first:
+      213: -4066614008322312199
+    second: DoorFuntion_4
+  - first:
+      213: 2978562762605347544
+    second: DoorFuntion_5
+  - first:
+      213: -5284685913264054817
+    second: DoorFuntion_6
+  - first:
+      213: 6412975662381093974
+    second: DoorFuntion_7
+  - first:
+      213: -3097384346624291634
+    second: DoorFuntion_8
+  - first:
+      213: -1509536589533753940
+    second: DoorFuntion_9
+  - first:
+      213: -6115821633410829306
+    second: DoorFuntion_10
+  - first:
+      213: -1663205175673986630
+    second: DoorFuntion_11
+  - first:
+      213: -5225036659169028152
+    second: DoorFuntion_12
+  - first:
+      213: 3049470866241832016
+    second: DoorFuntion_13
+  - first:
+      213: -7963702641755797614
+    second: DoorFuntion_14
+  - first:
+      213: 6162815682770711213
+    second: DoorFuntion_15
+  - first:
+      213: -4429223541036158250
+    second: DoorFuntion_16
+  - first:
+      213: 6847512820053139483
+    second: DoorFuntion_17
+  - first:
+      213: -407280486509453742
+    second: DoorFuntion_18
+  - first:
+      213: 7045543320535072757
+    second: DoorFuntion_19
+  - first:
+      213: -8274898804769100467
+    second: DoorFuntion_20
+  - first:
+      213: 8085025003749847913
+    second: DoorFuntion_21
+  - first:
+      213: 2574485501231510864
+    second: DoorFuntion_22
+  - first:
+      213: 4552015298161827787
+    second: DoorFuntion_23
+  - first:
+      213: 4382194814406070348
+    second: DoorFuntion_24
+  - first:
+      213: 266409565190091071
+    second: DoorFuntion_25
+  - first:
+      213: 8323866135890086395
+    second: DoorFuntion_26
+  - first:
+      213: 4356839713678018613
+    second: DoorFuntion_27
+  - first:
+      213: -411150548956834767
+    second: DoorFuntion_28
+  - first:
+      213: 5629378257948408126
+    second: DoorFuntion_29
+  - first:
+      213: -3950957087672009581
+    second: DoorFuntion_30
+  - first:
+      213: -6896170750317812193
+    second: DoorFuntion_31
+  - first:
+      213: 636172300421605237
+    second: DoorFuntion_32
+  - first:
+      213: -3836987565058940702
+    second: DoorFuntion_33
+  - first:
+      213: 8469267869491335849
+    second: DoorFuntion_34
+  - first:
+      213: -96186024317506718
+    second: DoorFuntion_35
+  - first:
+      213: -4471559562525193763
+    second: DoorFuntion_36
+  - first:
+      213: 1487372028088435572
+    second: DoorFuntion_37
+  - first:
+      213: 7439485531442977138
+    second: DoorFuntion_38
+  - first:
+      213: -3724033723146996140
+    second: DoorFuntion_39
+  - first:
+      213: 2567766020410637116
+    second: DoorFuntion_40
+  - first:
+      213: -1867065830748416765
+    second: DoorFuntion_41
+  - first:
+      213: -2419216435373727486
+    second: DoorFuntion_42
+  - first:
+      213: -203713324301032631
+    second: DoorFuntion_43
+  - first:
+      213: 5626184788637038648
+    second: DoorFuntion_44
+  - first:
+      213: 5559068481353366766
+    second: DoorFuntion_45
+  - first:
+      213: -4489763099317311009
+    second: DoorFuntion_46
+  - first:
+      213: -212159975119596357
+    second: DoorFuntion_47
+  - first:
+      213: -6280045693897543100
+    second: DoorFuntion_48
+  - first:
+      213: -8749755272530722567
+    second: DoorFuntion_49
+  - first:
+      213: 3693641575438796584
+    second: DoorFuntion_50
+  - first:
+      213: 809627486768737628
+    second: DoorFuntion_51
+  - first:
+      213: 7034048143266111814
+    second: DoorFuntion_52
+  - first:
+      213: -2807041274888720713
+    second: DoorFuntion_53
+  - first:
+      213: 2937121642447788254
+    second: DoorFuntion_54
+  - first:
+      213: -7778577706391017147
+    second: DoorFuntion_55
+  - first:
+      213: 3873906472692236266
+    second: DoorFuntion_56
+  - first:
+      213: 7145546539011399081
+    second: DoorFuntion_57
+  - first:
+      213: -1980323931597065
+    second: DoorFuntion_58
+  - first:
+      213: -8136955949173360267
+    second: DoorFuntion_59
+  - first:
+      213: -1716200348091943964
+    second: DoorFuntion_60
+  - first:
+      213: -4806857316081388599
+    second: DoorFuntion_61
+  - first:
+      213: -3622473505449658079
+    second: DoorFuntion_62
+  - first:
+      213: 9219161469002866336
+    second: DoorFuntion_63
+  - first:
+      213: 7792407680831709109
+    second: DoorFuntion_64
+  - first:
+      213: 9090837200458136126
+    second: DoorFuntion_65
+  - first:
+      213: 3639848927168092820
+    second: DoorFuntion_66
+  - first:
+      213: 3082337198912093675
+    second: DoorFuntion_67
+  - first:
+      213: -4931204724601603543
+    second: DoorFuntion_68
+  - first:
+      213: 4143702589626027477
+    second: DoorFuntion_69
+  - first:
+      213: -5544415437766792574
+    second: DoorFuntion_70
+  - first:
+      213: -1773617492805921425
+    second: DoorFuntion_71
+  - first:
+      213: -6988747916934128495
+    second: DoorFuntion_72
+  - first:
+      213: -4869732340722726084
+    second: DoorFuntion_73
+  - first:
+      213: 5218970834642539291
+    second: DoorFuntion_74
+  - first:
+      213: 8331651370941262260
+    second: DoorFuntion_75
+  - first:
+      213: -8280243679430195947
+    second: DoorFuntion_76
+  - first:
+      213: -7345947063958648940
+    second: DoorFuntion_77
+  - first:
+      213: -1687784409548755673
+    second: DoorFuntion_78
+  - first:
+      213: 4988144536185085404
+    second: DoorFuntion_79
+  - first:
+      213: 1983727466206090133
+    second: DoorFuntion_80
+  - first:
+      213: -1684976362393159273
+    second: DoorFuntion_81
+  - first:
+      213: -8807639658933629366
+    second: DoorFuntion_82
+  - first:
+      213: -6672479539443432010
+    second: DoorFuntion_83
+  - first:
+      213: -3117126876091758039
+    second: DoorFuntion_84
+  - first:
+      213: 5929471263737234981
+    second: DoorFuntion_85
+  - first:
+      213: -2237981539551535273
+    second: DoorFuntion_86
+  - first:
+      213: -389369689239488487
+    second: DoorFuntion_87
+  - first:
+      213: -4639942047737687508
+    second: DoorFuntion_88
+  - first:
+      213: -7321537769537441815
+    second: DoorFuntion_89
+  - first:
+      213: -9166209432767088885
+    second: DoorFuntion_90
+  - first:
+      213: 7736418693495209319
+    second: DoorFuntion_91
+  - first:
+      213: 4464542124434582281
+    second: DoorFuntion_92
+  - first:
+      213: -238233754159604707
+    second: DoorFuntion_93
+  - first:
+      213: -6074371447142835463
+    second: DoorFuntion_94
+  - first:
+      213: 5457327460612600772
+    second: DoorFuntion_95
+  - first:
+      213: -45583186372532432
+    second: DoorFuntion_96
+  - first:
+      213: -4269481437316785281
+    second: DoorFuntion_97
+  - first:
+      213: -506823704208374699
+    second: DoorFuntion_98
+  - first:
+      213: -8174423114745161146
+    second: DoorFuntion_99
+  - first:
+      213: -2167750049717447976
+    second: DoorFuntion_100
+  - first:
+      213: -5363017002452039251
+    second: DoorFuntion_101
+  - first:
+      213: 8339315606851958935
+    second: DoorFuntion_102
+  - first:
+      213: 713110193523901248
+    second: DoorFuntion_103
+  - first:
+      213: -3897453118872605791
+    second: DoorFuntion_104
+  - first:
+      213: -2139427353719680299
+    second: DoorFuntion_105
+  - first:
+      213: -7880960757736663131
+    second: DoorFuntion_106
+  - first:
+      213: 5253266445951739181
+    second: DoorFuntion_107
+  - first:
+      213: -8134232504705143587
+    second: DoorFuntion_108
+  - first:
+      213: -7084377631414023253
+    second: DoorFuntion_109
+  - first:
+      213: -8778624721714184940
+    second: DoorFuntion_110
+  - first:
+      213: 7526753360084896858
+    second: DoorFuntion_111
+  - first:
+      213: 4081926570565345765
+    second: DoorFuntion_112
+  - first:
+      213: 7935444281485587617
+    second: DoorFuntion_113
+  - first:
+      213: -426412802328427041
+    second: DoorFuntion_114
+  - first:
+      213: -7752021145784253860
+    second: DoorFuntion_115
+  - first:
+      213: -5868097819249800931
+    second: DoorFuntion_116
+  - first:
+      213: 4609340024966954822
+    second: DoorFuntion_117
+  - first:
+      213: 6882967778784794131
+    second: DoorFuntion_118
+  - first:
+      213: 7382658325247683393
+    second: DoorFuntion_119
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DoorFuntion_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 349
+        width: 161
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fea7417b94628210800000000000000
+      internalID: 1333739058438319856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_1
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 495
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8feae0a212161a40800000000000000
+      internalID: 5338474279512764298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_2
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 463
+        width: 66
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0da6f9c95578e64e0800000000000000
+      internalID: -1986501583854146864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_3
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 463
+        width: 130
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 980b3c48280ea3700800000000000000
+      internalID: 520975558092501129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_4
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 479
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f73253fa1c7097c0800000000000000
+      internalID: -4066614008322312199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_5
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 463
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d24c4e2d0bf55920800000000000000
+      internalID: 2978562762605347544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_6
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 463
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdd926e492609a6b0800000000000000
+      internalID: -5284685913264054817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_7
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 463
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 654537533677ff850800000000000000
+      internalID: 6412975662381093974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_8
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 463
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecc8a9ee851e305d0800000000000000
+      internalID: -3097384346624291634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_9
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 463
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cadc26d387c0d0be0800000000000000
+      internalID: -1509536589533753940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_10
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 463
+        width: 16
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 604f5ee90ac302ba0800000000000000
+      internalID: -6115821633410829306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_11
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 463
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab16c5b64bb1be8e0800000000000000
+      internalID: -1663205175673986630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_12
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 463
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c716d787d0fc77b0800000000000000
+      internalID: -5225036659169028152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_13
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 463
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0544f379895e15a20800000000000000
+      internalID: 3049470866241832016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_14
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 463
+        width: 16
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2974e4d04ae3b7190800000000000000
+      internalID: -7963702641755797614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_15
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 463
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da231c32638b68550800000000000000
+      internalID: 6162815682770711213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_16
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 447
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d2fdbd08ac3882c0800000000000000
+      internalID: -4429223541036158250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_17
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 431
+        width: 66
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b10633251a0470f50800000000000000
+      internalID: 6847512820053139483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_18
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 431
+        width: 65
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25ed7ad2e8c095af0800000000000000
+      internalID: -407280486509453742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_19
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 431
+        width: 66
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff7e16325cc6c160800000000000000
+      internalID: 7045543320535072757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_20
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 431
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4dee6d1167a92d80800000000000000
+      internalID: -8274898804769100467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_21
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 399
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96339a49767c33070800000000000000
+      internalID: 8085025003749847913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_22
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 399
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0553c445ce86ab320800000000000000
+      internalID: 2574485501231510864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_23
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 399
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf541bcbc10c2f30800000000000000
+      internalID: 4552015298161827787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_24
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 399
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c409b3147fea0dc30800000000000000
+      internalID: 4382194814406070348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_25
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 399
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f31fbe9861a72b300800000000000000
+      internalID: 266409565190091071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_26
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 399
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf9c1ab1620548370800000000000000
+      internalID: 8323866135890086395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_27
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 399
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 538c715d2aa967c30800000000000000
+      internalID: 4356839713678018613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_28
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 399
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 134983c01cc4b4af0800000000000000
+      internalID: -411150548956834767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_29
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 399
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e39725b23b19f1e40800000000000000
+      internalID: 5629378257948408126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_30
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 399
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39c7f7a36716b29c0800000000000000
+      internalID: -3950957087672009581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_31
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 399
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f162ed47d31eb40a0800000000000000
+      internalID: -6896170750317812193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_32
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 399
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 577a29e265324d800800000000000000
+      internalID: 636172300421605237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_33
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 367
+        width: 7
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e02219832840cac0800000000000000
+      internalID: -3836987565058940702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_34
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 361
+        width: 50
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a219a45142e88570800000000000000
+      internalID: 8469267869491335849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_35
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 367
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ba23c02574aaef0800000000000000
+      internalID: -96186024317506718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_36
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 367
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd94fabe444d1f1c0800000000000000
+      internalID: -4471559562525193763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_37
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 367
+        width: 17
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4734017aaf434a410800000000000000
+      internalID: 1487372028088435572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_38
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 367
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 279115dbcac5e3760800000000000000
+      internalID: 7439485531442977138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_39
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 367
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4567f304f03915cc0800000000000000
+      internalID: -3724033723146996140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_40
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 367
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3bf4e8479982a320800000000000000
+      internalID: 2567766020410637116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_41
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 367
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30598f1e489d616e0800000000000000
+      internalID: -1867065830748416765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 319
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20123c638773d6ed0800000000000000
+      internalID: -2419216435373727486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_43
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 346
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 943e5059fc34c2df0800000000000000
+      internalID: -203713324301032631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_44
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 344
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 838ba67a149341e40800000000000000
+      internalID: 5626184788637038648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_45
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 319
+        width: 10
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eec3321a457c52d40800000000000000
+      internalID: 5559068481353366766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_46
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 307
+        width: 65
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd9e88bbf3821b1c0800000000000000
+      internalID: -4489763099317311009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_47
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 327
+        width: 65
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb4d07f60a14e0df0800000000000000
+      internalID: -212159975119596357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_48
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 335
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 442f30ae6bbc8d8a0800000000000000
+      internalID: -6280045693897543100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_49
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 335
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f0843510ff929680800000000000000
+      internalID: -8749755272530722567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_50
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 335
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 827c4af6173724330800000000000000
+      internalID: 3693641575438796584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_51
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 335
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5d2e3dd8ef5c3b00800000000000000
+      internalID: 809627486768737628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_52
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 335
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6416f50b485fd9160800000000000000
+      internalID: 7034048143266111814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_53
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 335
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bee56435d26b09d0800000000000000
+      internalID: -2807041274888720713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_54
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 335
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed856308290c2c820800000000000000
+      internalID: 2937121642447788254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_55
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 335
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5496ac8e9c0fc0490800000000000000
+      internalID: -7778577706391017147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_56
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 335
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aef38ed7961e2c530800000000000000
+      internalID: 3873906472692236266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_57
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 335
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9addbcfe7b41a2360800000000000000
+      internalID: 7145546539011399081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_58
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 335
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f65487e7e6f8fff0800000000000000
+      internalID: -1980323931597065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_59
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 335
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5793588fca9b31f80800000000000000
+      internalID: -8136955949173360267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3f39050e4de28e0800000000000000
+      internalID: -1716200348091943964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_61
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c33bf42dbc9a4db0800000000000000
+      internalID: -4806857316081388599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_62
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 129b86b1a836abdc0800000000000000
+      internalID: -3622473505449658079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_63
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ae52e6c28a01ff70800000000000000
+      internalID: 9219161469002866336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_64
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bfdff0ff71342c60800000000000000
+      internalID: 7792407680831709109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_65
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 287
+        width: 11
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3ab63cb444292e70800000000000000
+      internalID: 9090837200458136126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_66
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 315
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ad0f38057538230800000000000000
+      internalID: 3639848927168092820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_67
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 303
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bedb02bf959a6ca20800000000000000
+      internalID: 3082337198912093675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_68
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 303
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92ab46bfd67d09bb0800000000000000
+      internalID: -4931204724601603543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_69
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 303
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dd868d0d83618930800000000000000
+      internalID: 4143702589626027477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_70
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 303
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ae7b0f8874e03b0800000000000000
+      internalID: -5544415437766792574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_71
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 303
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6552ed8948d267e0800000000000000
+      internalID: -1773617492805921425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_72
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19cd36a2ccaf20f90800000000000000
+      internalID: -6988747916934128495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_73
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 303
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3b8dffac3c3b6cb0800000000000000
+      internalID: -4869732340722726084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_74
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 303
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b131ef3a2528d6840800000000000000
+      internalID: 5218970834642539291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_75
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 303
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9a95567c8ff9370800000000000000
+      internalID: 8331651370941262260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_76
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 515c3e18e3aa61d80800000000000000
+      internalID: -8280243679430195947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_77
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 303
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 497cbe9d014fd0a90800000000000000
+      internalID: -7345947063958648940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_78
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 303
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72d67639509c398e0800000000000000
+      internalID: -1687784409548755673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_79
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd1e9ff603793540800000000000000
+      internalID: 4988144536185085404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_80
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 287
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 593566ace9d978b10800000000000000
+      internalID: 1983727466206090133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_81
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 287
+        width: 7
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79930a00de2cd98e0800000000000000
+      internalID: -1684976362393159273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_82
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 289
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4e4e93256af4c580800000000000000
+      internalID: -8807639658933629366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_83
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 287
+        width: 82
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b5896016379663a0800000000000000
+      internalID: -6672479539443432010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_84
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 271
+        width: 16
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a4ab61f9dbdb4d0800000000000000
+      internalID: -3117126876091758039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_85
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 271
+        width: 16
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 526c1fcd2b6b94250800000000000000
+      internalID: 5929471263737234981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_86
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 271
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75f1629a5a711f0e0800000000000000
+      internalID: -2237981539551535273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_87
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 271
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9187392a45ea89af0800000000000000
+      internalID: -389369689239488487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_88
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 271
+        width: 16
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2252328a4d9b9fb0800000000000000
+      internalID: -4639942047737687508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_89
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 271
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef6d15903ca46a90800000000000000
+      internalID: -7321537769537441815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_90
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 271
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b073517e5151bc080800000000000000
+      internalID: -9166209432767088885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_91
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 271
+        width: 15
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d397bffc74d5b60800000000000000
+      internalID: 7736418693495209319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_92
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 271
+        width: 16
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90be0b3786d35fd30800000000000000
+      internalID: 4464542124434582281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_93
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 271
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c1fcda9af91bcf0800000000000000
+      internalID: -238233754159604707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_94
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 271
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fa964b2a5f73bba0800000000000000
+      internalID: -6074371447142835463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_95
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 271
+        width: 15
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c37cc849625cbb40800000000000000
+      internalID: 5457327460612600772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_96
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 239
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 037e880655e0e5ff0800000000000000
+      internalID: -45583186372532432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_97
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 239
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7bdb91e041cfb4c0800000000000000
+      internalID: -4269481437316785281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_98
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 239
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55489eab68667f8f0800000000000000
+      internalID: -506823704208374699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_99
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 239
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64a5fd1bc7d9e8e80800000000000000
+      internalID: -8174423114745161146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_100
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 239
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d291c4a0da9ae1e0800000000000000
+      internalID: -2167750049717447976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_101
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 239
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da94774637cb295b0800000000000000
+      internalID: -5363017002452039251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_102
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 239
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79838406c533bb370800000000000000
+      internalID: 8339315606851958935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_103
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 239
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 043c3ba51f975e900800000000000000
+      internalID: 713110193523901248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_104
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 239
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ab2cd8b90779e9c0800000000000000
+      internalID: -3897453118872605791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_105
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 239
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d2d8ce282a3f42e0800000000000000
+      internalID: -2139427353719680299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_106
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 239
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a7105a22f331a290800000000000000
+      internalID: -7880960757736663131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_107
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 239
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d25ae65eff957e840800000000000000
+      internalID: 5253266445951739181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_108
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 207
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc2d9c42a66d1f80800000000000000
+      internalID: -8134232504705143587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_109
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 207
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab08d0341c3fad90800000000000000
+      internalID: -7084377631414023253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_110
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 207
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41d73c5a35f0c2680800000000000000
+      internalID: -8778624721714184940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_111
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 207
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c86d37d46647860800000000000000
+      internalID: 7526753360084896858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_112
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 207
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e1a6c5c69ae5a830800000000000000
+      internalID: 4081926570565345765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_113
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 207
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a47adcb78c502e60800000000000000
+      internalID: 7935444281485587617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_114
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 207
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd50985c0d3151af0800000000000000
+      internalID: -426412802328427041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_115
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 207
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c52863207d94b6490800000000000000
+      internalID: -7752021145784253860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_116
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 207
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d190f58bf14509ea0800000000000000
+      internalID: -5868097819249800931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_117
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 207
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64f3525d45aa7ff30800000000000000
+      internalID: 4609340024966954822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_118
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 207
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3165dee2ab6358f50800000000000000
+      internalID: 6882967778784794131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorFuntion_119
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 207
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14be77eb1a8747660800000000000000
+      internalID: 7382658325247683393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      DoorFuntion_0: 1333739058438319856
+      DoorFuntion_1: 5338474279512764298
+      DoorFuntion_10: -6115821633410829306
+      DoorFuntion_100: -2167750049717447976
+      DoorFuntion_101: -5363017002452039251
+      DoorFuntion_102: 8339315606851958935
+      DoorFuntion_103: 713110193523901248
+      DoorFuntion_104: -3897453118872605791
+      DoorFuntion_105: -2139427353719680299
+      DoorFuntion_106: -7880960757736663131
+      DoorFuntion_107: 5253266445951739181
+      DoorFuntion_108: -8134232504705143587
+      DoorFuntion_109: -7084377631414023253
+      DoorFuntion_11: -1663205175673986630
+      DoorFuntion_110: -8778624721714184940
+      DoorFuntion_111: 7526753360084896858
+      DoorFuntion_112: 4081926570565345765
+      DoorFuntion_113: 7935444281485587617
+      DoorFuntion_114: -426412802328427041
+      DoorFuntion_115: -7752021145784253860
+      DoorFuntion_116: -5868097819249800931
+      DoorFuntion_117: 4609340024966954822
+      DoorFuntion_118: 6882967778784794131
+      DoorFuntion_119: 7382658325247683393
+      DoorFuntion_12: -5225036659169028152
+      DoorFuntion_13: 3049470866241832016
+      DoorFuntion_14: -7963702641755797614
+      DoorFuntion_15: 6162815682770711213
+      DoorFuntion_16: -4429223541036158250
+      DoorFuntion_17: 6847512820053139483
+      DoorFuntion_18: -407280486509453742
+      DoorFuntion_19: 7045543320535072757
+      DoorFuntion_2: -1986501583854146864
+      DoorFuntion_20: -8274898804769100467
+      DoorFuntion_21: 8085025003749847913
+      DoorFuntion_22: 2574485501231510864
+      DoorFuntion_23: 4552015298161827787
+      DoorFuntion_24: 4382194814406070348
+      DoorFuntion_25: 266409565190091071
+      DoorFuntion_26: 8323866135890086395
+      DoorFuntion_27: 4356839713678018613
+      DoorFuntion_28: -411150548956834767
+      DoorFuntion_29: 5629378257948408126
+      DoorFuntion_3: 520975558092501129
+      DoorFuntion_30: -3950957087672009581
+      DoorFuntion_31: -6896170750317812193
+      DoorFuntion_32: 636172300421605237
+      DoorFuntion_33: -3836987565058940702
+      DoorFuntion_34: 8469267869491335849
+      DoorFuntion_35: -96186024317506718
+      DoorFuntion_36: -4471559562525193763
+      DoorFuntion_37: 1487372028088435572
+      DoorFuntion_38: 7439485531442977138
+      DoorFuntion_39: -3724033723146996140
+      DoorFuntion_4: -4066614008322312199
+      DoorFuntion_40: 2567766020410637116
+      DoorFuntion_41: -1867065830748416765
+      DoorFuntion_42: -2419216435373727486
+      DoorFuntion_43: -203713324301032631
+      DoorFuntion_44: 5626184788637038648
+      DoorFuntion_45: 5559068481353366766
+      DoorFuntion_46: -4489763099317311009
+      DoorFuntion_47: -212159975119596357
+      DoorFuntion_48: -6280045693897543100
+      DoorFuntion_49: -8749755272530722567
+      DoorFuntion_5: 2978562762605347544
+      DoorFuntion_50: 3693641575438796584
+      DoorFuntion_51: 809627486768737628
+      DoorFuntion_52: 7034048143266111814
+      DoorFuntion_53: -2807041274888720713
+      DoorFuntion_54: 2937121642447788254
+      DoorFuntion_55: -7778577706391017147
+      DoorFuntion_56: 3873906472692236266
+      DoorFuntion_57: 7145546539011399081
+      DoorFuntion_58: -1980323931597065
+      DoorFuntion_59: -8136955949173360267
+      DoorFuntion_6: -5284685913264054817
+      DoorFuntion_60: -1716200348091943964
+      DoorFuntion_61: -4806857316081388599
+      DoorFuntion_62: -3622473505449658079
+      DoorFuntion_63: 9219161469002866336
+      DoorFuntion_64: 7792407680831709109
+      DoorFuntion_65: 9090837200458136126
+      DoorFuntion_66: 3639848927168092820
+      DoorFuntion_67: 3082337198912093675
+      DoorFuntion_68: -4931204724601603543
+      DoorFuntion_69: 4143702589626027477
+      DoorFuntion_7: 6412975662381093974
+      DoorFuntion_70: -5544415437766792574
+      DoorFuntion_71: -1773617492805921425
+      DoorFuntion_72: -6988747916934128495
+      DoorFuntion_73: -4869732340722726084
+      DoorFuntion_74: 5218970834642539291
+      DoorFuntion_75: 8331651370941262260
+      DoorFuntion_76: -8280243679430195947
+      DoorFuntion_77: -7345947063958648940
+      DoorFuntion_78: -1687784409548755673
+      DoorFuntion_79: 4988144536185085404
+      DoorFuntion_8: -3097384346624291634
+      DoorFuntion_80: 1983727466206090133
+      DoorFuntion_81: -1684976362393159273
+      DoorFuntion_82: -8807639658933629366
+      DoorFuntion_83: -6672479539443432010
+      DoorFuntion_84: -3117126876091758039
+      DoorFuntion_85: 5929471263737234981
+      DoorFuntion_86: -2237981539551535273
+      DoorFuntion_87: -389369689239488487
+      DoorFuntion_88: -4639942047737687508
+      DoorFuntion_89: -7321537769537441815
+      DoorFuntion_9: -1509536589533753940
+      DoorFuntion_90: -9166209432767088885
+      DoorFuntion_91: 7736418693495209319
+      DoorFuntion_92: 4464542124434582281
+      DoorFuntion_93: -238233754159604707
+      DoorFuntion_94: -6074371447142835463
+      DoorFuntion_95: 5457327460612600772
+      DoorFuntion_96: -45583186372532432
+      DoorFuntion_97: -4269481437316785281
+      DoorFuntion_98: -506823704208374699
+      DoorFuntion_99: -8174423114745161146
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

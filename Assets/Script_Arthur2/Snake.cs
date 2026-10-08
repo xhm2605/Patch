@@ -25,25 +25,30 @@ public class Snake : MonoBehaviour
     public GameObject texteGameOver;
     public GameObject texteVictoire; 
     
-    // Mémorise ton texte original écrit dans l'Inspector
     private string texteGameOverOriginal;
+
+    public GameObject bombPrefab; 
+    private List<GameObject> bombesActives = new List<GameObject>();
+
+    private int difficulteActuelle = 2;
+
+    // --- NOUVEAUTÉ : EFFETS VISUELS ---
+    public ParticleSystem particulesPropulseur;
 
     void Start()
     {
-        // On sauvegarde ton texte personnalisé au tout début
         texteGameOverOriginal = texteGameOver.GetComponent<TMP_Text>().text;
 
-        int niveauDifficulte = PlayerPrefs.GetInt("Difficulte", 2);
+        difficulteActuelle = PlayerPrefs.GetInt("Difficulte", 2);
 
-        // Quand la borne lance le jeu, la difficulte vient du menu principal
         if (GameManager.Instance != null)
-            niveauDifficulte = GameSettings.difficulty + 1;
+            difficulteActuelle = GameSettings.difficulty + 1;
 
-        if (niveauDifficulte == 1) {
+        if (difficulteActuelle == 1) {
             tempsEntreMouvements = 0.4f; 
-        } else if (niveauDifficulte == 2) {
+        } else if (difficulteActuelle == 2) {
             tempsEntreMouvements = 0.2f; 
-        } else if (niveauDifficulte == 3) {
+        } else if (difficulteActuelle == 3) {
             tempsEntreMouvements = 0.08f; 
         }
 
@@ -61,7 +66,6 @@ public class Snake : MonoBehaviour
         texteGameOver.SetActive(true);
         TMP_Text texteUI = texteGameOver.GetComponent<TMP_Text>();
 
-        // Le décompte utilise l'objet texte du Game Over
         texteUI.text = "3";
         yield return new WaitForSeconds(1f);
         
@@ -76,7 +80,15 @@ public class Snake : MonoBehaviour
 
         texteGameOver.SetActive(false);
         direction = Vector2.right; 
+        
+        transform.eulerAngles = new Vector3(0, 0, 0);
+        
+        GererBombes(); 
+
         jeuEnCours = true; 
+        
+        // Active les particules quand le vaisseau démarre
+        if (particulesPropulseur != null) particulesPropulseur.Play();
     }
 
     void Update()
@@ -95,12 +107,16 @@ public class Snake : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && direction != Vector2.down) {
             direction = Vector2.up;
+            transform.eulerAngles = new Vector3(0, 0, 90);
         } else if (Input.GetKeyDown(KeyCode.DownArrow) && direction != Vector2.up) {
             direction = Vector2.down;
+            transform.eulerAngles = new Vector3(0, 0, -90); 
         } else if (Input.GetKeyDown(KeyCode.LeftArrow) && direction != Vector2.right) {
             direction = Vector2.left;
+            transform.eulerAngles = new Vector3(0, 0, 180); 
         } else if (Input.GetKeyDown(KeyCode.RightArrow) && direction != Vector2.left) {
             direction = Vector2.right;
+            transform.eulerAngles = new Vector3(0, 0, 0); 
         }
 
         chrono += Time.deltaTime;
@@ -123,6 +139,24 @@ public class Snake : MonoBehaviour
         
         for (int i = 0; i < corps.Count; i++) {
             corps[i].position = Vector2.MoveTowards(corps[i].position, ciblesCorps[i], vitesseVisuelle * Time.deltaTime);
+
+            Vector2 directionWagon = ciblesCorps[i] - (Vector2)corps[i].position;
+            if (directionWagon != Vector2.zero)
+            {
+                float angle = Mathf.Atan2(directionWagon.y, directionWagon.x) * Mathf.Rad2Deg;
+                corps[i].eulerAngles = new Vector3(0, 0, angle);
+            }
+        }
+
+        // --- GESTION DES PARTICULES ---
+        if (particulesPropulseur != null)
+        {
+            // On cible la tête s'il n'y a pas de wagon, sinon on cible le dernier wagon
+            Transform ciblePropulseur = (corps.Count > 0) ? corps[corps.Count - 1] : transform;
+            
+            // On place les particules sur la cible et on oriente vers l'arrière
+            particulesPropulseur.transform.position = ciblePropulseur.position;
+            particulesPropulseur.transform.rotation = ciblePropulseur.rotation * Quaternion.Euler(0, 0, 180);
         }
     }
 
@@ -130,20 +164,22 @@ public class Snake : MonoBehaviour
     {
         if (!jeuEnCours) return;
 
-        if (collision.gameObject.name == "Walls" || collision.gameObject.CompareTag("Body"))
+        if (collision.gameObject.name == "Walls" || collision.gameObject.CompareTag("Body") || collision.gameObject.CompareTag("Bomb"))
         {
+            // On déclenche le tremblement d'écran au moment de la défaite !
+            StartCoroutine(SecouerEcran(0.4f, 0.5f)); 
             FinDePartie(false); 
         }
         else if (collision.gameObject.CompareTag("Food"))
         {
-            float randomX = Mathf.Round(Random.Range(-8f, 8f));
-            float randomY = Mathf.Round(Random.Range(-5f, 5f));
-            collision.transform.position = new Vector2(randomX, randomY);
+            collision.transform.position = TrouverPositionLibre();
             
             Grandir();
-
             score += 1;
             texteScore.text = "Score: " + score;
+
+            DeplacerBombesExistantes();
+            GererBombes(); 
 
             if (score >= scorePourGagner)
             {
@@ -152,15 +188,107 @@ public class Snake : MonoBehaviour
         }
     }
 
+    // --- FONCTION DE TREMBLEMENT D'ÉCRAN ---
+    private IEnumerator SecouerEcran(float duree, float magnitude)
+    {
+        Vector3 positionOriginale = Camera.main.transform.position;
+        float tempsEcoule = 0f;
+
+        while (tempsEcoule < duree)
+        {
+            float x = positionOriginale.x + Random.Range(-1f, 1f) * magnitude;
+            float y = positionOriginale.y + Random.Range(-1f, 1f) * magnitude;
+            
+            Camera.main.transform.position = new Vector3(x, y, positionOriginale.z);
+            tempsEcoule += Time.deltaTime;
+            
+            yield return null; 
+        }
+        Camera.main.transform.position = positionOriginale; // Remet la caméra droite
+    }
+
+    private void DeplacerBombesExistantes()
+    {
+        foreach (GameObject bombe in bombesActives)
+        {
+            if (bombe != null)
+            {
+                bombe.transform.position = new Vector2(-1000, -1000); 
+                bombe.transform.position = TrouverPositionLibre();
+            }
+        }
+    }
+
+    private void GererBombes()
+    {
+        int nbBombesSouhaitees = 1; 
+
+        if (difficulteActuelle == 1) 
+        {
+            if (score >= 5) nbBombesSouhaitees = 2; 
+            else nbBombesSouhaitees = 1;
+        }
+        else if (difficulteActuelle == 2) 
+        {
+            if (score >= 9) nbBombesSouhaitees = 4;
+            else if (score >= 6) nbBombesSouhaitees = 3;
+            else if (score >= 3) nbBombesSouhaitees = 2;
+            else nbBombesSouhaitees = 1;
+        }
+        else if (difficulteActuelle == 3) 
+        {
+            if (score >= 8) nbBombesSouhaitees = 5;
+            else if (score >= 6) nbBombesSouhaitees = 4;
+            else if (score >= 4) nbBombesSouhaitees = 3;
+            else if (score >= 2) nbBombesSouhaitees = 2;
+            else nbBombesSouhaitees = 1;
+        }
+
+        while (bombesActives.Count < nbBombesSouhaitees)
+        {
+            Vector2 positionAleatoire = TrouverPositionLibre();
+            GameObject nouvelleBombe = Instantiate(bombPrefab, positionAleatoire, Quaternion.identity);
+            bombesActives.Add(nouvelleBombe);
+        }
+    }
+
+    private Vector2 TrouverPositionLibre()
+    {
+        Vector2 positionTest = Vector2.zero;
+        bool positionValide = false;
+        int maxTentatives = 200; 
+        int tentatives = 0;
+
+        GameObject food = GameObject.FindGameObjectWithTag("Food");
+
+        while (!positionValide && tentatives < maxTentatives)
+        {
+            positionTest = new Vector2(Mathf.Round(Random.Range(-8f, 8f)), Mathf.Round(Random.Range(-5f, 5f)));
+            positionValide = true;
+            tentatives++;
+
+            if ((Vector2)transform.position == positionTest) positionValide = false;
+
+            foreach (Transform morceau in corps) {
+                if ((Vector2)morceau.position == positionTest) positionValide = false;
+            }
+
+            foreach (GameObject bombe in bombesActives) {
+                if (bombe != null && (Vector2)bombe.transform.position == positionTest) positionValide = false;
+            }
+
+            if (food != null && (Vector2)food.transform.position == positionTest) positionValide = false;
+        }
+
+        return positionTest;
+    }
+
     private void Grandir()
     {
         Transform nouveauMorceau = Instantiate(bodyPrefab, new Vector3(-1000, -1000, 0), Quaternion.identity);
         
         Collider2D col = nouveauMorceau.GetComponent<Collider2D>();
-        if (col != null)
-        {
-            col.enabled = false;
-        }
+        if (col != null) col.enabled = false;
 
         Vector2 positionInitiale = (corps.Count > 0) ? (Vector2)corps[corps.Count - 1].position : (Vector2)transform.position;
         nouveauMorceau.position = positionInitiale; 
@@ -168,27 +296,22 @@ public class Snake : MonoBehaviour
         corps.Add(nouveauMorceau);
         ciblesCorps.Add(positionInitiale); 
         
-        if (col != null)
-        {
-            StartCoroutine(ActiverCollider(col)); 
-        }
+        if (col != null) StartCoroutine(ActiverCollider(col)); 
     }
 
     IEnumerator ActiverCollider(Collider2D col)
     {
         yield return new WaitForSeconds(tempsEntreMouvements);
-        if (col != null) 
-        {
-            col.enabled = true;
-        }
+        if (col != null) col.enabled = true;
     }
 
     private void FinDePartie(bool estVictoire)
     {
         jeuEnCours = false;
         direction = Vector2.zero;
+        
+        if (particulesPropulseur != null) particulesPropulseur.Stop(); // Coupe le moteur
 
-        // Lance depuis la borne : on rend la main au vaisseau
         bool relieAuVaisseau = (GameManager.Instance != null);
         enAttenteDeTouche = !relieAuVaisseau;
 
@@ -227,6 +350,11 @@ public class Snake : MonoBehaviour
         }
         corps.Clear(); 
         ciblesCorps.Clear(); 
+
+        foreach (GameObject bombe in bombesActives) {
+            if (bombe != null) Destroy(bombe);
+        }
+        bombesActives.Clear();
         
         score = 0;
         texteScore.text = "Score: " + score;
