@@ -13,12 +13,24 @@ public class CodeTerminal : MonoBehaviour
 
     private Transform player;
     private bool wired = false;
+    private bool styled = false;
 
     void Start()
     {
         AddSolidBody();
 
-        if (CodeButton != null) CodeButton.gameObject.SetActive(false);
+        if (CodeButton != null)
+        {
+            if (!styled)
+            {
+                styled = true;
+                MenuStyler.StyleActionButton(CodeButton, new Color(0.45f, 0.95f, 0.70f, 1f));
+                MenuStyler.AttachKeyHint(CodeButton, "SPACE");
+            }
+
+            CodeButton.gameObject.SetActive(false);
+        }
+
         if (CodePanel != null) CodePanel.SetActive(false);
     }
 

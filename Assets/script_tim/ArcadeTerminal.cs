@@ -24,6 +24,9 @@ public class ArcadeTerminal : MonoBehaviour
     // Les cinq bornes partagent le meme bouton : une seule le tient a la fois
     private static ArcadeTerminal holder;
     private static Transform player;
+    private static bool buttonStyled = false;
+
+    private TMP_Text keyHint;
 
     void Start()
     {
@@ -39,7 +42,21 @@ public class ArcadeTerminal : MonoBehaviour
 
         if (repairButton != null)
         {
-            buttonLabel = repairButton.GetComponentInChildren<TMP_Text>(true);
+            if (!buttonStyled)
+            {
+                buttonStyled = true;
+                MenuStyler.StyleActionButton(repairButton, new Color(0.40f, 0.82f, 1f, 1f));
+            }
+
+            buttonLabel = null;
+            foreach (TMP_Text t in repairButton.GetComponentsInChildren<TMP_Text>(true))
+            {
+                if (t.gameObject.name == "KeyHint") continue;
+                buttonLabel = t;
+                break;
+            }
+
+            keyHint = MenuStyler.AttachKeyHint(repairButton, "SPACE");
             repairButton.gameObject.SetActive(false);
         }
 
@@ -57,6 +74,7 @@ public class ArcadeTerminal : MonoBehaviour
     void OnDisable()
     {
         if (holder == this) holder = null;
+        buttonStyled = false;
     }
 
     // La borne est un meuble : seule sa base bloque le passage
@@ -163,10 +181,12 @@ public class ArcadeTerminal : MonoBehaviour
         {
             int s = Mathf.CeilToInt(GameManager.Instance.GetLockRemaining(terminalId));
             buttonLabel.text = "RESETTING " + s + "s";
+            if (keyHint != null) keyHint.text = "";
         }
         else
         {
-            buttonLabel.text = (isRepaired ? "HINT" : "REPAIR") + "   [SPACE]";
+            buttonLabel.text = isRepaired ? "HINT" : "REPAIR";
+            if (keyHint != null) keyHint.text = "SPACE";
         }
     }
 

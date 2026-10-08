@@ -225,6 +225,104 @@ public class MenuStyler : MonoBehaviour
                 new Color(0.34f, 0.70f, 0.95f, 0.95f));
     }
 
+    // Les boutons d'action du jeu font 160x30 dans la scene : trop petits pour
+    // leur texte, et donc difficiles a viser. On les remet a une taille utilisable.
+    public static TMP_Text StyleActionButton(Button btn, Color accent)
+    {
+        if (btn == null) return null;
+
+        RectTransform rt = btn.transform as RectTransform;
+        rt.anchorMin = new Vector2(0.5f, 0f);
+        rt.anchorMax = new Vector2(0.5f, 0f);
+        rt.pivot = new Vector2(0.5f, 0.5f);
+        rt.anchoredPosition = new Vector2(0f, 210f);
+        rt.sizeDelta = new Vector2(340f, 72f);
+        rt.localScale = Vector3.one;
+
+        Image img = btn.GetComponent<Image>();
+        if (img != null)
+        {
+            img.sprite = RoundedRect(96, 96, 16f, 2.5f,
+                new Color(0.09f, 0.20f, 0.32f, 0.94f), accent);
+            img.type = Image.Type.Sliced;
+            img.color = Color.white;
+        }
+
+        ColorBlock cb = btn.colors;
+        cb.normalColor = new Color(0.88f, 0.94f, 1f);
+        cb.highlightedColor = Color.white;
+        cb.pressedColor = new Color(0.55f, 0.72f, 0.86f);
+        cb.disabledColor = new Color(0.42f, 0.44f, 0.50f, 0.6f);
+        cb.fadeDuration = 0.1f;
+        btn.colors = cb;
+
+        TMP_Text main = null;
+        foreach (TMP_Text t in btn.GetComponentsInChildren<TMP_Text>(true))
+        {
+            if (t.gameObject.name == "KeyHint") continue;
+            main = t;
+            break;
+        }
+
+        if (main != null)
+        {
+            RectTransform mrt = main.rectTransform;
+            mrt.anchorMin = Vector2.zero;
+            mrt.anchorMax = Vector2.one;
+            mrt.offsetMin = new Vector2(10f, 20f);
+            mrt.offsetMax = new Vector2(-10f, -4f);
+            mrt.localScale = Vector3.one;
+
+            main.fontSize = 28f;
+            main.characterSpacing = 5f;
+            main.fontStyle = FontStyles.Bold | FontStyles.UpperCase;
+            main.color = new Color(0.90f, 0.96f, 1f);
+            main.alignment = TextAlignmentOptions.Center;
+            main.enableAutoSizing = false;
+            main.raycastTarget = false;
+        }
+
+        btn.transform.SetAsLastSibling();
+        return main;
+    }
+
+    // Mention discrete de la touche, sur sa propre ligne sous le libelle
+    public static TMP_Text AttachKeyHint(Button btn, string key)
+    {
+        if (btn == null) return null;
+
+        Transform found = btn.transform.Find("KeyHint");
+        TMP_Text hint;
+
+        if (found != null)
+        {
+            hint = found.GetComponent<TMP_Text>();
+        }
+        else
+        {
+            GameObject go = new GameObject("KeyHint", typeof(RectTransform));
+            go.layer = btn.gameObject.layer;
+            go.transform.SetParent(btn.transform, false);
+
+            RectTransform hrt = go.GetComponent<RectTransform>();
+            hrt.anchorMin = new Vector2(0f, 0f);
+            hrt.anchorMax = new Vector2(1f, 0f);
+            hrt.pivot = new Vector2(0.5f, 0f);
+            hrt.offsetMin = new Vector2(10f, 8f);
+            hrt.offsetMax = new Vector2(-10f, 26f);
+
+            hint = go.AddComponent<TextMeshProUGUI>();
+        }
+
+        hint.text = key;
+        hint.fontSize = 14f;
+        hint.characterSpacing = 9f;
+        hint.color = new Color(0.52f, 0.78f, 0.96f, 0.85f);
+        hint.alignment = TextAlignmentOptions.Center;
+        hint.raycastTarget = false;
+        return hint;
+    }
+
     public static Sprite RoundedRect(int w, int h, float radius, float border, Color fill, Color edge)
     {
         Color[] px = new Color[w * h];
