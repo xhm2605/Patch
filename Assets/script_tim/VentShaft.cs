@@ -44,7 +44,7 @@ public class VentShaft : MonoBehaviour
         if (ready)
         {
             Show();
-            if (Input.GetKeyDown(useKey)) Travel();
+            if (Input.GetKeyDown(useKey) || Input.GetKeyDown(KeyCode.Space)) Travel();
         }
         else if (active == this)
         {
@@ -65,7 +65,7 @@ public class VentShaft : MonoBehaviour
         {
             buttonLabel.text = string.IsNullOrEmpty(destinationName)
                 ? "ENTER THE VENT"
-                : "VENT TO " + destinationName.ToUpper();
+                : "VENT TO " + destinationName.ToUpper() + "   [E]";
         }
 
         if (!button.activeSelf) button.SetActive(true);

@@ -9,7 +9,10 @@ public class CodeTerminal : MonoBehaviour
     public GameObject CodePanel;
     public TMP_Text FeedbackText;
 
-    private bool playerInRange = false;
+    public float interactRange = 4f;
+
+    private Transform player;
+    private bool wired = false;
 
     void Start()
     {
@@ -42,42 +45,43 @@ public class CodeTerminal : MonoBehaviour
         body.isTrigger = false;
     }
 
-    // Si on referme la console en restant devant, le bouton d'acces revient
+    // Portee mesuree a chaque image, pour survivre aux teleportations
     void Update()
     {
-        if (!playerInRange || CodeButton == null || CodePanel == null) return;
+        if (CodeButton == null || CodePanel == null) return;
 
-        bool shouldShow = !CodePanel.activeSelf;
-        if (CodeButton.gameObject.activeSelf != shouldShow)
-            CodeButton.gameObject.SetActive(shouldShow);
-    }
+        if (player == null)
+        {
+            PlayerMovement pm = FindAnyObjectByType<PlayerMovement>();
+            if (pm != null) player = pm.transform;
+        }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player")) return;
-        if (CodeButton == null) return;
+        bool near = player != null
+                    && Vector2.Distance(player.position, transform.position) <= interactRange;
 
-        playerInRange = true;
-        CodeButton.gameObject.SetActive(true);
-        CodeButton.onClick.RemoveAllListeners();
-        CodeButton.onClick.AddListener(OpenCodePanel);
-    }
+        bool show = near && !CodePanel.activeSelf;
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other == null || !other.CompareTag("Player")) return;
+        if (show && !wired)
+        {
+            wired = true;
+            CodeButton.onClick.RemoveAllListeners();
+            CodeButton.onClick.AddListener(OpenCodePanel);
+        }
+        else if (!show && wired)
+        {
+            wired = false;
+            CodeButton.onClick.RemoveAllListeners();
+        }
 
-        playerInRange = false;
-        if (CodeButton == null) return;
+        if (CodeButton.gameObject.activeSelf != show) CodeButton.gameObject.SetActive(show);
 
-        CodeButton.onClick.RemoveAllListeners();
-        CodeButton.gameObject.SetActive(false);
+        if (show && Input.GetKeyDown(KeyCode.Space)) OpenCodePanel();
     }
 
     // La console s'ouvre quand on veut : elle n'affiche que les lettres deja trouvees
     void OpenCodePanel()
     {
-        if (!playerInRange || CodePanel == null) return;
+        if (CodePanel == null || CodePanel.activeSelf) return;
 
         if (FeedbackText != null && GameManager.Instance != null)
         {

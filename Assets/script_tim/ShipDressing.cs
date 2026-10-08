@@ -56,6 +56,12 @@ public class ShipDressing : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // La scene de depart n'emet pas sceneLoaded : on l'attrape ici,
+    // une fois que tous les objets de la scene existent.
+    void Start()
+    {
         if (SceneManager.GetActiveScene().name == "Main") Build();
     }
 
@@ -318,12 +324,12 @@ public class ShipDressing : MonoBehaviour
 
     void WallProps()
     {
-        Pipe(new Vector2(-1.74f, 11f), new Vector2(0.26f, 9f), 0f);
-        Pipe(new Vector2(1.74f, -11f), new Vector2(0.26f, 9f), 0f);
-        Pipe(new Vector2(-13f, 1.74f), new Vector2(0.26f, 9f), 90f);
-        Pipe(new Vector2(13f, -1.74f), new Vector2(0.26f, 9f), 90f);
-        Pipe(new Vector2(24.26f, 11f), new Vector2(0.26f, 9f), 0f);
-        Pipe(new Vector2(27.74f, 11f), new Vector2(0.26f, 9f), 0f);
+        Pipe(new Vector2(-1.74f, 11f), new Vector2(0.26f, 6.4f), 0f);
+        Pipe(new Vector2(1.74f, -11f), new Vector2(0.26f, 6.4f), 0f);
+        Pipe(new Vector2(-13f, 1.74f), new Vector2(0.26f, 6.4f), 90f);
+        Pipe(new Vector2(13f, -1.74f), new Vector2(0.26f, 6.4f), 90f);
+        Pipe(new Vector2(24.26f, 11f), new Vector2(0.26f, 6.4f), 0f);
+        Pipe(new Vector2(27.74f, 11f), new Vector2(0.26f, 6.4f), 0f);
 
         Panel(new Vector2(-7.8f, 2.6f), 90f, Cyan);
         Panel(new Vector2(-7.8f, -2.6f), 90f, Cyan);
@@ -454,27 +460,27 @@ public class ShipDressing : MonoBehaviour
 
     void Cables()
     {
-        Cable(new Vector2(1.75f, 11f), 9f, 0f);
-        Cable(new Vector2(-1.75f, -11f), 9f, 0f);
-        Cable(new Vector2(13f, 1.75f), 9f, 90f);
-        Cable(new Vector2(-13f, -1.75f), 9f, 90f);
+        Cable(new Vector2(1.75f, 11f), 6.4f, 0f);
+        Cable(new Vector2(-1.75f, -11f), 6.4f, 0f);
+        Cable(new Vector2(13f, 1.75f), 6.4f, 90f);
+        Cable(new Vector2(-13f, -1.75f), 6.4f, 90f);
 
-        Cable(new Vector2(27.75f, 11f), 9f, 0f);
-        Cable(new Vector2(-24.25f, 11f), 9f, 0f);
-        Cable(new Vector2(-27.75f, -11f), 9f, 0f);
-        Cable(new Vector2(24.25f, -11f), 9f, 0f);
+        Cable(new Vector2(27.75f, 11f), 6.4f, 0f);
+        Cable(new Vector2(-24.25f, 11f), 6.4f, 0f);
+        Cable(new Vector2(-27.75f, -11f), 6.4f, 0f);
+        Cable(new Vector2(24.25f, -11f), 6.4f, 0f);
 
-        Cable(new Vector2(13f, 23.75f), 9f, 90f);
-        Cable(new Vector2(-13f, 20.25f), 9f, 90f);
-        Cable(new Vector2(13f, -20.25f), 9f, 90f);
-        Cable(new Vector2(-13f, -23.75f), 9f, 90f);
+        Cable(new Vector2(13f, 23.75f), 6.4f, 90f);
+        Cable(new Vector2(-13f, 20.25f), 6.4f, 90f);
+        Cable(new Vector2(13f, -20.25f), 6.4f, 90f);
+        Cable(new Vector2(-13f, -23.75f), 6.4f, 90f);
 
         Cable(new Vector2(-4f, 27.75f), 6f, 90f);
         Cable(new Vector2(4f, -27.75f), 6f, 90f);
         Cable(new Vector2(-35.75f, 21f), 8f, 0f);
         Cable(new Vector2(-35.75f, -21f), 8f, 0f);
         Cable(new Vector2(35.75f, -21f), 8f, 0f);
-        Cable(new Vector2(33.75f, 22f), 9f, 0f);
+        Cable(new Vector2(33.75f, 22f), 6.4f, 0f);
         Cable(new Vector2(-33.75f, 0f), 8f, 0f);
         Cable(new Vector2(33.75f, 0f), 8f, 0f);
     }
@@ -501,11 +507,19 @@ public class ShipDressing : MonoBehaviour
     // ---------- Caches ----------
 
     // Les seuls objets qui passent devant le joueur : il disparait derriere
+    // Les droides ne voient pas le joueur quand il est a cote d'une de ces piles
+    public static readonly Vector2[] HidePositions =
+    {
+        new Vector2(-32.5f, 21f),
+        new Vector2(32.5f, -21f),
+        new Vector2(-27f, -20.5f)
+    };
+
+    public const float HideRadius = 2.1f;
+
     void HideSpots()
     {
-        HideSpot(new Vector2(-32.5f, 21f));
-        HideSpot(new Vector2(32.5f, -21f));
-        HideSpot(new Vector2(-27f, -20.5f));
+        foreach (Vector2 p in HidePositions) HideSpot(p);
     }
 
     void HideSpot(Vector2 pos)
@@ -614,15 +628,15 @@ public class ShipDressing : MonoBehaviour
 
     void Labels()
     {
-        Label("CONTROL", new Vector2(-3.4f, -4.9f), 2.3f, new Color(0.55f, 0.78f, 0.95f, 0.36f));
-        Label("ARCADE BAY", new Vector2(0f, 17.1f), 2.1f, new Color(1f, 0.78f, 0.45f, 0.32f));
-        Label("ENGINE", new Vector2(0f, -17.1f), 2.1f, new Color(1f, 0.55f, 0.45f, 0.32f));
-        Label("SHIELD", new Vector2(-26f, -4.9f), 2.1f, new Color(0.55f, 0.80f, 1f, 0.32f));
-        Label("OXYGEN", new Vector2(26f, -4.9f), 2.1f, new Color(0.60f, 0.95f, 0.72f, 0.32f));
-        Label("COOLANT", new Vector2(26f, 17.1f), 2.1f, new Color(0.55f, 0.85f, 1f, 0.32f));
-        Label("CARGO BAY", new Vector2(-28f, 18.6f), 2.1f, new Color(1f, 0.82f, 0.50f, 0.30f));
-        Label("QUARTERS", new Vector2(-28f, -18.8f), 2.1f, new Color(0.72f, 0.80f, 0.95f, 0.30f));
-        Label("OBSERVATION", new Vector2(28f, -18.8f), 2.1f, new Color(0.62f, 0.95f, 0.80f, 0.30f));
+        Label("CONTROL", new Vector2(-3.4f, -4.9f), 3.2f, new Color(0.55f, 0.78f, 0.95f, 0.46f));
+        Label("ARCADE BAY", new Vector2(0f, 17.1f), 3.2f, new Color(1f, 0.78f, 0.45f, 0.46f));
+        Label("ENGINE", new Vector2(0f, -17.1f), 3.2f, new Color(1f, 0.55f, 0.45f, 0.46f));
+        Label("SHIELD", new Vector2(-26f, -4.9f), 3.2f, new Color(0.55f, 0.80f, 1f, 0.46f));
+        Label("OXYGEN", new Vector2(26f, -4.9f), 3.2f, new Color(0.60f, 0.95f, 0.72f, 0.46f));
+        Label("COOLANT", new Vector2(26f, 17.1f), 3.2f, new Color(0.55f, 0.85f, 1f, 0.46f));
+        Label("CARGO BAY", new Vector2(-28f, 18.6f), 3.2f, new Color(1f, 0.82f, 0.50f, 0.46f));
+        Label("QUARTERS", new Vector2(-28f, -18.8f), 3.2f, new Color(0.72f, 0.80f, 0.95f, 0.46f));
+        Label("OBSERVATION", new Vector2(28f, -18.8f), 3.2f, new Color(0.62f, 0.95f, 0.80f, 0.46f));
     }
 
     void Label(string content, Vector2 pos, float size, Color c)

@@ -10,6 +10,15 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        // Sans cela le personnage pivote sur lui-meme des qu'il frotte un mur
+        if (rb != null)
+        {
+            rb.freezeRotation = true;
+            rb.angularVelocity = 0f;
+        }
+
+        transform.rotation = Quaternion.identity;
     }
 
     void Update()

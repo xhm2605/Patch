@@ -9,6 +9,8 @@ public class ShipMap : MonoBehaviour
 {
     public static ShipMap Instance;
 
+    public static bool IsOpen { get; private set; }
+
     private const float Scale = 10.4f;
 
     private static Sprite panelSprite;
@@ -67,6 +69,13 @@ public class ShipMap : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    // On laisse passer une image : la borne Coolant est creee dans un autre Start
+    System.Collections.IEnumerator Start()
+    {
+        yield return null;
+        OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
+    }
+
     void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -74,6 +83,8 @@ public class ShipMap : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        IsOpen = false;
+
         openButton = null;
         panel = null;
         plan = null;
@@ -137,7 +148,7 @@ public class ShipMap : MonoBehaviour
 
         TextMeshProUGUI t = title.AddComponent<TextMeshProUGUI>();
         t.text = "SHIP LAYOUT";
-        t.fontSize = 32f;
+        t.fontSize = 38f;
         t.characterSpacing = 14f;
         t.fontStyle = FontStyles.Bold;
         t.color = Cyan;
@@ -164,12 +175,12 @@ public class ShipMap : MonoBehaviour
         {
             GameObject go = NewUI("Name_" + entry.Key, plan);
             Place(go.GetComponent<RectTransform>(),
-                entry.Value.x * Scale, entry.Value.y * Scale, 160f, 26f);
+                entry.Value.x * Scale, entry.Value.y * Scale, 220f, 34f);
 
             TextMeshProUGUI txt = go.AddComponent<TextMeshProUGUI>();
             txt.text = entry.Key;
-            txt.fontSize = 14f;
-            txt.characterSpacing = 3f;
+            txt.fontSize = 21f;
+            txt.characterSpacing = 4f;
             txt.color = new Color(0.68f, 0.82f, 0.95f, 0.85f);
             txt.alignment = TextAlignmentOptions.Center;
             txt.raycastTarget = false;
@@ -200,7 +211,7 @@ public class ShipMap : MonoBehaviour
 
             GameObject go = NewUI("Mark_" + t.terminalId, plan);
             RectTransform rt = go.GetComponent<RectTransform>();
-            Place(rt, t.transform.position.x * Scale, t.transform.position.y * Scale, 26f, 26f);
+            Place(rt, t.transform.position.x * Scale, t.transform.position.y * Scale, 32f, 32f);
 
             Image img = go.AddComponent<Image>();
             img.sprite = dotSprite;
@@ -212,7 +223,7 @@ public class ShipMap : MonoBehaviour
 
             TextMeshProUGUI txt = nameGo.AddComponent<TextMeshProUGUI>();
             txt.text = t.terminalId.ToUpper();
-            txt.fontSize = 15f;
+            txt.fontSize = 20f;
             txt.fontStyle = FontStyles.Bold;
             txt.alignment = TextAlignmentOptions.Center;
             txt.raycastTarget = false;
@@ -241,7 +252,7 @@ public class ShipMap : MonoBehaviour
 
             TextMeshProUGUI ctxt = cname.AddComponent<TextMeshProUGUI>();
             ctxt.text = "CONSOLE";
-            ctxt.fontSize = 15f;
+            ctxt.fontSize = 20f;
             ctxt.fontStyle = FontStyles.Bold;
             ctxt.color = new Color(Done.r, Done.g, Done.b, 0.9f);
             ctxt.alignment = TextAlignmentOptions.Center;
@@ -250,7 +261,7 @@ public class ShipMap : MonoBehaviour
 
         GameObject dot = NewUI("PlayerDot", plan);
         playerDot = dot.GetComponent<RectTransform>();
-        Place(playerDot, 0f, 0f, 22f, 22f);
+        Place(playerDot, 0f, 0f, 30f, 30f);
 
         Image pimg = dot.AddComponent<Image>();
         pimg.sprite = dotSprite;
@@ -292,6 +303,7 @@ public class ShipMap : MonoBehaviour
         if (panel == null) return;
 
         SoundManager.PlayOpen();
+        IsOpen = true;
         panel.SetActive(true);
         panel.transform.SetAsLastSibling();
 
@@ -303,6 +315,7 @@ public class ShipMap : MonoBehaviour
         if (panel == null) return;
 
         SoundManager.PlayClick();
+        IsOpen = false;
         panel.SetActive(false);
 
         if (openButton != null) openButton.SetActive(true);
@@ -363,13 +376,13 @@ public class ShipMap : MonoBehaviour
             if (repaired)
             {
                 markIcons[i].color = new Color(Done.r, Done.g, Done.b, 0.75f);
-                marks[i].sizeDelta = new Vector2(20f, 20f);
+                marks[i].sizeDelta = new Vector2(26f, 26f);
                 markLabels[i].color = new Color(Done.r, Done.g, Done.b, 0.6f);
             }
             else
             {
                 markIcons[i].color = new Color(Alert.r, Alert.g, Alert.b, 0.55f + pulse * 0.45f);
-                marks[i].sizeDelta = new Vector2(30f + pulse * 8f, 30f + pulse * 8f);
+                marks[i].sizeDelta = new Vector2(38f + pulse * 10f, 38f + pulse * 10f);
                 markLabels[i].color = new Color(1f, 0.58f, 0.52f, 1f);
             }
         }

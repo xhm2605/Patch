@@ -14,17 +14,30 @@ public class IntroCrawl : MonoBehaviour
         "THE DRIFTING STATION\n\n" +
         "Far beyond the outer rim, the survey ship PATCH " +
         "has lost all contact with fleet command.\n\n" +
-        "A power surge has crippled four critical systems. " +
+        "A power surge has crippled five critical systems. " +
         "The emergency lockdown scrambled the master override " +
-        "code into four fragments, each one sealed behind an " +
-        "old arcade terminal left behind by the previous crew.\n\n" +
-        "The reactor will not hold much longer.\n\n" +
-        "You are the only crew member still awake. Repair every " +
-        "system, recover the fragments, and reassemble the code " +
-        "before the countdown reaches zero...";
+        "code into eight letters, scattered behind the old arcade " +
+        "cabinets left by the previous crew.\n\n" +
+        "Beat a cabinet and it gives up its letters. Carry all eight " +
+        "to the control console, put them back in order, and the " +
+        "ship is yours again.\n\n" +
+        "But the lockdown woke the security droids. They sweep the " +
+        "corridors at random, and their red scanning beam must never " +
+        "touch you. Three alerts and the hull is sealed for good.\n\n" +
+        "Slip behind a stack of crates and their sensors lose you. " +
+        "The ventilation shafts will carry you across the ship " +
+        "faster than any corridor.\n\n" +
+        "The reactor will not hold much longer. Repair every system " +
+        "and reassemble the code before the countdown reaches zero...";
 
-    [Tooltip("Vitesse de defilement en pixels par seconde. Plus petit = plus lent.")]
+    [Tooltip("Vitesse de lecture en pixels par seconde. Plus petit = plus lent.")]
     public float readingSpeed = 55f;
+
+    [Tooltip("Vitesse d'arrivee du texte, avant qu'il ne ralentisse.")]
+    public float arrivalSpeed = 520f;
+
+    [Tooltip("Vitesse de sortie, une fois la derniere ligne a mi-ecran.")]
+    public float exitSpeed = 900f;
 
     [Tooltip("Marge sous le bas de l'ecran au depart. Plus petit = le texte arrive plus vite.")]
     public float startMargin = 30f;
@@ -41,6 +54,7 @@ public class IntroCrawl : MonoBehaviour
     private float screenHeight = 1080f;
     private float textHeight = 0f;
     private float fadeSpan = 2000f;
+    private float speed = 0f;
     private bool running = false;
 
     void Start()
@@ -60,15 +74,31 @@ public class IntroCrawl : MonoBehaviour
 
         if (textHeight <= 0f) MeasureText();
 
-        float y = crawl.anchoredPosition.y + readingSpeed * Time.unscaledDeltaTime;
-        crawl.anchoredPosition = new Vector2(0f, y);
+        float dt = Time.unscaledDeltaTime;
+        float y = crawl.anchoredPosition.y;
 
         float t = Mathf.Clamp01((y - startY) / fadeSpan);
         float s = Mathf.Lerp(1f, endScale, t);
+
+        float bottom = y - textHeight * s;
+
+        // Le vaisseau arrive vite, ralentit pour la lecture, puis repart
+        float target;
+
+        if (y < -screenHeight * 0.62f) target = arrivalSpeed;
+        else if (bottom > -screenHeight * 0.5f) target = exitSpeed;
+        else target = readingSpeed;
+
+        float ramp = (target > speed) ? 1500f : 1100f;
+        speed = Mathf.MoveTowards(speed, target, ramp * dt);
+
+        y += speed * dt;
+
+        crawl.anchoredPosition = new Vector2(0f, y);
         crawl.localScale = new Vector3(s, s, 1f);
 
         // Fin des que la derniere ligne est sortie par le haut
-        if (y - textHeight * s > 40f) Finish();
+        if (bottom > 40f) Finish();
     }
 
     void MeasureText()
@@ -122,6 +152,8 @@ public class IntroCrawl : MonoBehaviour
         BuildSkipButton();
 
         panel.transform.SetAsLastSibling();
+
+        speed = arrivalSpeed;
 
         IsPlaying = true;
         running = true;

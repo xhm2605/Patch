@@ -59,6 +59,12 @@ public class ShipExpansion : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // La scene de depart n'emet pas sceneLoaded : on l'attrape ici,
+    // une fois que tous les objets de la scene existent.
+    void Start()
+    {
         if (SceneManager.GetActiveScene().name == "Main") Build();
     }
 
@@ -254,6 +260,17 @@ public class ShipExpansion : MonoBehaviour
 
             if (off != null) t.brokenSprite = off;
             if (lit != null) t.fixedSprite = lit;
+
+            // Son Start a peut-etre deja eu lieu : on applique le sprite nous-memes
+            SpriteRenderer tsr = t.GetComponent<SpriteRenderer>();
+            if (tsr != null)
+            {
+                bool done = GameManager.Instance != null
+                            && GameManager.Instance.IsRepaired(t.terminalId);
+
+                Sprite use = done ? lit : off;
+                if (use != null) tsr.sprite = use;
+            }
         }
     }
 

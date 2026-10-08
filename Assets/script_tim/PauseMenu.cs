@@ -23,6 +23,9 @@ public class PauseMenu : MonoBehaviour
     {
         if (panel == null || IntroCrawl.IsPlaying) return;
 
+        // Echap ferme d'abord la carte, il ne doit pas ouvrir la pause en meme temps
+        if (ShipMap.IsOpen) return;
+
         // Le bouton pause disparait quand la partie est terminee
         if (pauseButton != null && !paused)
         {

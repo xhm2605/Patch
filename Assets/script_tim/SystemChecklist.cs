@@ -11,6 +11,12 @@ public class SystemChecklist : MonoBehaviour
     void Start()
     {
         if (display == null) display = GetComponent<TMP_Text>();
+        if (display == null) return;
+
+        display.fontSize = 25f;
+
+        RectTransform rt = display.rectTransform;
+        rt.sizeDelta = new Vector2(400f, 250f);
     }
 
     void Update()

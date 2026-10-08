@@ -1229,7 +1229,7 @@ GameObject:
   - component: {fileID: 469595475}
   m_Layer: 0
   m_Name: CodeTerminal
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2927,6 +2927,7 @@ MonoBehaviour:
 
     You are the only crew member still awake. Repair every system, recover the fragments, and reassemble the code before the countdown reaches zero...'
   readingSpeed: 55
+  startMargin: 30
   crawlHeight: 2600
   fontSize: 46
   endScale: 0.45
