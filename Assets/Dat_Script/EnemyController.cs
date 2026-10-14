@@ -7,6 +7,12 @@ public class EnemyController : MonoBehaviour
     public float leftLimit = -2f;
     public float rightLimit = 2f;
 
+    [Header("Difficulty Modifiers")]
+    [Tooltip("Base speed applied per difficulty level")]
+    public float easySpeed = 1.5f;
+    public float mediumSpeed = 2.5f;
+    public float hardSpeed = 4.0f;
+
     [Header("Desynchronization Settings")]
     [Tooltip("Randomizes initial direction so cloned enemies don't move in sync.")]
     public bool randomizeStartDirection = true;
@@ -35,6 +41,9 @@ public class EnemyController : MonoBehaviour
         // Ensure transform rotation is reset to prevent vertical movement bugs
         transform.rotation = Quaternion.identity;
 
+        // 0. Set base speed according to Difficulty in GameManager_Dat
+        ApplyDifficultySettings();
+
         // 1. Randomize initial movement direction (Left or Right)
         if (randomizeStartDirection)
         {
@@ -51,6 +60,25 @@ public class EnemyController : MonoBehaviour
         if (animator != null)
         {
             animator.Play("EnemyP1_Walk", 0, Random.Range(0f, 1f));
+        }
+    }
+
+    private void ApplyDifficultySettings()
+    {
+        if (GameManager_Dat.Instance != null)
+        {
+            switch (GameManager_Dat.Instance.currentDifficulty)
+            {
+                case DifficultyLevel.Easy:
+                    moveSpeed = easySpeed;
+                    break;
+                case DifficultyLevel.Medium:
+                    moveSpeed = mediumSpeed;
+                    break;
+                case DifficultyLevel.Hard:
+                    moveSpeed = hardSpeed;
+                    break;
+            }
         }
     }
 
