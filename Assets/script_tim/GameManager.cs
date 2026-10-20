@@ -71,6 +71,14 @@ public class GameManager : MonoBehaviour
         StartNewGame();
     }
 
+    void OnDestroy()
+    {
+        if (Instance != this) return;
+
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        Instance = null;
+    }
+
     void Update()
     {
         if (!timerRunning) return;

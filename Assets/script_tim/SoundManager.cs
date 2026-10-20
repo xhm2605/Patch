@@ -155,9 +155,9 @@ public class SoundManager : MonoBehaviour
 
         if (wantsAmbience && !playing)
         {
-            Start(ambienceSource, ambienceClip);
-            Start(beepSource, beepClip);
-            Start(engineSource, engineClip);
+            StartLoop(ambienceSource, ambienceClip);
+            StartLoop(beepSource, beepClip);
+            StartLoop(engineSource, engineClip);
             playing = true;
         }
         else if (!wantsAmbience && playing)
@@ -174,7 +174,7 @@ public class SoundManager : MonoBehaviour
             if (wantsBreath && !breathSource.isPlaying)
             {
                 breathSource.volume = 0f;
-                Start(breathSource, breathClip);
+                StartLoop(breathSource, breathClip);
             }
             else if (!wantsBreath && breathSource.isPlaying)
             {
@@ -183,7 +183,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    void Start(AudioSource src, AudioClip clip)
+    void StartLoop(AudioSource src, AudioClip clip)
     {
         if (src == null || clip == null) return;
 

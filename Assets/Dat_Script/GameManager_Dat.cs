@@ -33,6 +33,10 @@ public class GameManager_Dat : MonoBehaviour
     void Awake()
     {
         Instance = this;
+
+        // Lance depuis le vaisseau : on suit la difficulte choisie dans le menu
+        if (GameManager.Instance != null)
+            currentDifficulty = (DifficultyLevel)Mathf.Clamp(GameSettings.difficulty, 0, 2);
     }
 
     void Start()
@@ -48,43 +52,30 @@ public class GameManager_Dat : MonoBehaviour
 
     private void ApplyDifficultyToMap()
     {
-        bool isEasy = (currentDifficulty == DifficultyLevel.Easy);
-        bool isMedium = (currentDifficulty == DifficultyLevel.Medium);
-        bool isHard = (currentDifficulty == DifficultyLevel.Hard);
+        GameObject[] current = currentDifficulty == DifficultyLevel.Easy ? easyOnlyObjects
+                             : currentDifficulty == DifficultyLevel.Hard ? hardOnlyObjects
+                             : mediumOnlyObjects;
 
-        // Active ONLY on Easy
-        if (easyOnlyObjects != null)
-        {
-            foreach (GameObject obj in easyOnlyObjects)
-            {
-                if (obj != null) obj.SetActive(isEasy);
-            }
-        }
+        // Un objet present dans plusieurs listes reste visible s'il appartient au niveau courant
+        SetAll(easyOnlyObjects, false);
+        SetAll(mediumOnlyObjects, false);
+        SetAll(hardOnlyObjects, false);
+        SetAll(current, true);
+    }
 
-        // Active ONLY on Medium
-        if (mediumOnlyObjects != null)
-        {
-            foreach (GameObject obj in mediumOnlyObjects)
-            {
-                if (obj != null) obj.SetActive(isMedium);
-            }
-        }
+    private static void SetAll(GameObject[] objects, bool active)
+    {
+        if (objects == null) return;
 
-        // Active ONLY on Hard
-        if (hardOnlyObjects != null)
-        {
-            foreach (GameObject obj in hardOnlyObjects)
-            {
-                if (obj != null) obj.SetActive(isHard);
-            }
-        }
+        foreach (GameObject obj in objects)
+            if (obj != null) obj.SetActive(active);
     }
 
     public void GameOver()
     {
         if (ended) return;
 
-        gameOverPanel.SetActive(true);
+        if (gameOverPanel != null) gameOverPanel.SetActive(true);
         StartCoroutine(EndMinigame(false));
     }
 
@@ -92,7 +83,7 @@ public class GameManager_Dat : MonoBehaviour
     {
         if (ended) return;
 
-        winPanel.SetActive(true);
+        if (winPanel != null) winPanel.SetActive(true);
         StartCoroutine(EndMinigame(true));
     }
 

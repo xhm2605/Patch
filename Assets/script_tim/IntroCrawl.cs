@@ -8,7 +8,8 @@ public class IntroCrawl : MonoBehaviour
 
     public string title = "PATCH";
 
-    [TextArea(8, 25)]
+    // Pas serialise : l'ancien texte enregistre dans la scene ne doit plus l'ecraser
+    [System.NonSerialized]
     public string introText =
         "Episode I\n" +
         "THE DRIFTING STATION\n\n" +

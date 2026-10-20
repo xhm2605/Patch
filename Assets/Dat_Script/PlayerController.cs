@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private SpriteRenderer sr;
     private Animator animator;
+    private bool hasRunningParam;
+    private bool hasSpeedParam;
 
     // Track the player's facing direction (1 = Right, -1 = Left)
     private float facingDirection = 1f;
@@ -30,6 +32,16 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
+
+        // Evite le spam "Parameter does not exist" si l'Animator n'a pas ces parametres
+        if (animator != null)
+        {
+            foreach (AnimatorControllerParameter p in animator.parameters)
+            {
+                if (p.name == "isRunning") hasRunningParam = true;
+                if (p.name == "Speed") hasSpeedParam = true;
+            }
+        }
     }
 
     void Update()
@@ -54,8 +66,8 @@ public class PlayerController : MonoBehaviour
         // Handle movement animations
         if (animator != null)
         {
-            animator.SetBool("isRunning", moveInput != 0);
-            animator.SetFloat("Speed", Mathf.Abs(moveInput));
+            if (hasRunningParam) animator.SetBool("isRunning", moveInput != 0);
+            if (hasSpeedParam) animator.SetFloat("Speed", Mathf.Abs(moveInput));
         }
 
         // Ground check & jump
