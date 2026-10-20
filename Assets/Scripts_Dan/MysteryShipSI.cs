@@ -1,12 +1,21 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(AudioSource))]
 public class MysteryShipSI : MonoBehaviour
 {
     // Mystery Ship movement, spawn timing and score settings
     public float speed = 5f;
     public float cycleTime = 30f;
     public int score = 300;
+    public AudioClip flyingSound;
+
+    [Header("Audio Fade")]
+    public float fadeDuration = 1.5f;
+
+    private AudioSource audioSource;
+    private Coroutine fadeCoroutine;
 
     // Positions just outside each side of the screen
     private Vector2 leftDestination;
@@ -14,6 +23,14 @@ public class MysteryShipSI : MonoBehaviour
 
     private int direction = -1;
     private bool spawned;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.loop = true;
+        audioSource.playOnAwake = false;
+        audioSource.volume = 0f;
+    }
 
     private void Start()
     {
@@ -49,7 +66,6 @@ public class MysteryShipSI : MonoBehaviour
     {
         transform.position += speed * Time.deltaTime * Vector3.right;
 
-        // Despawn after leaving the right side of the screen
         if (transform.position.x >= rightDestination.x)
         {
             Despawn();
@@ -60,7 +76,6 @@ public class MysteryShipSI : MonoBehaviour
     {
         transform.position += speed * Time.deltaTime * Vector3.left;
 
-        // Despawn after leaving the left side of the screen
         if (transform.position.x <= leftDestination.x)
         {
             Despawn();
@@ -82,11 +97,27 @@ public class MysteryShipSI : MonoBehaviour
         }
 
         spawned = true;
+
+        // Start the flying sound quietly and fade it in
+        if (flyingSound != null)
+        {
+            audioSource.clip = flyingSound;
+            audioSource.volume = 0f;
+            audioSource.Play();
+
+            StartFade(1f);
+        }
     }
 
     private void Despawn()
     {
         spawned = false;
+
+        // Fade out the sound before stopping playback
+        if (audioSource.isPlaying)
+        {
+            StartFade(0f, true);
+        }
 
         // Move the ship outside the visible camera area
         if (direction == 1)
@@ -98,8 +129,45 @@ public class MysteryShipSI : MonoBehaviour
             transform.position = leftDestination;
         }
 
-        // Spawn again after the selected cycle time
         Invoke(nameof(Spawn), cycleTime);
+    }
+
+    private void StartFade(float targetVolume, bool stopAfterFade = false)
+    {
+        if (fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+        }
+
+        fadeCoroutine = StartCoroutine(FadeAudio(targetVolume, stopAfterFade));
+    }
+
+    private IEnumerator FadeAudio(float targetVolume, bool stopAfterFade)
+    {
+        float startVolume = audioSource.volume;
+        float elapsed = 0f;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+
+            audioSource.volume = Mathf.Lerp(
+                startVolume,
+                targetVolume,
+                elapsed / fadeDuration
+            );
+
+            yield return null;
+        }
+
+        audioSource.volume = targetVolume;
+
+        if (stopAfterFade)
+        {
+            audioSource.Stop();
+        }
+
+        fadeCoroutine = null;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

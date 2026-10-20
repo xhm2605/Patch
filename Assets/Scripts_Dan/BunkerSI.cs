@@ -6,6 +6,7 @@ public class BunkerSI : MonoBehaviour
 {
     // Texture used to create damage when a projectile hits the bunker
     public Texture2D splat;
+    public AudioClip bunkerHitSound;
 
     private Texture2D originalTexture;
     private SpriteRenderer spriteRenderer;
@@ -104,6 +105,15 @@ public class BunkerSI : MonoBehaviour
         }
 
         texture.Apply();
+
+        // Play the sound when the bunker is damaged
+        if (bunkerHitSound != null)
+        {
+            AudioSource.PlayClipAtPoint(
+                bunkerHitSound,
+                Camera.main.transform.position
+            );
+        }
 
         return true;
     }

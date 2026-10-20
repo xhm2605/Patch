@@ -19,6 +19,7 @@ public class InvadersSI : MonoBehaviour
     [Header("Missiles")]
     public ProjectileSI missilePrefab;
     public float missileSpawnRate = 4f;
+    public AudioClip missileSound;
 
     private void Awake()
     {
@@ -94,6 +95,15 @@ public class InvadersSI : MonoBehaviour
                     invader.position,
                     Quaternion.identity
                 );
+
+                // Play the missile firing sound
+                if (missileSound != null)
+                {
+                    AudioSource.PlayClipAtPoint(
+                        missileSound,
+                        Camera.main.transform.position
+                    );
+                }
 
                 break;
             }

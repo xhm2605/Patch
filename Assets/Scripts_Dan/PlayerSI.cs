@@ -2,12 +2,23 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(AudioSource))]
 public class PlayerSI : MonoBehaviour
 {
     // Player movement and laser settings
     public float speed = 10f;
     public ProjectileSI laserPrefab;
     private ProjectileSI laser;
+
+    // Sound played when the player fires
+    public AudioClip shootSound;
+
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -39,6 +50,9 @@ public class PlayerSI : MonoBehaviour
                 transform.position,
                 Quaternion.identity
             );
+
+            // Play the shooting sound
+            audioSource.PlayOneShot(shootSound);
         }
     }
 
