@@ -9,6 +9,7 @@ public class InvaderSI : MonoBehaviour
     public Sprite[] animationSprites = new Sprite[0];
     public float animationTime = 1f;
     public int score = 10;
+    public AudioClip destroyedSound;
 
     private SpriteRenderer spriteRenderer;
     private int animationFrame;
@@ -48,6 +49,15 @@ public class InvaderSI : MonoBehaviour
         // Destroy the invader when hit by the player's laser
         if (other.gameObject.layer == LayerMask.NameToLayer("LaserSI"))
         {
+            // Play the destruction sound
+            if (destroyedSound != null)
+            {
+                AudioSource.PlayClipAtPoint(
+                    destroyedSound,
+                    Camera.main.transform.position
+                );
+            }
+
             GameManagerSI.Instance.OnInvaderKilled(this);
         }
         // Notify the Game Manager if an invader reaches the boundary

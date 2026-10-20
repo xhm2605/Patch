@@ -12,6 +12,7 @@ public class GameManagerSI : MonoBehaviour
     [SerializeField] private GameObject youWinUI;
     [SerializeField] private Text scoreText;
     [SerializeField] private Text livesText;
+    [SerializeField] private AudioClip playerHitSound;
 
     // Main Space Invaders game objects
     private PlayerSI player;
@@ -161,6 +162,15 @@ public class GameManagerSI : MonoBehaviour
     public void OnPlayerKilled(PlayerSI player)
     {
         if (ended) return;
+
+        // Play the player hit sound
+        if (playerHitSound != null)
+        {
+            AudioSource.PlayClipAtPoint(
+                playerHitSound,
+                Camera.main.transform.position
+            );
+        }
 
         // Remove a life and temporarily disable the player
         SetLives(lives - 1);
